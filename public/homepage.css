@@ -1,0 +1,229 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body{
+    background: linear-gradient(rgb(0, 0, 0,0.45),rgb(0, 0, 0,0.45)),url(/Images/evening-messages-1.jpeg) fixed;
+    background-size: cover;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+   
+/* NAVBAR */
+.menu{
+  color: rgb(255, 255, 255,0.66);
+  background: rgb(8, 15, 24);
+}
+.menu input{
+  background: rgb(215, 209, 209);
+}
+.header-navbar{
+    background: rgb(11, 11, 11,0.75);
+    padding: 4px;
+}
+#navbar{
+    background: rgb(11, 11, 11,0.75);
+}
+
+.logo{
+    width: 4pc;
+    height: 7vh;
+    transform: translateX(-6px);
+}
+
+.title{
+    font-size: 35px;
+    color: rgb(124, 252, 0,0.87);
+    margin-top: 12px;
+    transform: translateX(-230px);
+    font-family: 'Rubik Marker Hatch', cursive;
+}
+
+.dropdown-item{
+  font-family: 'Cinzel', serif;
+}
+
+.logo-list ul li a{
+    text-decoration: none;
+    color: rgb(81, 198, 13,0.7);
+}
+.logo-list ul li{
+    font-size: 10px;
+    font-family: 'Oswald', sans-serif;
+    list-style: none;
+    display:inline-block;
+    margin-right: 32px;
+    transform: translateX(-25px );
+    margin-top: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+}
+
+.logo-list ul li::after{
+    background: #009688;
+    content:'';
+    height: 4px;
+    width: 0;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+    z-index: -1;
+
+}
+.logo-list ul li:hover:after{
+    width: 100%;
+}
+.logo-list ul li :active{
+    color: azure;
+    transition: 0.5s;
+}
+
+
+
+  /* MAIN */
+  .container-main{
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 24pxpx;
+  } 
+
+  .description{
+    padding: 4px;
+    margin: auto;
+    width: 50%;
+    background: rgba(86, 122, 67, 0.35);
+    text-align: center;
+    color: rgb(255, 255, 255,0.68);
+    transform: translateY(100px);
+  }
+
+  .card {
+    height: 40vh;
+    background: linear-gradient(rgb(0, 0, 0,0.65),rgb(0, 0, 0,0.65));
+    border: 1px solid #dd2476;
+    background-size: cover;
+    color: rgba(250, 250, 250, 0.8);
+    margin-bottom: 2rem;
+    transform: translateY(25%);
+  }
+
+  img{
+    height: 25vh;
+    border-radius: 5px;
+  }
+  
+  .card-title{
+    transform: translateY(-12px);
+    font-weight: 900;
+  }
+
+  .btn-2 {
+    display: inline;
+    justify-content: space-between;
+    
+    margin-right: 24px;
+    background: rgb(13, 13, 13,0.89);
+    font-family: 'Cinzel', serif;
+    text-decoration: none;
+    width: 100%;
+    height: 3hv;
+    padding: 8px;
+    border-radius: 8px;
+    color: #fff;
+    border: 2px solid black;
+    transition:ease-in-out 0.5s;
+    overflow: hidden;
+    position: relative;
+  }
+  span{
+    border-radius: 8px;
+    background:black;
+    width:0 ;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: 0.5s;
+  }
+
+  .btn-2:hover span{
+    width: 100%;
+  }
+
+  .btn-2:hover{
+    border: none;
+    color: #009688;
+  }
+
+ .note{
+  margin: auto;
+  width: 95%;
+  height: 35vh;
+  padding: 12px;
+  background: #000;
+  border: 2px solid rgb(201, 19, 19);
+  border-radius: 12px;
+  text-align: center;
+  color: rgb(255, 255, 255,0.68);
+ } 
+ strong{
+  color: rgb(254, 4, 4,0.78);
+  
+  
+ }
+ small{
+  color: #aa7ee7;
+  text-decoration: underline 3px rgba(241, 5, 60, 0.76);
+ }
+
+
+footer{
+    color: rgb(255, 255, 255,0.8);
+    background: rgb(0, 0, 0,0.86);
+    width: 100%;
+    height:50vh;
+    padding: 28px;
+    /* margin-bottom: -24px; */
+    margin-top: 24px;
+
+
+}
+.footer-logo{
+  font-family: 'Rubik Marker Hatch', cursive;
+  color: lawngreen;
+}
+
+.footer-lists{
+  font-family: 'Oswald', sans-serif;
+    display:inline-flex;
+    margin-top: 6px;
+    transform: translateX(320px);
+}
+
+ .list {
+    margin-right: 75px;
+
+}
+
+.list h6{
+  color: rgb(219, 34, 117,0.67);
+  font-size:25px ;
+}
+
+.list li{
+  margin-bottom: 5px;
+    list-style:none;
+    color: rgba(31, 199, 143, 0.68);
+    font-size: 16px;
+}
+.mapouter{
+  margin-top: -16px;
+  transform: translatex(80px);
+}

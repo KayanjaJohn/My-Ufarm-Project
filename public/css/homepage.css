@@ -6,7 +6,7 @@
 
 
 body{
-    background: linear-gradient(rgb(0, 0, 0,0.45),rgb(0, 0, 0,0.45)),url(/Images/evening-messages-1.jpeg) fixed;
+    background: linear-gradient(rgb(0, 0, 0,0.45),rgb(0, 0, 0,0.45)),url(/public/img/evening-messages-1.jpeg) fixed;
     background-size: cover;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -25,12 +25,13 @@ body{
     padding: 4px;
 }
 #navbar{
-    background: rgb(11, 11, 11,0.75);
+    background: rgb(11, 11, 11,0.95);
 }
 
 .logo{
-    width: 4pc;
-    height: 7vh;
+    width: 8pc;
+    height: 12vh;
+    border-radius:5px;
     transform: translateX(-6px);
 }
 
@@ -38,7 +39,7 @@ body{
     font-size: 35px;
     color: rgb(124, 252, 0,0.87);
     margin-top: 12px;
-    transform: translateX(-230px);
+    transform: translateX(-180px);
     font-family: 'Rubik Marker Hatch', cursive;
 }
 
@@ -97,17 +98,18 @@ body{
     padding: 4px;
     margin: auto;
     width: 50%;
-    background: rgba(86, 122, 67, 0.35);
+    background: rgba(86, 122, 67, 0.65);
     text-align: center;
     color: rgb(255, 255, 255,0.68);
     transform: translateY(100px);
+    border: 4px solid green;
   }
 
   .card {
     height: 40vh;
     background: linear-gradient(rgb(0, 0, 0,0.65),rgb(0, 0, 0,0.65));
-    border: 1px solid #dd2476;
-    background-size: cover;
+    border: 2px solid #dd2476;
+    /* background-size: cover; */
     color: rgba(250, 250, 250, 0.8);
     margin-bottom: 2rem;
     transform: translateY(25%);
@@ -123,32 +125,39 @@ body{
     font-weight: 900;
   }
 
+  
+.d-block{
+  height: 100vh;
+  margin-top:115px;
+}
+
   .btn-2 {
-    display: inline;
-    justify-content: space-between;
     
     margin-right: 24px;
-    background: rgb(13, 13, 13,0.89);
-    font-family: 'Cinzel', serif;
+    background:rgb(0, 136, 123,0.4);
+    font-family: 'lato', serif;
     text-decoration: none;
     width: 100%;
     height: 3hv;
-    padding: 8px;
     border-radius: 8px;
-    color: #fff;
-    border: 2px solid black;
+    border: 2px solid rgb(0, 136, 123);
     transition:ease-in-out 0.5s;
+    padding: 8px;
+    background: rgb(11, 11, 11,0.4);
+    transform: translateY(30px);
     overflow: hidden;
     position: relative;
+    color: rgb(166, 170, 174);
+    cursor: pointer;
   }
   span{
     border-radius: 8px;
-    background:black;
-    width:0 ;
+    background: #2ff15c;
+    width: 0;
     height: 100%;
     position: absolute;
     left: 0;
-    top: 0;
+    bottom: 0;
     z-index: -1;
     transition: 0.5s;
   }
@@ -159,11 +168,11 @@ body{
 
   .btn-2:hover{
     border: none;
-    color: #009688;
+    color: #100e11;
   }
 
  .note{
-  margin: auto;
+  margin:80px auto;
   width: 95%;
   height: 35vh;
   padding: 12px;
@@ -190,7 +199,6 @@ footer{
     width: 100%;
     height:50vh;
     padding: 28px;
-    /* margin-bottom: -24px; */
     margin-top: 24px;
 
 

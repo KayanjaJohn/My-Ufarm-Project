@@ -1,12 +1,42 @@
 // DEPENDENCIES
 const express = require('express');
 const path = require('path');
-
-
-// ******* INSTANTIATIONS *******
 const app = express();
+const config = require('./config/db')
+const passport = require('passport');
+const mongoose = require('mongoose');
 
-// Configurations
+// defining expressSession
+const expressSession = require("express-session")({
+	secret: "secret",
+	resave: false,
+	saveUninitialized: false,
+});
+
+
+// importing user model
+const forUser =require("./model/User");
+
+// ******* Importing routes *******
+const Registration = require("./routes/registerRoutes");
+const pUpload = require('./routes/ufUploads')
+
+
+// Setting up db connections
+mongoose.connect(config.database,{ useNewUrlParser: true });
+const db = mongoose.connection;
+
+// Check connection
+db.once('open', function(){
+
+console.log('Connected to MongoDB');
+});
+// Check for db errors
+db.on('error', function(err){
+  console.error(err);
+});
+
+// CONFIGURATIONS
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.set('views','views');
@@ -15,7 +45,9 @@ app.set('views','views');
 
 //******* MIDDLEWARE************
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/public/uploads', express.static(__dirname + '/public/uploads'))
+app.use('/public/css', express.static(__dirname + '/public/css'));
+app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
+app.use(expressSession);
 
 // app.use((req, res, next) => {
 //   console.log("A new request received at " + Date.now());
@@ -34,16 +66,13 @@ app.use('/public/uploads', express.static(__dirname + '/public/uploads'))
 
   // To parse URL encoded data
 app.use(express.urlencoded({ extended: false }));
-
-
+app.use( "/",Registration);
+app.use("/" ,forUser);
+app.use('/', pUpload);
 
 // ROUTES
-app.get('/Home', (req,res) =>{
-  res.sendFile(__dirname + '/Homepage/Homepage.html')
-})
-
-app.get('/land', (req,res) =>{
-  res.render('landing-page')
+app.get('/home', (req,res) =>{
+  res.render('homepage');
 })
 
 

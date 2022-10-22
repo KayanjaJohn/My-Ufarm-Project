@@ -1,0 +1,59 @@
+doctype html
+head
+  title Title
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Bootstrap CSS v5.2.1
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT' crossorigin='anonymous')
+  link(rel='stylesheet' href='/css/Form.css')
+header
+  // place navbar here
+main
+  .container(style='transform:translateY(50px);')
+    h2 Please Sign Up
+    hr
+    .row.justify-content-center.align-items-center.my-5.cage
+      .col-lg-5.cage
+        form(action='signUp' name='register')
+          .row.justify-content-center.align-items-center.g-2.lamar
+            .col-lg-4.form-zones
+              label First name:
+              input.form-inputs(name='userName' type='text')
+            .col-lg-4.form-zones
+              label Last name:
+              input.form-inputs(name='userName' type='text')
+            .col-lg-4.form-zones
+              label Email:
+              input.form-inputs(name='email' type='email')
+            .col-lg-4.form-zones
+              label Password:
+              input.form-inputs(name='password' type='password')
+            .col-lg-4.form-zones
+              label Comfirm password:
+              input.form-inputs(name='password' type='password')
+            .col-lg-4.form-zones
+              label Role:
+              select#select.form-select(name='role')
+                option(value='') Select option
+                option(value='Agricultural Officer') Agricultural Officer
+                option(value='Farmer one') Farmer One
+                option(value='Urban farmer') Urban farmer
+            .col-lg-12.form-radio
+              label Gender:
+              .radio
+                | Male
+                input(type='radio' name='sex' checked='')
+                |             Female
+                input(type='radio' name='sex')
+            hr.boundary
+            .submit
+              .btnz(style='transform:translateY(15px);')
+                button(type='submit')
+                  span
+                  | Sign Up
+footer
+  // place footer here
+// Bootstrap JavaScript Libraries
+script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js' integrity='sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js' integrity='sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz' crossorigin='anonymous')

@@ -5,18 +5,52 @@ userName:{
     type: String,
     require: true
 },
-email:{
-    type:String,
-    require: true,
-    trim: true
-},
-
-password:{
+uniqueNumber:{
     type: String,
     require: true,
     trim: true
 },
+regDate:{
+    type:Date,
+    require: true,
+    trim: true
+},
 
+ninNumber:{
+    type: String,
+    require: true,
+    trim: true
+},
+birthDay:{
+    type: String,
+    require: true,
+    trim: true
+},
+phoneNimber:{
+    type: String,
+    require: true,
+    trim: true
+},
+activities:{
+    type: String,
+    require: true,
+    trim: true
+},
+restype:{
+    type: String,
+    require: true,
+    trim: true
+},
+pOstay:{
+    type: String,
+    require: true,
+    trim: true
+},
+wardName:{
+    type: String,
+    require: true,
+    trim: true
+},
 Role:{
     type: String,
     require: true,
@@ -29,7 +63,7 @@ sex:{
 
 });
 userSchema.plugin(passportLocalMongoose,{
-   usernameField:'email' 
+   usernameField:'uniqueNumber' 
 })
 
-module.exports = mongoose.model('forUser', userSchema);
+module.exports = mongoose.model('Registration', userSchema);

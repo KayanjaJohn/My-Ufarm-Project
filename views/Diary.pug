@@ -1,0 +1,236 @@
+doctype html
+head
+  title Title
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Bootstrap CSS v5.2.1
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT' crossorigin='anonymous')
+  link(rel='stylesheet' href='css/homepage.css')
+  link(href='https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Nabla&family=Rubik+Dirt&family=Rubik+Marker+Hatch&display=swap' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Lato:wght@900&family=Nabla&family=Oswald:wght@900&family=Rubik+Dirt&family=Rubik+Marker+Hatch&display=swap' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Cinzel:wght@700&family=Lato:wght@900&family=Nabla&family=Oswald:wght@700&family=Rubik+Dirt&family=Rubik+Marker+Hatch&display=swap' rel='stylesheet')
+header
+  // place navbar here
+  .header-navbar
+    nav#navbar.navbar.navbar-light.fixed-top
+      .container-fluid
+        img.logo(src='Img/favicon.png')
+        p.title(style='transform:translateX(-262px);') Massajja Urban Farm
+        .logo-list(style='transform:translateX(-200px);')
+          ul
+            li
+              a.btn.text-secondary(href='/home' type='button') Home
+            li
+              a(href='/carAccess') Careers
+            li
+              a#dropdownId.dropdown-toggle(href='#' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Projects
+              .dropdown-menu.bg-dark(aria-labelledby='dropdownId')
+                a.dropdown-item(href='/horticulture' style='color:teal ;') Horticulture
+                a.dropdown-item(href='/poultry' style='color:teal ;') Poultry
+                a.dropdown-item(href='/diary' style='color:teal ;') Diary
+            li
+              a(href='/about') About us
+// MAIN
+main
+  .container-fluid.my-5(style='background: linear-gradient(rgba(6, 6, 6, 0.45),rgba(14, 13, 13, 0.45)),url(Img/Dairy-cattle-Uganda.jpg); border-radius: 5px; padding: 10 20px; transform:translateY(40px); background-size: cover; background-position: center;')
+    .row.justify-content-center.align-items-center.g-2.my-5
+      .col.my-5
+        .row(style='transform:translateX(80px) ;')
+          h2(style='font-size:35px ; transform: translateX(32%); font-family: Helvatica; font-weight: 900; color: rgb(210, 23, 23);') For Diary Produce only.
+          .col-md-4
+            .card(style='width: 18rem;')
+              img.Images(src='Img/product-images/milk.jpg')
+              .card-body
+                h5.card-title 1litre Can of Milk
+                a.btn-2.mr-2(href='#')
+                  i.fas.fa-link
+                  span
+                  | Order
+                a.btn-2(href='#')
+                  i.fab.fa-github
+                  span
+                  | Book
+          .col-md-4
+            .card(style='width: 18rem;')
+              img.card-img-top(src='Img/butter.jpg' alt='...')
+              .card-body
+                h5.card-title Butter
+                a.btn-2.mr-2(href='#')
+                  i.fas.fa-link
+                  span
+                  | Order
+                a.btn-2(href='#')
+                  i.fab.fa-github
+                  span
+                  | Book
+          .col-md-4
+            .card(style='width: 18rem;')
+              img.card-img-top(src='Img/cattle-keeping.jpg' alt='...')
+              .card-body
+                h5.card-title Friesian cows
+                a.btn-2.mr-2(href='#')
+                  i.fas.fa-link
+                  span
+                  | Order
+                a.btn-2(href='#')
+                  i.fab.fa-github
+                  span
+                  | Book
+          .col-md-4
+            .card(style='width: 18rem;')
+              img.card-img-top(src='img/product-images/Lato.jpg' alt='...')
+              .card-body
+                h5.card-title Lato milk
+                a.btn-2.mr-2(href='#')
+                  i.fas.fa-link
+                  span
+                  | Order
+                a.btn-2(href='#')
+                  i.fab.fa-github
+                  span
+                  | Book
+          .col-md-4
+            .card(style='width: 18rem;')
+              img.card-img-top(src='img/Dairy-cattle-Uganda.jpg' alt='...')
+              .card-body
+                h5.card-title Local cows
+                a.btn-2.mr-2(href='#')
+                  i.fas.fa-link
+                  span
+                  | Order
+                a.btn-2(href='#')
+                  i.fab.fa-github
+                  span
+                  | Bookings
+          .col-md-4
+            .card(style='width: 18rem;')
+              img.card-img-top(src='img/product-images/images(9).jpeg' alt='...')
+              .card-body
+                h5.card-title Yorghurt
+                a.btn-2.mr-2(href='#')
+                  i.fas.fa-link
+                  span
+                  | Order
+                a.btn-2(href='#')
+                  i.fab.fa-github
+                  span
+                  | Book
+          .col-md-4
+            .card(style='width: 18rem;')
+              img.card-img-top(src='Img/product-images/3-ingredient-homemade-vanilla-ice-cream-500x500.jpg' alt='...')
+              .card-body
+                h5.card-title Ice cream
+                a.btn-2.mr-2(href='#')
+                  i.fas.fa-link
+                  span
+                  | Order
+                a.btn-2(href='#')
+                  i.fab.fa-github
+                  span
+                  | Book
+          .col-md-4
+            .card(style='width: 18rem;')
+              img.card-img-top(src='Img/product-images/Prestige Margarine.jpg' alt='...')
+              .card-body
+                h5.card-title Prestige Margarine
+                a.btn-2.mr-2(href='#')
+                  i.fas.fa-link
+                  span
+                  | Order
+                a.btn-2(href='#')
+                  i.fab.fa-github
+                  span
+                  | Book
+          .col-md-4
+            .card(style='width: 18rem;')
+              img.card-img-top(src='img/product-images/images(22).jpeg' alt='...')
+              .card-body
+                h5.card-title Cow Ghee
+                a.btn-2.mr-2(href='#')
+                  i.fas.fa-link
+                  span
+                  | Order
+                a.btn-2(href='#')
+                  i.fab.fa-github
+                  span
+                  | Book
+          .col-md-4
+            .card(style='width: 18rem;')
+              img.card-img-top(src='img/product-images/images(8).jpeg' alt='...')
+              .card-body
+                h5.card-title Fresh milk
+                a.btn-2.mr-2(href='#')
+                  i.fas.fa-link
+                  span
+                  | Order
+                a.btn-2(href='#')
+                  i.fab.fa-github
+                  span
+                  | Book
+          .col-md-4
+            .card(style='width: 18rem;')
+              img.card-img-top(src='img/product-images/images(18).jpeg' alt='...')
+              .card-body
+                h5.card-title Friesian calves
+                a.btn-2.mr-2(href='#')
+                  i.fas.fa-link
+                  span
+                  | Order
+                a.btn-2(href='#')
+                  i.fab.fa-github
+                  span
+                  | Book
+          .col-md-4
+            .card(style='width: 18rem;')
+              img.card-img-top(src='img/product-images/images(19).jpeg' alt='...')
+              .card-body
+                h5.card-title silage
+                a.btn-2(href='#')
+                  i.fas.fa-link
+                  span
+                  | Order
+                a.btn-2(href='#')
+                  i.fab.fa-github
+                  span
+                  | Book
+footer
+  // place footer here
+  // <div class="container-fluid  ctn">
+  .footer-logo
+    h1 Ufarm Project
+  .footer-lists
+    .list
+      h6 About Us
+      ul
+        p
+          | Our Farm deals in different kinds 
+          br
+          | of products and these include:
+        li Horticulture Produce
+        li Poultry Produce
+        li Diary Produce
+    .list
+      h6 Contact Us
+      ul
+        li Tel: 0789585624
+        li Tel: 0708930915
+        li Email: kayanjajohn27@gmail.com
+    .list
+      h6 Location
+      ul
+        li
+          .mapouter
+            .gmap_canvas
+              iframe#gmap_canvas(width='200' height='200' src='https://maps.google.com/maps?q=Massajja%20&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0')
+              a(href='https://putlocker-is.org')
+              br
+              style.
+                .mapouter{position:relative;text-align:right;height:200px;width:200px;}
+              a(href='https://www.embedgooglemap.net') google map responsive
+              style.
+                .gmap_canvas {overflow:hidden;background:none!important;height:200px;width:200px;}
+    // </div>
+// Bootstrap JavaScript Libraries
+script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js' integrity='sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js' integrity='sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz' crossorigin='anonymous')

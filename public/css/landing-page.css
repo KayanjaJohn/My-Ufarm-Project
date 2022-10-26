@@ -59,6 +59,10 @@ width: 150px;
     justify-content: center;
 }
 
+.advert{
+    font-size: 18px;
+}
+
 .d-none h3 {
     font-family:'Alfa Slab One', cursive;
     font-size: 75px;

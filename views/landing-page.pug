@@ -6,8 +6,8 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
   // Bootstrap CSS v5.2.0-beta1
   link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css' integrity='sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx' crossorigin='anonymous')
-  link(rel='icon' href='/public/Img/favicon.png')
-  link(rel='stylesheet' href='/public/css/landing-page.css')
+  link(rel='icon' href='./Img/favicon.png')
+  link(rel='stylesheet' href='css/landing-page.css')
   link(href='https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Cinzel:wght@700&family=Fira+Sans:wght@500&family=Lato:wght@900&family=Nabla&family=Rubik+Dirt&family=Rubik+Marker+Hatch&display=swap' rel='stylesheet')
   link(href='https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap' rel='stylesheet')
 header
@@ -23,11 +23,13 @@ main
       li(data-bs-target='#carouselId' data-bs-slide-to='2' aria-label='Third slide')
     .carousel-inner(role='listbox')
       .carousel-item.active
-        img.w-100.d-block(src='/public/Img/FarmAfrica-624x274.jpg' alt='First slide')
+        img.w-100.d-block(src='./Img/FarmAfrica-624x274.jpg' alt='First slide')
         .carousel-caption.d-none.d-md-block.one
           .bg
-            h3 Grow your favourite crops
-            p
+            h3 Grow
+              br
+              | your favourite crops
+            p.advert
               | Hello our dear friend, we welcome you to our project. 
               br
               |  Lets take this opportunity to inform you about 
@@ -38,18 +40,18 @@ main
               br
               |  skills and produce.
       .carousel-item
-        img.w-100.d-block(src='/public/Img/poultry-farming-uganda.jpg' alt='Second slide')
+        img.w-100.d-block(src='./Img/poultry-farming-uganda.jpg' alt='Second slide')
         .carousel-caption.d-none.d-md-block.charts
           h3#capt-info Poultry Farm
-          p Start your journey with us...
+          p.advert Start your journey with us...
       .carousel-item
-        img.w-100.d-block(src='/public/Img/cattle-keeping.jpg' alt='Third slide')
+        img.w-100.d-block(src='./Img/cattle-keeping.jpg' alt='Third slide')
         .carousel-caption.d-none.d-md-block.charts
           h3
             | Diary 
             br
             |  Farming
-          p Get ready to have fun...
+          p.advert Get ready to have fun...
     button.carousel-control-prev(type='button' data-bs-target='#carouselId' data-bs-slide='prev')
       span.carousel-control-prev-icon(aria-hidden='true')
       span.visually-hidden Previous
@@ -58,14 +60,14 @@ main
       span.visually-hidden Next
   fieldset
     legend.farm-icon
-      img.farm-label(src='/public/Img/favicon.png')
+      img.farm-label(src='./Img/favicon.png')
     .logo-2
       h1 Masajja Division Urban farm Initiative
     p.paragraph
       | Hello our dear friend, we welcome you to our project. Lets take this opportunity to inform you about what we do in our farrm project.
       br
       | We are here to provide you with Horticulture , poultry ,diary skills and produce.
-  form(action='/Home')
+  form(action='/home')
     .entry
       button.get-started(type='submit') Get Started
 footer

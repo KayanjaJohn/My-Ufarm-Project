@@ -6,12 +6,16 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
   // Bootstrap CSS v5.2.1
   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT' crossorigin='anonymous')
-  link(rel='stylesheet' href='/public/css/Form.css')
-  link(rel='icon' href='/public/Img/favicon.png')
+  link(rel='stylesheet' href='css/Form.css')
+  link(rel='icon' href='Img/favicon.png')
+style.
+  body{
+  background:linear-gradient(90deg,rgb(15, 15, 41,0.9),rgba(81, 130, 147, 0.67));
+  }
 header
   // place navbar here
 main
-  .container(style='width: 50%; transform:translateY(100px);')
+  .container(style='width: 50%; transform:translateY(100px); background: rgba(0, 2, 5, 0.53);')
     h2 Please Login
     hr
     .row.justify-content-center.align-items-center.my-5.cage
@@ -19,15 +23,16 @@ main
         form(action='signUp' name='register')
           .row.justify-content-center.align-items-center.g-2.lamar
             .col-lg-8.form-zones
-              label Email:
-              input.form-inputs(name='email' type='email')
+              label Unique No:
+              input.form-inputs(name='uniqueName' type='text')
             .col-lg-6.form-zones
               label Password:
               input.form-inputs(name='password' type='password')
-            .btnz(style='transform:translateX(-200px);')
-              button(type='submit')
-                span
-                | login
+            .submit
+              .btnz(style='transform:translateY(20px);')
+                button(type='submit')
+                  span
+                  | login
 footer
   // place footer here
 // Bootstrap JavaScript Libraries

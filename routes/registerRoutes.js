@@ -2,18 +2,24 @@ const express = require('express');
 const router = express.Router();
 
 // Importing Model
-const userSchema  = require("../model/User");
+const Registration = require("../model/User");
 
-router.get('/register', (req, res) => {
+// FARMER REGISTRATION ROUTES.
+router.get('/regAdmin', (req, res) => {
     res.render('adminReg');
 });
 
-router.post('/register', async (req, res) =>{
+//Farmer One Registration
+router.get('/foReg', (req, res) => {
+    res.render('FO-Register');
+});
+
+router.post('/foReg', async (req, res) =>{
     console.log(req.body);
     try {
         const user = new Registration(req.body);
-        let uniqueExist = await Registration.findOne({uniquenumber:req.body.uniquenumber});
-        let ninNumberExist = await Registration.findOne({ ninnumber: req.body.ninnumber });
+        let uniqueExist = await Registration.findOne({uniqueNumber:req.body.uniqueNumber});
+        let ninNumberExist = await Registration.findOne({ ninNumber: req.body.ninNumber });
         if (uniqueExist) {
             return res.status(400).send("Sorry this Number is already taken");
 		} else if (ninNumberExist) {
@@ -23,7 +29,7 @@ router.post('/register', async (req, res) =>{
 				if (error) {
 					throw error;
 				}
-				res.redirect("/register");
+				res.redirect("/login");
 			});
 		}
         
@@ -32,6 +38,30 @@ router.post('/register', async (req, res) =>{
         console.log(error);
     }
 });
+
+//Urban farmer Registration
+router.get('/ufReg', (req, res) => {
+    res.render('UfarmerReg');
+});
+
+router.post("/ufReg", async (req, res) => {
+	const signup = new Registration(req.body);
+	console.log(req.body);
+	await Registration.register(signup, req.body.password, (err) => {
+		if (err) {
+			res.status(400).render("uFreg");
+			console.log(err);
+		} else {
+			res.redirect("");
+		}
+	});
+});
+
+
+
+
+
+
 
 router.get("/FarmerOneList", async (req, res) => {
     try {

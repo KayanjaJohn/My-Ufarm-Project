@@ -6,8 +6,8 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
   // Bootstrap CSS v5.2.1
   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT' crossorigin='anonymous')
-  link(rel='stylesheet' href='/public/css/homepage.css')
-  link(rel='icon' href='/public/Img/favicon.png')
+  link(rel='stylesheet' href='css/homepage.css')
+  link(rel='icon' href='./Img/favicon.png')
   link(href='https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Nabla&family=Rubik+Dirt&family=Rubik+Marker+Hatch&display=swap' rel='stylesheet')
   link(href='https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Lato:wght@900&family=Nabla&family=Oswald:wght@900&family=Rubik+Dirt&family=Rubik+Marker+Hatch&display=swap' rel='stylesheet')
   link(href='https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Cinzel:wght@700&family=Lato:wght@900&family=Nabla&family=Oswald:wght@700&family=Rubik+Dirt&family=Rubik+Marker+Hatch&display=swap' rel='stylesheet')
@@ -16,24 +16,24 @@ header
   .header-navbar
     nav#navbar.navbar.navbar-light.fixed-top
       .container-fluid
-        img.logo(src='/public/Img/favicon.png')
-        p.title Massajja Urban Farm
-        .logo-list
+        img.logo(src='./Img/favicon.png')
+        p.title(style="transform:translateX(-232px);") Massajja Urban Farm
+        .logo-list(style="transform:translateX(-60px);")
           ul
             li
-              button.btn.text-secondary(type='button' data-bs-toggle='offcanvas' data-bs-target='#Id1' aria-controls='Id1') Menu
+              button.btn.text-secondary.btm(type='button' data-bs-toggle='offcanvas' data-bs-target='#Id1' aria-controls='Id1') Menu
             li
-              a(href='/Homepage/Products.html') Products
+              a(href='/products') Products
             li
-              a(href='/Homepage/Farmers.html') Careers
+              a(href='/carAccess') Careers
             li
               a#dropdownId.dropdown-toggle(href='#' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Projects
               .dropdown-menu.bg-dark(aria-labelledby='dropdownId')
-                a.dropdown-item(href='#' style='color:teal ;') Horticulture
-                a.dropdown-item(href='#' style='color:teal ;') Poultry
-                a.dropdown-item(href='#' style='color:teal ;') Diary
+                a.dropdown-item(href='/horticulture' style='color:teal ;') Horticulture
+                a.dropdown-item(href='/poultry' style='color:teal ;') Poultry
+                a.dropdown-item(href='/diary' style='color:teal ;') Diary
             li
-              a(href='/Homepage/About.html') About us
+              a(href='/about') About us
     #Id1.offcanvas.offcanvas-start.menu(data-bs-scroll='true' tabindex='-1' aria-labelledby='Enable both scrolling & backdrop')
       .offcanvas-header
         h5.offcanvas-title(id='Enable both scrolling & backdrop')
@@ -49,13 +49,13 @@ header
             li.nav-item
               a.nav-link.active(aria-current='page' href='#') Dashboard
             li.nav-item
-              a.nav-link(href='#') Customers
+              a.nav-link(href='/products') Customers
             li.nav-item.dropdown
               a#dropdownId.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Projects
               .dropdown-menu(aria-labelledby='dropdownId')
-                a.dropdown-item(href='#') Horticulture
-                a.dropdown-item(href='#') Poultry
-                a.dropdown-item(href='#') Diary
+                a.dropdown-item(href='Horticulture') Horticulture
+                a.dropdown-item(href='Poultry') Poultry
+                a.dropdown-item(href='Diary') Diary
           form.d-flex
             input.form-control.me-2(type='search' placeholder='Search' aria-label='Search')
             button.btn.btn-outline-success(type='submit') Search
@@ -69,6 +69,35 @@ main
         | We provide our customers with fresh organic and non-organic farm products. 
         br
         |  Our farm deals in Horticulture, diary and poultry products.
+  .container.my-5
+      .row.justify-content-center.align-items-center.g-2.my-5
+        .col.my-5
+          .row
+            .col-md-4
+              .card(style='width: 25rem;')
+                img.Images(src='Img/product-images/Sweet-potatoes-ca0d8f4.jpeg')
+                .card-body
+                  h5.card-title Shopping (Products for customers)
+                  a.btn-2.px-4.mr-2(href='/products')
+                    span
+                    | Shop
+            .col-md-4
+              .card(style='width: 25rem;')
+                img.card-img-top(src='Img/product-images/images(1).jpeg' alt='...')
+                .card-body
+                  h5.card-title Careers (Ufarm team)
+                  a.btn-2.px-4.mr-2(href='/carAccess')
+                    span
+                    |Visit
+            .col-md-4
+              .card(style='width: 25rem;')
+                img.card-img-top(src='Img/product-images/images(1).jpeg' alt='...')
+                .card-body
+                  h5.card-title For new team members
+                  a.btn-2.px-4.mr-2(href='/adminReg')
+                    span
+                    | Sign up
+
 
         
 footer

@@ -1,15 +1,9 @@
 const mongoose = require('mongoose');
-const passportLocalMongoose = require('passport-local-mongoose');
-const userSchema = new mongoose.Schema({
-userName:{
-    type: String,
-    require: true
-},
-SupplierId:{
+const prodUploadSchema = new mongoose.Schema({
+SupplierName:{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Registration',
     require: true
-
 },
 
 uniqueNumber:{
@@ -83,10 +77,6 @@ availability: {
     default: "available",
     enum: ["available", "booked", "N/A"] 
 }
-
-});
-userSchema.plugin(passportLocalMongoose,{
-   usernameField:'email' 
 })
 
-module.exports = mongoose.model('UfProdUploads', userSchema);
+module.exports = mongoose.model('UrbanFarmerProdUpload', prodUploadSchema);

@@ -18,8 +18,6 @@ const expressSession = require("express-session")({
 
 // importing user model
 const Registration =require("./model/User");
-// const UfProdUploads =require("./model/UrbanFarmerUpload");
-
 // ******* Importing routes *******
 const registerRoutes = require("./routes/registerRoutes");
 const authen = require('./routes/authRoutes');
@@ -40,19 +38,6 @@ console.log('Connected to MongoDB');
 db.on('error', function(err){
   console.error(err);
 });
-
-// image upload
-var storage = multer.diskStorage({
-	destination: (req, file, cb) => {
-		cb(null, "public/uploads");
-	},
-	filename: (req, file, cb) => {
-		cb(null, file.originalname);
-	},
-});
-
-// instantiate variable upload to store multer functionality to upload image
-var upload = multer({ storage: storage });
 
 
 // CONFIGURATIONS

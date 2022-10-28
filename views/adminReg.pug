@@ -12,7 +12,7 @@ header
 main
   .container(style='transform:translateY(50px);')
     h2 Please Sign Up
-    hr
+    hr.hr
     .row.justify-content-center.align-items-center.my-5.cage
       .col-lg-5.cage
         form(action='signUp' name='register')
@@ -37,15 +37,15 @@ main
               select#select.form-select(name='role')
                 option(value='') Select option
                 option(value='Agricultural Officer') Agricultural Officer
-                option(value='Farmer one') Farmer One
-                option(value='Urban farmer') Urban farmer
+                option(value='Farmer One') Farmer One
+                option(value='Urban Farmer') Urban farmer
             .col-lg-12.form-radio
               label Gender:
               .radio
                 | Male
-                input(type='radio' name='sex' checked='')
+                input(type='radio' name='sex' value='female' checked='')
                 |             Female
-                input(type='radio' name='sex')
+                input(type='radio' name='sex' value='male')
             hr.boundary
             .submit
               .btnz(style='transform:translateY(15px);')

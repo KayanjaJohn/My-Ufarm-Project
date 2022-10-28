@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
+const connectEnsureLogin = require("connect-ensure-login");
+
 
 router.get("/login", (req, res) => {
 	res.render("login");
@@ -9,10 +11,10 @@ router.get("/login", (req, res) => {
 router.post("/login", passport.authenticate("local", { failureRedirect: "/login" }), (req, res) => {
 	req.session.user = req.user;
 	console.log("This is the current user", req.session.user);
-	if (req.user.role == "Agric Officer") {
+	if (req.user.role == "Agricultural Officer") {
 		res.redirect("/aoDashboard");
 	} else if (req.user.role == "Farmer One") {
-		res.redirect("/foDashboard");
+		res.redirect("/FarmerOneList");
 	} else if (req.user.role == "Urban Farmer") {
 		res.redirect("/ufDashboard");
 	} else {

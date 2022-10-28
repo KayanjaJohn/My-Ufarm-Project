@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const connectEnsureLogin = require("connect-ensure-login");
+// const connectEnsureLogin = require("connect-ensure-login");
+const UrbanFarmerProdUpload = require('../model/UrbanFarmerUpload');
 
 
 
-router.get("/report", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
+router.get("/report", async(req, res) => {
     req.session.user = req.user;
-    if(req.user.role == 'AgricOfficer'){
+    if(req.user.role == 'Agricultural Officer'){
         try {
-            let totalPoultry = await Produce.aggregate([
+            let totalPoultry = await UrbanFarmerProdUpload.aggregate([
             { $match: { prodcategory: "poultry" } },
             { $group: { _id: "$prodname", 
             totalQuantity: { $sum: "$quantity" },
@@ -16,14 +17,14 @@ router.get("/report", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
             }}
             ])
 
-            let totalHort = await Produce.aggregate([
+            let totalHort = await UrbanFarmerProdUpload.aggregate([
                 { $match: { prodcategory: "horticultureproduce" } },
                 { $group: { _id: "$all", 
                 totalQuantity: { $sum: "$quantity" },
                 totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },            
                 }}
             ])
-			let totalDairy = await Produce.aggregate([
+			let totalDairy = await UrbanFarmerProdUpload.aggregate([
                 { $match: { prodcategory: "dairyproducts" } },
                 { $group: { _id: "$all", 
                 totalQuantity: { $sum: "$quantity" },

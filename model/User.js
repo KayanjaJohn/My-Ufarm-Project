@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
-const userSchema = new mongoose.Schema({
+const registerSchema = new mongoose.Schema({
 userName:{
+    type: String,
+    require: true
+},
+lastName:{
     type: String,
     require: true
 },
@@ -21,12 +25,17 @@ ninNumber:{
     require: true,
     trim: true
 },
+password:{
+    type: String,
+    require: true,
+    trim: true
+},
 birthDay:{
     type: String,
     require: true,
     trim: true
 },
-phoneNimber:{
+phoneNumber:{
     type: String,
     require: true,
     trim: true
@@ -62,8 +71,8 @@ sex:{
 }
 
 });
-userSchema.plugin(passportLocalMongoose,{
+registerSchema.plugin(passportLocalMongoose,{
    usernameField:'uniqueNumber' 
 })
 
-module.exports = mongoose.model('Registration', userSchema);
+module.exports = mongoose.model('Registration', registerSchema);

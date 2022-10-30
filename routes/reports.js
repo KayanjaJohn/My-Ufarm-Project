@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-// const connectEnsureLogin = require("connect-ensure-login");
+const connectEnsureLogin = require("connect-ensure-login");
 const UrbanFarmerProdUpload = require('../model/UrbanFarmerUpload');
 
 
 
-router.get("/report", async(req, res) => {
+router.get("/report", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
     req.session.user = req.user;
     if(req.user.role == 'Agricultural Officer'){
         try {

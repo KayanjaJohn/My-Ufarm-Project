@@ -20,13 +20,13 @@ var storage = multer.diskStorage({
 // instantiate variable upload to store multer functionality to upload image
 var upload = multer({ storage: storage });
 
-router.get("/prodUpload", async (req, res) => {
-let urbanFarmerList = await Registration.find({role: 'Farmer One'})
+router.get("/prodUpload", async  (req, res) => {
+	let urbanFarmerList = await Registration.find({role: 'Urban Farmer'})
 	res.render("produceUpload", {urbanfarmers:urbanFarmerList});
 });
 
 
-router.post("/prodUpload", upload.single("prodImage"), async (req, res) => {
+router.post("/prodUpload",connectEnsureLogin.ensureLoggedIn(), upload.single("prodImage"), async (req, res) => {
 	console.log(req.body);
 	try {
 		const product = new UrbanFarmerProdUpload(req.body);
@@ -40,6 +40,7 @@ router.post("/prodUpload", upload.single("prodImage"), async (req, res) => {
 	}
 });
 
+
 // router.get("/prodList", async (req, res) => {
 // 	try {
 // 		let produces = await UrbanFarmerProdUpload.find({role: 'urban Farmer'});
@@ -50,29 +51,29 @@ router.post("/prodUpload", upload.single("prodImage"), async (req, res) => {
 // }); 
 
 router.get("/prodList", async (req, res) => {
-	const ufprodlist = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
-	console.log(ufprodlist);
-	res.render("produce-list", { products: ufprodlist });
-});
-
-router.get("/prodList", async (req, res) => {
 	try {
-		let products = await Produce.find();
-		res.render("produce-list", { products: products });
+		const ufprodlist = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
+		console.log(ufprodlist);
+		res.render("produce-list", { products: ufprodlist });
 	} catch (error) {
-		res.status(400).send("Unable to get Produce list");
+	res.status(400).res.send('Unable to get product');	
 	}
 });
 
-// router.get("/uploadproduce", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-// 	console.log("This is the Current User ", req.session.user);
-// 	res.render("produce", { currentUser: req.session });
-// });
 // Updating Produce
 router.get("/produce/update/:id", async (req, res) => {
 	try {
 		const updateProduct = await Produce.findOne({ _id: req.params.id });
 		res.render("produce-update", { product: updateProduct });
+	} catch (error) {
+		res.status(400).send("Unable to update produce");
+	}
+});
+
+router.post("/produce/update", async (req, res) => {
+	try {
+		await Produce.findOneAndUpdate({ _id: req.query.id }, req.body);
+		res.redirect("/prodList");
 	} catch (error) {
 		res.status(400).send("Unable to update produce");
 	}
@@ -88,14 +89,6 @@ router.get("/approvedList", async (req, res) => {
 	}
 });
 
-router.post("/produce/update", async (req, res) => {
-	try {
-		await Produce.findOneAndUpdate({ _id: req.query.id }, req.body);
-		res.redirect("/producelist");
-	} catch (error) {
-		res.status(400).send("Unable to update produce");
-	}
-});
 
 // Approve get and post Routes
 router.get("/produce/approve/:id", async (req, res) => {

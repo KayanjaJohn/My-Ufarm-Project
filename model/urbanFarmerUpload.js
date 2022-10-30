@@ -32,9 +32,8 @@ prodImage:{
     trim:true
 },
 wardName:{
-    type:String,
-    require: true,
-    trim:true
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Registration',
 },
 prodType:{
     type:String,
@@ -68,8 +67,8 @@ price:{
 },
 status:{
     type: String,
-       default: 'pending',
-       enum: ['pending', 'approved']
+       default: 'Pending',
+       enum: ['Pending', 'Approved']
   },
   
 availability: {

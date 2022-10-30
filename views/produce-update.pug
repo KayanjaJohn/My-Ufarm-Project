@@ -40,11 +40,10 @@ nav.navbar.navbar-expand-lg.bg-light.pb-4
         .row
             .col
                 .form-field
-                    label(for='producename') Produce Name:
-                    select(name='producename')
-                        option(value="Cassava" selected = product.producename === "Cassava") Cassava
-                        option(value="Broccoli" selected = product.producename === 'Brocoli') Brocoli
-                        option(value="Carrots" selected = product.producename === 'Carrots') Carrots
+                    label(for='prodName') Produce Name:
+                    select(name='prodName')
+                        option(value="Mangoes" selected = product.prodName === "Cassava") Mangoes
+                        option(value=" Chicken" selected = product.prodName === 'Brocoli') Chicken
         .row
             .col
                 .form-field
@@ -57,19 +56,19 @@ nav.navbar.navbar-expand-lg.bg-light.pb-4
                     label(for='')
                         | Quantity:
                         small  *
-                    input#ward(type='number' name='quantity' autocomplete='off' value=product.quantity)
+                    input#ward(type='number' name='prodQuantity' autocomplete='off' value=product.prodQuantity)
             .col
                 .form-field
                     label(for='') Mode of Delivery:
-                    select(name='modeofdelivery')
-                        option(value="pickup") Pick Up
-                        option(value="homedelivery") Home Delivery
+                    select(name='deliveryMode')
+                        option(value="pick up") Pick Up
+                        option(value="home delivery") Home Delivery
             .col
                 .form-field
                     label Mode of Payment:
-                    select(name='modeofpayment')
-                        option(value="cash" selected = product.producename === 'cash') Cash
-                        option(value="mobilemoney" selected = product.producename === 'mobilemoney') Mobile Money   
+                    select(name='paymentMode')
+                        option(value="Cash" selected = product.prodName === 'Cash') Cash
+                        option(value="Mobile Money" selected = product.prodName === 'Mobile Money') Mobile Money   
             .form-field
                 input.btn.register-btn(type='submit' value='Register')
 script(src='bootstrap-js/js/bootstrap.bundle.js')

@@ -3,11 +3,9 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const registerSchema = new mongoose.Schema({
 userName:{
     type: String,
-    require: true
 },
 lastName:{
     type: String,
-    require: true
 },
 uniqueNumber:{
     type: String,
@@ -16,58 +14,55 @@ uniqueNumber:{
 },
 regDate:{
     type:Date,
-    require: true,
-    trim: true
-},
-
-ninNumber:{
-    type: String,
-    require: true,
     trim: true
 },
 password:{
+    type:String,
+    trim: true
+},
+comfirmPassword:{
+    type:String,
+    trim: true
+},
+ninNumber:{
     type: String,
-    require: true,
     trim: true
 },
 birthDay:{
     type: String,
-    require: true,
     trim: true
 },
 phoneNumber:{
     type: String,
-    require: true,
     trim: true
 },
 activities:{
     type: String,
-    require: true,
+
     trim: true
 },
 restype:{
     type: String,
-    require: true,
     trim: true
 },
 pOstay:{
     type: String,
-    require: true,
     trim: true
 },
 wardName:{
     type: String,
-    require: true,
     trim: true
 },
-Role:{
+role:{
     type: String,
-    require: true,
     trim: true
 },
 sex:{
+    type:String
+},
+direction:{
     type:String,
-    require: true,
+    trim:true
 }
 
 });

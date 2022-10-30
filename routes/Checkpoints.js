@@ -39,6 +39,11 @@ router.get('/carAccess', (req,res) =>{
     res.render('career');
 });
 
+//***Admin Reg */
+router.get('/adminDash', (req, res) => {
+    res.render('adminReg');
+});
+
 
 
 // Export this file in the server file, for it to be read(executed)

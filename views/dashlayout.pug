@@ -34,7 +34,8 @@ header
         .logo-list
           ul
             li
-              a.btn.logout(href='/home') Log out
+              form(action='/logout' method='POST')
+                button.btn.logout(type='submit') Log out
 // MAIN
 main
  

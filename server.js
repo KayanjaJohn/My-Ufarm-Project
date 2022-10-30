@@ -1,12 +1,11 @@
 // DEPENDENCIES
 const express = require('express');
 const path = require('path');
-const app = express();
 const config = require('./config/db')
 const passport = require('passport');
 const mongoose = require('mongoose');
-const multer = require("multer");
-const connectEnsureLogin = require("connect-ensure-login");
+// const multer = require("multer");
+// const connectEnsureLogin = require("connect-ensure-login");
 
 // defining expressSession
 const expressSession = require("express-session")({
@@ -18,12 +17,18 @@ const expressSession = require("express-session")({
 
 // importing user model
 const Registration =require("./model/User");
+
+
 // ******* Importing routes *******
 const registerRoutes = require("./routes/registerRoutes");
 const authen = require('./routes/authRoutes');
 const prodUpload = require("./routes/UFarmerUploads");
 const checkP = require("./routes/Checkpoints");
 const reportD = require("./routes/reports");
+
+//INSTANTIATIONS
+const app = express();
+
 
 // Setting up db connections
 mongoose.connect(config.database,{ useNewUrlParser: true });
@@ -83,9 +88,6 @@ app.use("/" ,reportD);
 
 
 // ROUTES
-app.get('/home', (req,res) =>{
-  res.render('homepage');
-})
 
 
   // For invalid routes. always  be the last in the server file (index.js)

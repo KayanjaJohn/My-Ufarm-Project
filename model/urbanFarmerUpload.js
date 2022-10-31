@@ -32,8 +32,9 @@ prodImage:{
     trim:true
 },
 wardName:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Registration',
+    type:String,
+    require: true,
+    trim:true
 },
 prodType:{
     type:String,

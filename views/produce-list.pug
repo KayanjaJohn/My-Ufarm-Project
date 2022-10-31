@@ -86,29 +86,33 @@ block content
                 th Price
                 th Mode of Delivery
                 th Mode of Payment
+                th Status
                 th Update
+                th Change status
                 th Delete
         tbody
             if products.length
                 each product in products
-                    tr
-                        td 
-                            img(src="/"+product.prodImage, alt="Image" width='150px' height="150px")
-                        td #{product.prodName}
-                        td #{product.prodQuantity}
-                        td #{product.price}
-                        td #{product.deliveryMode}
-                        td #{product.paymentMode}
-                        //- td #{moment(us
-                        td
-                                a.btn.btn-primary.btn-block.update(href='/produce/update/'+product._id) Update
-                        td
-                            form(method="post" action='/farmerOne/delete')
-                                input(type="hidden" placeholder="" name="id", value=product._id)
-                                button.btn.btn-danger.btn-block.delete(type="submit") Delete
+                   if product.status == 'Pending'
+                        tr
+                            td 
+                                img(src="/"+product.prodImage, alt="Image" width='150px' height="150px")
+                            td #{product.prodName}
+                            td #{product.prodQuantity}
+                            td #{product.price}
+                            td #{product.deliveryMode}
+                            td #{product.paymentMode}
+                            td #{product.status}
+                            //- td #{moment(us
+                            td
+                                    a.btn.btn-primary.btn-block.update(href='/produce/update/'+product._id) Update
+                            td
+                                    a.btn.btn-secondary.btn-block.approve(href='/produce/approve/'+product._id) Approve
+                            td
+                                form(method="post" action='/produce/delete')
+                                    input(type="hidden" placeholder="" name="id", value=product._id)
+                                    button.btn.btn-danger.btn-block.delete(type="submit") Delete
     div.form-row
         div.col.form-group
-            a.btn.btnz(class='button' href='/agricOfficerDash') << Back
+            a.btn.btnz(class='button' href='/ufDash') << Back
 
-//- block footer
-    div.col-md-12 ©️ 2022 Refactory Cohort 12, NodeJS by Irene.

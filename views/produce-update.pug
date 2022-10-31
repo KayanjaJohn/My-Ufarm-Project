@@ -1,74 +1,78 @@
 doctype html
 head
-    meta(charset='UTF-8')
-    meta(http-equiv='X-UA-Compatible' content='IE=edge')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
-    link(rel='stylesheet' href='css/style.css')
-    title Registration
-nav.navbar.navbar-expand-lg.bg-light.pb-4
-    .container-fluid
-        a.navbar-brand(href='#' style='font-weight: bolder; font-size: 25px;') Ufarm
-        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
-            span.navbar-toggler-icon
-        #navbarSupportedContent.collapse.navbar-collapse
-            ul.navbar-nav.me-auto.mb-2.mb-lg-0
-                li.nav-item
-                    a.nav-link.active(aria-current='page' href='#') Home
-                li.nav-item
-                    a.nav-link(href='#') Link
-                li.nav-item.dropdown
-                    a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
-                        | Dropdown
-                    ul.dropdown-menu
-                        li
-                            a.dropdown-item(href='#') Action
-                        li
-                            a.dropdown-item(href='#') Another action
-                        li
-                            hr.dropdown-divider
-                        li
-                            a.dropdown-item(href='#') Something else here
-                li.nav-item
-                    a.nav-link.disabled Disabled
-            form.d-flex.mt-2(role='search')
-                a.btn.btn-style(href='home-page.html') Back
-.container-fluid.form-style
-    form#signup.form(action='/produce/update?id='+product._id name='registration' method='POST')
-        h3 Update Produce 
-        hr
-        .row
-            .col
-                .form-field
-                    label(for='prodName') Produce Name:
-                    select(name='prodName')
-                        option(value="Mangoes" selected = product.prodName === "Cassava") Mangoes
-                        option(value=" Chicken" selected = product.prodName === 'Brocoli') Chicken
-        .row
-            .col
-                .form-field
-                    label(for='')
-                        | Price:
-                        small  *
-                    input#price(type='number' name='price' autocomplete='off' value=product.price)
-            .col
-                .form-field
-                    label(for='')
-                        | Quantity:
-                        small  *
-                    input#ward(type='number' name='prodQuantity' autocomplete='off' value=product.prodQuantity)
-            .col
-                .form-field
-                    label(for='') Mode of Delivery:
-                    select(name='deliveryMode')
-                        option(value="pick up") Pick Up
-                        option(value="home delivery") Home Delivery
-            .col
-                .form-field
-                    label Mode of Payment:
-                    select(name='paymentMode')
-                        option(value="Cash" selected = product.prodName === 'Cash') Cash
-                        option(value="Mobile Money" selected = product.prodName === 'Mobile Money') Mobile Money   
-            .form-field
-                input.btn.register-btn(type='submit' value='Register')
-script(src='bootstrap-js/js/bootstrap.bundle.js')
+    title Ufarm team dashboards
+    // Required meta tags
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    // Bootstrap CSS v5.2.1
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT' crossorigin='anonymous')
+    link(rel='stylesheet' href='css/dashboard copy.css')
+    link(rel='icon' href='Img/favicon.png')
+body(style='background:linear-gradient(90deg, rgba(250, 250, 105, 0.44), rgba(144, 247, 100, 0.46));')
+    style.
+        .form-style{
+        position:absolute;
+        top:15%;  
+        text-align:center;
+        }
+        .form-field{
+            display:flex;
+            justify-content:space-around;
+        }
+        form-zones{
+        padding: 12px;
+        transform: translateX(-6px);
+        }
+
+        .form-inputs{
+            /* box-shadow:0 0 6px 2px rgb(5, 135, 161,0.56); */
+            font-weight: 800;
+            color: rgb(243, 232, 218,0.87);
+            background-color: rgb(17, 17, 40);
+            margin:2px 12px;
+            width: 100%;
+            height: 8vh;
+            border: 2px solid rgb(17, 17, 40);
+            border-radius: 5px;
+            padding: 0;
+        }
+        .form-btn{
+            transform:translateY(55px);
+            margin-left:12px;
+            padding:25px;
+        }
+        .btnz{
+            background: linear-gradient(to bottom,rgb(61, 15, 93,0.87),rgb(177, 68, 245,0.58),rgb(69, 26, 77,0.86));
+            padding-top:8px;
+            padding-bottom:8px;
+            font-weight:bolder;
+            font-weight:700;
+            color: rgb(11, 11, 11,0.87);
+        }
+    .container-fluid.form-style
+        form#signup.form(action='/produce/update?id='+products._id name='registration' method='POST')
+            h3 Update Produce 
+            hr
+            .row
+                .col-lg-4
+                    .form-field
+                        label Price:
+                        input#price(type='number' name='price' autocomplete='off' value=products.price)
+                .col-lg-4
+                    .form-field
+                        label Quantity:
+                        input#ward(type='number' name='prodQuantity' autocomplete='off' value=products.prodQuantity)
+                .col-lg-4.my-5
+                    .form-field
+                        label Mode of Delivery:
+                        select(name='deliveryMode')
+                            option(value="pick up") Pick Up
+                            option(value="home delivery") Home Delivery
+                .col-lg-4.my-5
+                    .form-field
+                        label Mode of Payment:
+                        select(name='paymentMode')
+                            option(value="Cash" selected = products.prodName === 'Cash') Cash
+                            option(value="Mobile Money" selected = products.prodName === 'Mobile Money') Mobile Money   
+                .form-btn
+                    button.btn.btnz(class='button' type='submit') Update

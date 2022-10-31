@@ -5,7 +5,7 @@ const config = require('./config/db')
 const passport = require('passport');
 const mongoose = require('mongoose');
 // const multer = require("multer");
-// const connectEnsureLogin = require("connect-ensure-login");
+
 
 // defining expressSession
 const expressSession = require("express-session")({

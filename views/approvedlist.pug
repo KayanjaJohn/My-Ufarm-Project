@@ -92,13 +92,13 @@ block content
         tbody
             if approvedGoods.length
                 each approvedGood in approvedGoods
-                    if good.status == 'Approved'
+                    if approvedGood.status == 'Approved'
                         tr
-                            td #{product.prodName}
-                            td #{product.prodQuantity}
-                            td #{product.price}
-                            td #{product.deliveryMode}
-                            td #{product.paymentMode}
+                            td #{approvedGood.prodName}
+                            td #{approvedGood.prodQuantity}
+                            td #{approvedGood.price}
+                            td #{approvedGood.deliveryMode}
+                            td #{approvedGood.paymentMode}
                             td 
                                 img(src="/"+approvedGood.uploadimage, alt="Image" width='150px' height="150px")
                             //- td #{moment(us

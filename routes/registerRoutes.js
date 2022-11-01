@@ -106,10 +106,6 @@ router.post('/ufReg', async (req, res) =>{
 
 
 
-
-
-
-
 router.get("/FarmerOneList", async (req, res) => {
     try {
         let fOnez = await Registration.find({ role: "Farmer One" });

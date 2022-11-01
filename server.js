@@ -79,12 +79,12 @@ passport.deserializeUser(Registration.deserializeUser());
   //   next();  
   // });
 
-app.use( "/",registerRoutes);
+app.use( "/", registerRoutes);
 // app.use("/" ,Registration);
-app.use("/" ,authen);
-app.use("/" ,prodUpload);
-app.use("/" ,checkP);
-app.use("/" ,reportD);
+app.use("/", authen);
+app.use("/", prodUpload);
+app.use("/", checkP);
+app.use("/", reportD);
 
 
 // ROUTES

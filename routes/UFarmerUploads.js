@@ -20,7 +20,7 @@ var storage = multer.diskStorage({
 // instantiate variable upload to store multer functionality to upload image
 var upload = multer({ storage: storage });
 
-router.get("/prodUpload", async  (req, res) => {
+router.get("/prodUpload", connectEnsureLogin.ensureLoggedIn(), async  (req, res) => {
 	let urbanFarmerList = await Registration.find({role: 'Urban Farmer'})
 	res.render("produceUpload", {urbanfarmers:urbanFarmerList});
 });
@@ -39,6 +39,8 @@ router.post("/prodUpload",upload.single("prodImage"), async (req, res) => {
 		console.log(error);
 	}
 });
+
+  
 //Produce list 
 
 router.get("/prodList", async (req, res) => {

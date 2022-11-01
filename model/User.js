@@ -67,7 +67,7 @@ direction:{
 
 });
 registerSchema.plugin(passportLocalMongoose,{
-   usernameField:'uniqueNumber' 
-})
+   usernameField: 'uniqueNumber' 
+});
 
 module.exports = mongoose.model('Registration', registerSchema);

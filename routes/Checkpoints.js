@@ -43,6 +43,10 @@ router.get('/carAccess', (req,res) =>{
 router.get('/adminDash', (req, res) => {
     res.render('adminReg');
 });
+//AO Dasboard
+router.get('/aOdashboard', (req, res) => {
+    res.render('AgricOfficerDash');
+});
 
 
 

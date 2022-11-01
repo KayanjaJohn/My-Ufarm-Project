@@ -5,16 +5,16 @@
 }
 body{
   overflow-y:hidden;
-  background:linear-gradient(to bottom,rgba(2, 42, 1, 0.9),rgba(62, 218, 54, 0.57),rgba(2, 42, 1, 0.9));
+  background:linear-gradient(to bottom,rgba(2, 42, 1, 0.9),rgba(61, 237, 52, 0.37),rgba(2, 42, 1, 0.9));
 }
 
 
 .container{
     width: 100%;
-    color: rgba(228, 252, 208, 0.87);
+    color: rgba(20, 30, 10, 0.9);
     box-shadow:2px 2px 6px 8px rgba(20, 38, 42, 0.76);
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 900;
     margin:20px auto;
     justify-content: center;
     border: 2px ridge rgb(128, 128, 128,0.75);

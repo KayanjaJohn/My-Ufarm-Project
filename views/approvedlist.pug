@@ -87,6 +87,7 @@ block content
                 th Mode of Delivery
                 th Mode of Payment
                 th Image 
+                th Status
                 th Change Availability 
                 th Delete
         tbody
@@ -100,14 +101,14 @@ block content
                             td #{approvedGood.deliveryMode}
                             td #{approvedGood.paymentMode}
                             td 
-                                img(src="/"+approvedGood.uploadimage, alt="Image" width='150px' height="150px")
-                            //- td #{moment(us
+                                img(src="/"+approvedGood.prodImage, alt="Image" width='150px' height="150px")
+                            td #{approvedGood.status}
                             td                            
                                 a.btn.btn-primary.btn-block.availability(href='/produce/available/'+approvedGood._id) Availability
 
 
                             td
-                                form(method="post" action='/farmerOne/delete')
+                                form(method="post" action='/produce/delete')
                                     input(type="hidden" placeholder="" name="id", value=approvedGood._id)
                                     button.btn.btn-danger.btn-block.delete(type="submit") Delete
     div.form-row

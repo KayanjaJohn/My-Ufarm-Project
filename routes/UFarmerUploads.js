@@ -45,8 +45,7 @@ router.post("/prodUpload",upload.single("prodImage"), async (req, res) => {
 
 router.get("/prodList", async (req, res) => {
 	try {
-		const prodOrder = {_id:-1}
-		let ufprodlist = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" }).sort(prodOrder);
+		let ufprodlist = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
 		console.log(ufprodlist);
 		res.render("produce-list", { products: ufprodlist });
 	} catch (error) {
@@ -87,7 +86,8 @@ router.post("/produce/delete", async (req, res) => {
 // Return approved list
 router.get("/approvedList", async (req, res) => {
 	try {
-		const approvedProducts = await UrbanFarmerProdUpload.findOne().sort({$natural:-1});
+		const prodOrder = {_id:-1}
+		let approvedProducts = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" }).sort(prodOrder);
 		res.render("approvedlist", { approvedGoods:approvedProducts });
 	} catch (error) {
 		res.status(400).send("Unable to approve produce");
@@ -98,9 +98,9 @@ router.get("/approvedList", async (req, res) => {
 // Approve get and post Routes
 router.get("/produce/approve/:id", async (req, res) => {
 	try {
-		const approveProduct = await UrbanFarmerProdUpload.findOne({_id: req.params.id});
-		res.render("approve", { products: approveProduct });
-		console.log('Product approved',approveProduct)
+	  const approveProduct = await UrbanFarmerProdUpload.findOne({_id: req.params.id});
+	  res.render("approve", { products: approveProduct });
+	  console.log('Product approved',approveProduct)
 	} catch (error) {
 		res.status(400).send("Unable to approve produce");
 	}
@@ -108,19 +108,29 @@ router.get("/produce/approve/:id", async (req, res) => {
 
 router.post("/produce/approve", async (req, res) => {
 	try {
-		await UrbanFarmerProdUpload.findOneAndUpdate({ _id: req.query.id }, req.body);
-		res.redirect("/prodList");
+	  await UrbanFarmerProdUpload.findOneAndUpdate({_id:req.query.id }, req.body);
+	  res.redirect("/prodList");
 	} catch (error) {
-		res.status(400).send("Unable to update produce");
+		res.status(400).send("Unable to approve produce");
 	}
 });
 
+
+// Return availability list
+router.get("/availabilityList", async (req, res) => {
+	try {
+		let availableProducts = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
+		res.render("availabilityList", { availableGoods:availableProducts });
+	} catch (error) {
+		res.status(400).send("Unable to approve produce");
+	}
+});
 //Available get and post Routes
 router.get("/produce/available/:id", async (req, res) => {
 	try {
 		const sellProduce = await UrbanFarmerProdUpload.findOne({ _id: req.params.id });
-		res.render("availability", { item: updateProduct });
-		console.log('Product approved',sellProduce)
+		res.render("availability", { items: sellProduce });
+		console.log('Product available',sellProduce)
 	} catch (error) {
 		res.status(400).send("Unable to find produce");
 	}

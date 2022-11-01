@@ -20,10 +20,6 @@ password:{
     type:String,
     trim: true
 },
-comfirmPassword:{
-    type:String,
-    trim: true
-},
 ninNumber:{
     type: String,
     trim: true

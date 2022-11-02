@@ -40,7 +40,7 @@ body{
     color: rgb(124, 252, 0,0.87);
     margin-top: 12px;
     transform: translateX(-180px);
-    font-family: 'Rubik Marker Hatch', cursive;
+    font-family: 'Rubik Marker Hatch',Arial, Helvetica, sans-serif;
 }
 
 .dropdown-item{

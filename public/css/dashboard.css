@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box ;
+    font-family: Helvetical,Arial, Sans-serif;
+}
+header{
+    font-size: 22px;
+    text-align: center;
+    background: rgb(12, 184, 38);
+    padding: 20px;
+}
+
+main{
+    height: 100vh;
+    background: rgb(226, 234, 227);
+}
+
+footer{
+    font-size: 22px;
+    text-align: center;
+    background: rgb(184, 178, 12);
+    padding: 20px;  
+}
+
+/* *********************************************************************************************************************** */
+container{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.cards img{
+    height: 20vh;
+}
+
+.cards{
+    margin:25px;
+    padding: 24px;
+}
+
+.cards:hover{
+  color: rgb(110, 147, 0);
+  transform: scale(1.2);
+  z-index: 9;
+    transition: ease-in-out 0.6s;
+}
+
+h3,p,h1{
+    font-weight: 900;
+}
+
+a{
+    text-decoration: none;
+}

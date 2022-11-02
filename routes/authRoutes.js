@@ -15,9 +15,9 @@ router.post("/login", passport.authenticate("local", { failureRedirect: "/login"
     if (req.user.role == 'Agricultural Officer') {
           res.redirect("/aOdashboard");
     } else if (req.user.role == 'Farmer One') {
-          res.redirect('/aOdashboard');
+          res.redirect('/fOdashboard');
     } else if (req.user.role == 'Urban Farmer') {
-          res.redirect('/aOdashboard');
+          res.redirect('/uFdashboard');
     } else {
       res.send('Sorry either your session has expired or you are not a registered user.')
     }

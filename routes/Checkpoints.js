@@ -45,7 +45,12 @@ router.get('/adminDash', (req, res) => {
 });
 //AO Dasboard
 router.get('/aOdashboard', (req, res) => {
-    res.render('AgricOfficerDash');
+    res.render('aODashboard');
+});
+
+//FO Dasboard
+router.get('/fOdashboard', (req, res) => {
+    res.render('foDashboard');
 });
 
 

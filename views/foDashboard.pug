@@ -1,0 +1,36 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT' crossorigin='anonymous')
+  link(rel='stylesheet' href='css/dashboard.css')
+header
+  h1 Farmer One
+main
+  .container
+    .row.justify-content-center.align-items-center.g-2
+      .col-lg-5.cards.my-5
+        .card
+          a(href='/ufReg')
+            img.card-img-top(src='Img/kenyan-farmer.jpg' alt='Title')
+          .card-body
+            h3.card-title Urban Farmer Registration
+            p.card-text For the registration of all the Urban Farmers only.
+      .col-lg-5.cards.my-5
+        .card
+          a(href='/ufList')
+            img.card-img-top(src='Img/My-Urban-Farmers-.jpg' alt='Title')
+          .card-body
+            h3.card-title Urban Farmer List
+            p.card-text The list of Urban Farmers on the Ufarm team.
+      .col-lg-5.cards
+        .card
+          a(href='/prodList')
+            img.card-img-top(src='Img/product-images/images.jpeg' alt='Title')
+          .card-body
+            h3.card-title Urban Farmer Uploads
+            p.card-text List of Uploaded products
+footer
+  h3 Ufarm Project

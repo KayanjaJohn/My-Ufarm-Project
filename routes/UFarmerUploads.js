@@ -26,7 +26,7 @@ router.get("/prodUpload", connectEnsureLogin.ensureLoggedIn(), async  (req, res)
 });
 
 
-router.post("/prodUpload",upload.single("prodImage"), async (req, res) => {
+router.post("/prodUpload", connectEnsureLogin.ensureLoggedIn(), upload.single("prodImage"), async (req, res) => {
 	console.log(req.body);
 	try {
 		const product = new UrbanFarmerProdUpload(req.body);

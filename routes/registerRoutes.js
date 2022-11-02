@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require("passport");
+const connectEnsureLogin = require("connect-ensure-login");
 
 
 // Importing Model
@@ -31,7 +32,7 @@ router.post('/aoReg', async (req, res) =>{
 				if (error) {
 					throw error;
 				}
-				res.redirect("/login");
+				res.redirect("/aoDashboard");
 			});
 		} 
         
@@ -61,7 +62,7 @@ router.post('/foReg', async (req, res) =>{
 				if (error) {
 					throw error;
 				}
-				res.redirect("/login");
+				res.redirect("/FarmerOneList");
 			});
 		} 
         
@@ -93,7 +94,7 @@ router.post('/ufReg', async (req, res) =>{
 				if (error) {
 					throw error;
 				}
-				res.redirect("/login");
+				res.redirect("/ufList");
 			});
 		} 
         
@@ -106,7 +107,7 @@ router.post('/ufReg', async (req, res) =>{
 
 
 
-router.get("/FarmerOneList", async (req, res) => {
+router.get("/FarmerOneList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
     try {
         let fOnez = await Registration.find({ role: "Farmer One" });
         res.render("FOList", {farmerones:fOnez});
@@ -117,7 +118,7 @@ router.get("/FarmerOneList", async (req, res) => {
 	
 });
 
-router.get("/ufList", async (req, res) => {
+router.get("/ufList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	try {
 		let items = await Registration.find({ role: "Urban Farmer" });
 		console.log(items);

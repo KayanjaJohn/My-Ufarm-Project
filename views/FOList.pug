@@ -84,7 +84,6 @@ block content
                 th NIN No
                 th Residence type
                 th Activities
-                th Update
                 th Delete
         tbody
             if farmerones.length
@@ -100,10 +99,6 @@ block content
                         //- td #{moment(us
                         td
                             a.button.btn.btn-primary.btn-block.update(href='/farmerOne/update/'+farmerone._id) Update
-                        td
-                            form(method="post" action='/farmerOne/delete')
-                                input(type="hidden" placeholder="" name="id", value=farmerone._id)
-                                button.btn.btn-danger.btn-block.delete(type="submit") Delete
     div.form-row
         div.col.form-group
-            a.btn.btnz(class='button' href='/agricOfficerDash') << Back
+            a.btn.btnz(class='button' href='/aOdashboard') << Back

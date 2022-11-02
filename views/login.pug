@@ -14,17 +14,33 @@ style.
   }
   .create{
     text-decoration:none;
-    color:cyan;
+    color: rgb(0,0,0);
     font-size:18px;
     font-weight:700;
     margin-left:25px;
     margin-top:-45px;
   }
+  .form-group{
+      transform:translateY(55px);
+      margin-left:12px;
+      padding:25px;
+      position:absolute;
+      left:0;
+
+        }
+  .btn7{
+      background: linear-gradient(to bottom,rgb(61, 15, 93,0.87),rgb(177, 68, 245,0.68),rgb(69, 26, 77,0.86));
+      padding-top:8px;
+      padding-bottom:8px;
+      font-weight:bolder;
+      font-weight:700;
+      color: rgb(11, 11, 11,0.87);
+      }
 header
   // place navbar here
 main
     form(action='/login' name='registration' method='POST')
-      .container(style='width: 50%; transform:translateY(100px); background: rgba(0, 2, 5, 0.53);')
+      .container(style='width: 50%; transform:translateY(100px);  background: rgba(35, 55, 84, 0.33);')
         h2 Please Login
         hr
         .row.justify-content-center.align-items-center.my-5.cage
@@ -45,7 +61,6 @@ main
                       | login
         a.create(href="/adminDash") Create account
 footer
-  // place footer here
-// Bootstrap JavaScript Libraries
-//- script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js' integrity='sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3' crossorigin='anonymous')
-//- script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js' integrity='sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz' crossorigin='anonymous')
+      div.form-row
+        div.col.form-group
+            a.btn.btn7(class='button' href='/home') << Back

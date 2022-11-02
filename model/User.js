@@ -16,10 +16,6 @@ regDate:{
     type:Date,
     trim: true
 },
-password:{
-    type:String,
-    trim: true
-},
 ninNumber:{
     type: String,
     trim: true

@@ -27,7 +27,7 @@ router.post('/aoReg', async (req, res) =>{
 		} else if (ninNumberExist) {
             return res.status(400).send("Sorry this NIN Number is already taken");
 		} else {
-			await Registration.register(user, req.body.uniqueNumber, (error) => {
+			await Registration.register(user, req.body.password, (error) => {
 				if (error) {
 					throw error;
 				}
@@ -57,7 +57,7 @@ router.post('/foReg', async (req, res) =>{
 		} else if (ninNumberExist) {
             return res.status(400).send("Sorry this NIN Number is already taken");
 		} else {
-			await Registration.register(user, req.body.uniqueNumber, (error) => {
+			await Registration.register(user, req.body.password, (error) => {
 				if (error) {
 					throw error;
 				}
@@ -89,7 +89,7 @@ router.post('/ufReg', async (req, res) =>{
 		} else if (ninNumberExist) {
             return res.status(400).send("Sorry this NIN Number is already taken");
 		} else {
-			await Registration.register(ufUser, req.body.uniqueNumber, (error) => {
+			await Registration.register(ufUser, req.body.password, (error) => {
 				if (error) {
 					throw error;
 				}

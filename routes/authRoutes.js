@@ -4,7 +4,6 @@ const passport = require("passport");
 
 
 
-
 router.get("/login", (req, res) => {
 	res.render("login");
 });
@@ -12,17 +11,16 @@ router.get("/login", (req, res) => {
 router.post("/login", passport.authenticate("local", { failureRedirect: "/login" }),  (req, res) => {
     req.session.user = req.user;
     console.log("This is the current user",   req.session.user);
-    res.send('You have logged in')
     console.log(req.body);                                     
-    // if (req.user.role == 'Agricultural Officer') {
-    //       res.redirect("/aOdashboard");
-    // } else if (req.user.role == 'Farmer One') {
-    //       res.redirect('/aOdashboard');
-    // } else if (req.user.role == 'Urban Farmer') {
-    //       res.redirect('/aOdashboard');
-    // } else {
-    //   res.send('Sorry either your session has expired or you are not a registered user.')
-    // }
+    if (req.user.role == 'Agricultural Officer') {
+          res.redirect("/aOdashboard");
+    } else if (req.user.role == 'Farmer One') {
+          res.redirect('/aOdashboard');
+    } else if (req.user.role == 'Urban Farmer') {
+          res.redirect('/aOdashboard');
+    } else {
+      res.send('Sorry either your session has expired or you are not a registered user.')
+    }
     });
   
     

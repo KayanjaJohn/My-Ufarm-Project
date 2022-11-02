@@ -80,7 +80,6 @@ passport.deserializeUser(Registration.deserializeUser());
   // });
 
 app.use( "/", registerRoutes);
-// app.use("/" ,Registration);
 app.use("/", authen);
 app.use("/", prodUpload);
 app.use("/", checkP);

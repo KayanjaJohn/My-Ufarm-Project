@@ -45,7 +45,7 @@ router.post("/prodUpload",upload.single("prodImage"), async (req, res) => {
 
 router.get("/prodList", async (req, res) => {
 	try {
-		let ufprodlist = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
+		const ufprodlist = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
 		console.log(ufprodlist);
 		res.render("produce-list", { products: ufprodlist });
 	} catch (error) {
@@ -88,7 +88,7 @@ router.get("/approvedList", async (req, res) => {
 	try {
 		const prodOrder = {_id:-1}
 		let approvedProducts = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" }).sort(prodOrder);
-		res.render("approvedlist", { approvedGoods:approvedProducts });
+		res.render("approvedlist", { approvedGoods:approvedProducts});
 	} catch (error) {
 		res.status(400).send("Unable to approve produce");
 	}

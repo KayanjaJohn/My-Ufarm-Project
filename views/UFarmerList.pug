@@ -84,7 +84,6 @@ block content
                 th NIN No
                 th Activities
                 th Update
-                th Delete
         tbody
             if urbanfarmers.length
                 each urbanfarmer in urbanfarmers
@@ -98,10 +97,6 @@ block content
                         //- td #{moment(us
                         td
                             a.button.btn.btn-primary.btn-block.update(href='/urbanfarmer/update/'+urbanfarmer._id) Update
-                        td
-                            form(method="post" action='/urbanfarmer/delete')
-                                input(type="hidden" placeholder="" name="id", value=urbanfarmer._id)
-                                button.btn.btn-danger.btn-block.delete(type="submit") Delete
     div.form-row
         div.col.form-group
             a.btn.btnz(class='button' href='/agricOfficerDash') << Back

@@ -1,4 +1,4 @@
-const Validation = () =>{
+const Validation1 = () =>{
 var firstName = document.registration.userName;
 var lastName = document.registration.lastName;
 var contact = document.registration.phoneNumber;
@@ -11,7 +11,6 @@ var comfirmPassword = document.registration.comfirmPassword;
 var uniqueNo = document.registration.uniqueNumber;
 var residenceType= document.registration.restype;
 var pOfStay = document.registration.pOstay;
-var gender= document.registration.sex;
 var wardname = document.registration.wardName;
 var roles = document.registration.role;
 var directions = document.registration.direction;
@@ -31,7 +30,6 @@ var passwordError = document.getElementById('passworderr');
 var comfirmError = document.getElementById('comfirmPassworderr');
 var pOstayError = document.getElementById('pOstayerr');
 var directionError = document.getElementById('directionerr');
-var sexError = document.getElementById('sexerr');
 var wardnameError = document.getElementById('wardNameerr');
 
 
@@ -82,8 +80,8 @@ else if (!(lastName.value.match(alphabet))){
 //Date of Registration*****************************************************************************
 if (dateOfRegistration.value ==''){
     dateOfRegistration.style.border = '4px solid red';
-    rDateError.textContent = 'Please enter your Residence type';
-    rDateError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+    rDateError.textContent = 'Please enter your date of registration';
+    rDateError.style = 'color:red; font-size:10px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
     return false
     }
     else{
@@ -101,7 +99,7 @@ if (nin.value ==''){
     }
 else if (!(nin.value.match(alphanumeric))){
     nin.style.border = '4px solid red';
-    ninError.textContent = 'NIN number must follow CM************ format';
+    ninError.textContent = 'NIN number must follow CM*********** format';
     ninError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
     return false
     }
@@ -114,7 +112,7 @@ else if (!(nin.value.match(alphanumeric))){
 //Date of Birth*****************************************************************************
 if (dateOfBirth.value ==''){
     dateOfBirth.style.border = '4px solid red';
-    birthDateError.textContent = 'Please enter your Residence type';
+    birthDateError.textContent = 'Please enter your date of birth';
     birthDateError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
     return false
     }
@@ -131,13 +129,13 @@ if (dateOfBirth.value ==''){
 //Contact*****************************************************************************
 if (contact.value ==''){
     contact.style.border = '4px solid red';
-    contactError.textContent = 'Please enter your Unique number';
+    contactError.textContent = 'Please enter your phone number';
     contactError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
     return false
     }
 else if (!(contact.value.match(alphanumeric))){
     contact.style.border = '4px solid red';
-    contactError.textContent = 'Unique number must follow (FO-0001) format';
+    contactError.textContent = 'Unique number must follow 07********(+2567******) format';
     contactError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
     return false
     }
@@ -238,7 +236,7 @@ if (residenceType.value ==''){
             }
         else{
             password.style.border = '5px solid green';
-            uniqueNoError.textContent = '';
+            passwordError.textContent = '';
         }
 
 //ComfirmPassword********************************************************************
@@ -322,11 +320,6 @@ else if (!(directions.value.match(alphanumeric))){
     }
 
 //Gender*****************************************************************************
-
-
-
-
-
 
 
 

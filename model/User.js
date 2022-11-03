@@ -49,6 +49,11 @@ role:{
     type: String,
     trim: true
 },
+
+email:{
+    type: String,
+    trim: true
+},
 sex:{
     type:String
 },

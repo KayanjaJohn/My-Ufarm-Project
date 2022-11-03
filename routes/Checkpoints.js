@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const connectEnsureLogin = require("connect-ensure-login");
+
 
 
 //Homepage Route
@@ -14,9 +16,13 @@ router.get('/land', (req, res) => {
 
 //PRODUCTS ROUTES
 // ********Customer Products**********************************************************************************
-router.get('/products', (req, res) => {
-    // console.log("productsUpload")
-    res.render("product");
+router.get("/products", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+    req.session.user = req.body;
+	if (req.user.role == "General Public") {
+		res.render("product");
+	} else {
+		res.send("This page is only accessed by the General Public");
+	}
 });
 
 
@@ -45,14 +51,35 @@ router.get('/adminDash', (req, res) => {
 });
 //AO Dasboard
 router.get('/aOdashboard', (req, res) => {
+    req.session.user = req.body;
+	if (req.user.role == "Agricultural Officer") {
     res.render('aODashboard');
+} else {
+    res.send("This page is only accessed by the Agricultural Officer");
+}
 });
 
 //FO Dasboard
-router.get('/fOdashboard', (req, res) => {
-    res.render('foDashboard');
+
+router.get("/fOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+    req.session.user = req.body;
+	if (req.user.role == "Farmer One") {
+		res.render("foDashboard");
+	} else {
+		res.send("This page is only accessed by farmer one");
+	}
 });
 
+//Urban farmer Dasboard
+
+router.get("/uFdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+    req.session.user = req.body;
+	if (req.user.role == "Urban Farmer") {
+		res.render("uFDashboard");
+	} else {
+		res.send("This page is only accessed by the Urban farmer");
+	}
+});
 
 
 // Export this file in the server file, for it to be read(executed)

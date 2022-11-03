@@ -17,6 +17,7 @@ const expressSession = require("express-session")({
 
 // importing user model
 const Registration =require("./model/User");
+const GPRegistration =require("./model/Generalpublic");
 
 
 // ******* Importing routes *******
@@ -25,6 +26,8 @@ const authen = require('./routes/authRoutes');
 const prodUpload = require("./routes/UFarmerUploads");
 const checkP = require("./routes/Checkpoints");
 const reportD = require("./routes/reports");
+const gnlP = require("./routes/CustomerReg");
+const gpauthen = require('./routes/GpAuthen');
 
 //INSTANTIATIONS
 const app = express();
@@ -73,6 +76,10 @@ passport.use(Registration.createStrategy());
 passport.serializeUser(Registration.serializeUser());
 passport.deserializeUser(Registration.deserializeUser());
 
+//passport.use(GPRegistration.createStrategy());
+//passport.serializeUser(GPRegistration.serializeUser());
+//passport.deserializeUser(GPRegistration.deserializeUser());
+
     // This function call tells that more processing is
     // required for the current request and is in the next middleware
     // function/route handler.
@@ -84,6 +91,8 @@ app.use("/", authen);
 app.use("/", prodUpload);
 app.use("/", checkP);
 app.use("/", reportD);
+app.use("/", gnlP);
+app.use("/", gpauthen);
 
 
 // ROUTES

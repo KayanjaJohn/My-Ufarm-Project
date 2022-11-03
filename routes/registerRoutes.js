@@ -127,7 +127,36 @@ router.get("/ufList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 		res.status(400).send("unable to find urban farmer in the data base");
 		console.log(error);
 	}
-})
+});
+
+
+// Updating urban farmers
+router.get("/urbanfarmer/update/:id", async (req, res) => {
+	try {
+		const urbanFarmerUpdate = await Registration.findOne({ _id: req.params.id });
+		res.render("urbanFarmerUpdate", {urbanfarmers: urbanFarmerUpdate });
+	} catch (error) {
+		res.status(400).send("Unable to update produce");
+	}
+});
+
+router.post("/urbanfarmer/update", async (req, res) => {
+	try {
+		await Registration.findOneAndUpdate({ _id: req.query.id }, req.body);
+		res.redirect("/uflist");
+	} catch (error) {
+		res.status(400).send("Unable to update produce");
+	}
+});
+// Updating  farmer one
+router.get("/farmerone/update/:id", async (req, res) => {
+	try {
+		const farmerOneUpdate = await Registration.findOne({ _id: req.params.id });
+		res.render("farmerOneUpdate", {farmerones: farmerOneUpdate });
+	} catch (error) {
+		res.status(400).send("Unable to update farmerone");
+	}
+});
 
 // Export this file in the server file, for it to be read(executed)
 module.exports = router; 

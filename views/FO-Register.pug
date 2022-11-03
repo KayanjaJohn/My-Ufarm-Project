@@ -16,7 +16,7 @@ main
     hr.hr
     .row.justify-content-center.align-items-center.my-5.cage
       .col-lg-4.cage
-        form(action='/foReg' name='registration' method='POST' onsubmit='return Validation();')
+        form(action='/foReg' name='registration' method='POST' onsubmit='return Validation1();')
           .row.justify-content-center.align-items-center.g-2.lamar
             .col-lg-3.form-zones
               label First name:
@@ -105,8 +105,4 @@ main
                   span
                   | Sign Up
 footer
-  // place footer here
-// Bootstrap JavaScript Libraries
-script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js' integrity='sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3' crossorigin='anonymous')
-script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js' integrity='sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz' crossorigin='anonymous')
 script(src="/js/FOvalidation.js") 

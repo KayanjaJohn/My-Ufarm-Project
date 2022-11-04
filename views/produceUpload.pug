@@ -43,7 +43,7 @@ main
                 option(value='' style='text-align:center;') Select option
                 option(value='Horticulture') &#x1F34F; Horticulture
                 option(value='Poultry') &#x1F414;Poultry
-                option(value='Diary') &#x1F404;Diary
+                option(value='Diary') &#x1F404;Dairy
               small#categoryerr
             .col-lg-3.form-zones
               label Unique No:
@@ -70,7 +70,7 @@ main
                 input(type='radio' name='prodType' value='Non-organic')
             .col-lg-3.form-zones
               label Quantity:
-              input.form-inputs(name='prodQuantity' type='text' style='padding:0;' placeholder='kg/ltrs/gm:')
+              input.form-inputs(name='prodQuantity' type='number' style='padding:0;' placeholder='kg/ltrs/gm:')
               small#quantityerr
             .col-lg-3.form-zones
               label Mode of payment:
@@ -81,7 +81,7 @@ main
               small#moperr
             .col-sm-12.col-lg-2.form-zones
               label Price:
-              input.form-inputs(type='text' name='price' placeholder='Ugx:')
+              input.form-inputs(type='number' name='price' placeholder='Ugx:')
               small#priceerr
             .col-lg-3.form-zones
               label Mode of Delivery:

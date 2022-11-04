@@ -42,7 +42,7 @@ prodType:{
     trim:true
 },
 prodQuantity:{
-    type:String,
+    type:Number,
     require: true,
     trim:true
 },
@@ -62,7 +62,7 @@ direction:{
     trim:true
 },
 price:{
-    type:String,
+    type:Number,
     require: true,
     trim:true
 },

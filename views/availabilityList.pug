@@ -72,10 +72,6 @@ block content
     header.card-header.list
         h4.card-title List of available products
         br
-        nav
-            #nav-tab.nav.nav-tabs(role='tablist')
-            a#nav-profile-tab.nav-item.nav-link.nev(href='/') Register FarmerOne
-            #nav-tabContent.tab-content
     br
     table.table.table-bordered 
         thead
@@ -100,7 +96,7 @@ block content
                             td #{availableGood.paymentMode}
                             td 
                                 img(src="/"+availableGood.prodImage, alt="Image" width='150px' height="150px")
-                            td #{availableGood.status} 
+                            td #{availableGood.availability} 
 
                             td
                                 form(method="post" action='/produce/delete')
@@ -108,5 +104,5 @@ block content
                                     button.btn.btn-danger.btn-block(type="submit") Delete
     div.form-row
         div.col.form-group
-            a.btn.btnz(class='button' href='/ufDash') << Back
+            a.btn.btnz(class='button' href='/approvedList') << Back
 

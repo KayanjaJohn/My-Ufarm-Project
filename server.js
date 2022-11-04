@@ -100,7 +100,7 @@ app.use("/", gpauthen);
 
   // For invalid routes. always  be the last in the server file (index.js)
   app.get('*', (req, res) => { 
-    res.send('404! This is an invalid URL.');
+    res.redirect('/notFound');
   });
 
   app.listen(3100, () => console.log('listening on port 3100'));

@@ -139,7 +139,7 @@ router.get("/produce/available/:id", async (req, res) => {
 router.post("/produce/available", async (req, res) => {
 	try {
 		await UrbanFarmerProdUpload.findOneAndUpdate({ _id: req.query.id }, req.body);
-		res.redirect("/prodList");
+		res.redirect("/availabilityList");
 	} catch (error) {
 		res.status(400).send("Unable to find produce");
 	}

@@ -9,6 +9,16 @@ router.get('/home', (req, res) => {
     res.render('homepage');
 });
 
+//Not found page
+router.get("/notFound", (req, res) => {
+	res.render("Not found");
+});
+
+//About page
+router.get("/about", (req, res) => {
+	res.render("About");
+});
+
 //Landing Page Route
 router.get('/land', (req, res) => {
     res.render('landing-page');
@@ -28,8 +38,8 @@ router.get("/products", connectEnsureLogin.ensureLoggedIn(), async (req, res) =>
 
 //************Projects*************/
 
-router.get("/diary", (req, res) => {
-	res.render("Diary");
+router.get("/dairy", (req, res) => {
+	res.render("Dairy");
 });
 
 router.get("/horticulture", (req, res) => {

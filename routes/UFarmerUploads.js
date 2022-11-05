@@ -109,7 +109,7 @@ router.get("/produce/approve/:id", async (req, res) => {
 router.post("/produce/approve", async (req, res) => {
 	try {
 	  await UrbanFarmerProdUpload.findOneAndUpdate({_id:req.query.id }, req.body);
-	  res.redirect("/prodList");
+	  res.redirect("/approvedList");
 	} catch (error) {
 		res.status(400).send("Unable to approve produce");
 	}

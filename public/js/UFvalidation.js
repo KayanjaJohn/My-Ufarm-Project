@@ -105,7 +105,7 @@ else if (!(uniqueNo.value.match(ufregex))){
 //Date of Registration*****************************************************************************
 if (dateOfRegistration.value ==''){
     dateOfRegistration.style.border = '4px solid red';
-    rDateError.textContent = 'Please enter your Residence type';
+    rDateError.textContent = 'Please enter the registration date';
     rDateError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
     return false
     }
@@ -137,7 +137,7 @@ else if (!(nin.value.match(alphanumeric))){
 //Date of Birth*****************************************************************************
 if (dateOfBirth.value ==''){
     dateOfBirth.style.border = '4px solid red';
-    birthDateError.textContent = 'Please enter your Residence type';
+    birthDateError.textContent = 'Please enter your date of birth';
     birthDateError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
     return false
     }
@@ -160,7 +160,17 @@ if (roles.value ==''){
         roleError.textContent = '';
     }
 
-
+//Activities*****************************************************************************
+if (activity.value ==''){
+    activity.style.border = '4px solid red';
+    activityError.textContent = 'Please select your role';
+    activityError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+    return false
+    }
+    else{
+        activity.style.border = '5px solid green';
+        activityError.textContent = '';
+    }
 
 
 //Contact*****************************************************************************
@@ -180,75 +190,6 @@ else if (!(contact.value.match(alphanumeric))){
         contact.style.border = '5px solid green';
         contactError.textContent = '';
     }
-
-
-
-//Activities*****************************************************************************
-if (activity.value ==''){
-    activity.style.border = '4px solid red';
-    activityError.textContent = 'Please select your role';
-    activityError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
-    }
-    else{
-        activity.style.border = '5px solid green';
-        activityError.textContent = '';
-    }
-
-
-
-
-//Password********************************************************************
-    if (password.value ==''){
-        password.style.border = '4px solid red';
-        // roles.style.background ='red'
-        passwordError.textContent = 'Please enter your password';
-        passwordError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-        return false
-        }
-    else if (password.value.length > 16){
-        password.style.border = '4px solid red';
-        // firstName.style.background ='red'
-        passwordError.textContent = 'Password must not exceed 16 characters';
-        passwordError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-        return false
-        }else if (password.value.length < 6){
-            password.style.border = '4px solid red';
-            // firstName.style.background ='red'
-            passwordError.textContent = 'Password must have atleast 6 characters';
-            passwordError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-            return false
-            }
-        else{
-            password.style.border = '5px solid green';
-            passwordError.textContent = '';
-        }
-
-//ComfirmPassword********************************************************************
-    if (comfirmPassword.value ==''){
-        comfirmPassword.style.border = '4px solid red';
-        // roles.style.background ='red'
-        comfirmError.textContent = 'Please enter your password';
-        comfirmError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
-        return false
-        }
-    else if (comfirmPassword.value.length > 16){
-        comfirmPassword.style.border = '4px solid red';
-        // firstName.style.background ='red'
-        comfirmError.textContent = 'Password must not exceed 16 characters ';
-        comfirmError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-        return false
-        }else if (comfirmPassword.value.length < 6){
-            comfirmPassword.style.border = '4px solid red';
-            // firstName.style.background ='red'
-            comfirmError.textContent = 'Password must have atleast 6 characters';
-            comfirmError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-            return false
-            }
-        else{
-            comfirmPassword.style.border = '5px solid green';
-            comfirmError.textContent = '';
-        }
 
 
 
@@ -283,6 +224,60 @@ else if (!(directions.value.match(alphanumeric))){
         directions.style.border = '5px solid green';
         directionError.textContent = '';
     }
+
+
+//Password********************************************************************
+if (password.value ==''){
+    password.style.border = '4px solid red';
+    // roles.style.background ='red'
+    passwordError.textContent = 'Please enter your password';
+    passwordError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+    return false
+    }
+else if (password.value.length > 16){
+    password.style.border = '4px solid red';
+    // firstName.style.background ='red'
+    passwordError.textContent = 'Password must not exceed 16 characters';
+    passwordError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+    return false
+    }else if (password.value.length < 6){
+        password.style.border = '4px solid red';
+        // firstName.style.background ='red'
+        passwordError.textContent = 'Password must have atleast 6 characters';
+        passwordError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        return false
+        }
+    else{
+        password.style.border = '5px solid green';
+        passwordError.textContent = '';
+    }
+
+//ComfirmPassword********************************************************************
+    if (comfirmPassword.value ==''){
+        comfirmPassword.style.border = '4px solid red';
+        // roles.style.background ='red'
+        comfirmError.textContent = 'Please enter your password';
+        comfirmError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        return false
+        }
+    else if (comfirmPassword.value.length > 16){
+        comfirmPassword.style.border = '4px solid red';
+        // firstName.style.background ='red'
+        comfirmError.textContent = 'Password must not exceed 16 characters ';
+        comfirmError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        return false
+        }else if (comfirmPassword.value.length < 6){
+            comfirmPassword.style.border = '4px solid red';
+            // firstName.style.background ='red'
+            comfirmError.textContent = 'Password must have atleast 6 characters';
+            comfirmError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+            return false
+            }
+        else{
+            comfirmPassword.style.border = '5px solid green';
+            comfirmError.textContent = '';
+        }
+
 
     
 }

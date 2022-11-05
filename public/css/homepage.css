@@ -39,7 +39,7 @@ body{
     font-size: 35px;
     color: rgb(124, 252, 0,0.87);
     margin-top: 12px;
-    transform: translateX(-180px);
+    margin-right:-82px ;
     font-family: 'Rubik Marker Hatch',Arial, Helvetica, sans-serif;
 }
 
@@ -56,12 +56,23 @@ body{
     font-family: 'Oswald', sans-serif;
     list-style: none;
     display:inline-block;
-    margin-right: 32px;
-    transform: translateX(-25px );
+    padding: 8px;
+    margin-right: 12px;
+    transform: translateX(55px );
     margin-top: 14px;
     text-transform: uppercase;
     cursor: pointer;
     position: relative;
+}
+
+.logout{
+  background: linear-gradient(to bottom,rgb(15, 93, 93),rgb(41, 232, 232),rgb(26, 77, 77));
+  color:black; 
+  border:teal; 
+  font-weight:700;
+  font-size:18px;
+  padding-top:8px;
+  padding-bottom:8px;
 }
 
 .logo-list ul li::after{

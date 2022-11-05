@@ -82,7 +82,7 @@ router.get("/ufReg", async (req, res) => {
 router.post('/ufReg', async (req, res) =>{
     console.log(req.body);
     try {
-        const ufUser = new Registration(req.body);
+        const user = new Registration(req.body);
         let uniqueExist = await Registration.findOne({uniqueNumber:req.body.uniqueNumber});
         let ninNumberExist = await Registration.findOne({ ninNumber: req.body.ninNumber });
         if (uniqueExist) {
@@ -90,7 +90,7 @@ router.post('/ufReg', async (req, res) =>{
 		} else if (ninNumberExist) {
             return res.status(400).send("Sorry this NIN Number is already taken");
 		} else {
-			await Registration.register(ufUser, req.body.password, (error) => {
+			await Registration.register(user, req.body.password, (error) => {
 				if (error) {
 					throw error;
 				}
@@ -103,9 +103,36 @@ router.post('/ufReg', async (req, res) =>{
         console.log(error);
     }
 });
-;
 
 
+//General public
+router.get("/GPReg", async (req, res) => {
+    res.render('generalPublicReg');
+});
+
+router.post('/GPReg', async (req, res) =>{
+    console.log(req.body);
+    try {
+        const gpEmail = new Registration(req.body);
+        let emailExist = await Registration.findOne({email:req.body.email});
+        if (emailExist) {
+            return res.status(400).send("Sorry this email is already taken");
+		} else {
+			await Registration.register(gpEmail, req.body.password, (error) => {
+				if (error) {
+					throw error;
+				}
+				res.redirect("/gplogin");
+			});
+		} 
+        
+    } catch (error) {
+        res.status(400).send('Sorry, it seems there is trouble accessing this page');
+        console.log(error);
+    }
+});
+
+//Farmer One List
 
 router.get("/FarmerOneList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
     try {
@@ -118,6 +145,8 @@ router.get("/FarmerOneList", connectEnsureLogin.ensureLoggedIn(), async (req, re
 	
 });
 
+
+// Urban Farmer List
 router.get("/ufList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	try {
 		let items = await Registration.find({ role: "Urban Farmer" });
@@ -145,7 +174,7 @@ router.post("/urbanfarmer/update", async (req, res) => {
 		await Registration.findOneAndUpdate({ _id: req.query.id }, req.body);
 		res.redirect("/uflist");
 	} catch (error) {
-		res.status(400).send("Unable to update produce");
+		res.status(400).send("Unable to update Farmer one");
 	}
 });
 // Updating  farmer one
@@ -155,6 +184,15 @@ router.get("/farmerone/update/:id", async (req, res) => {
 		res.render("farmerOneUpdate", {farmerones: farmerOneUpdate });
 	} catch (error) {
 		res.status(400).send("Unable to update farmerone");
+	}
+});
+
+router.post("/farmerone/update", async (req, res) => {
+	try {
+		await Registration.findOneAndUpdate({ _id: req.query.id }, req.body);
+		res.redirect("/FarmerOneList");
+	} catch (error) {
+		res.status(400).send("Unable to update Farmer");
 	}
 });
 

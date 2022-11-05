@@ -26,7 +26,7 @@ router.get('/land', (req, res) => {
 
 //PRODUCTS ROUTES
 // ********Customer Products**********************************************************************************
-router.get("/products", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+router.get("/products", connectEnsureLogin.ensureLoggedIn('/gplogin'), async (req, res) => {
     req.session.user = req.body;
 	if (req.user.role == "General Public") {
 		res.render("product");

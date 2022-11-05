@@ -26,6 +26,7 @@ birthDay:{
 },
 phoneNumber:{
     type: String,
+    require: true,
     trim: true
 },
 activities:{
@@ -52,6 +53,7 @@ role:{
 
 email:{
     type: String,
+    unique: true,
     trim: true
 },
 sex:{

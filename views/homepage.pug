@@ -34,6 +34,9 @@ header
                 a.dropdown-item(href='/dairy' style='color:teal ;') Dairy
             li
               a(href='/about') About us
+            li
+              form(action='/logout' method='POST')
+                button.btn.logout(type='submit') Log out
     #Id1.offcanvas.offcanvas-start.menu(data-bs-scroll='true' tabindex='-1' aria-labelledby='Enable both scrolling & backdrop')
       .offcanvas-header
         h5.offcanvas-title(id='Enable both scrolling & backdrop')
@@ -115,7 +118,7 @@ footer
           | of products and these include:
         li Horticulture Produce
         li Poultry Produce
-        li Diary Produce
+        li Dairy Produce
     .list
       h6 Contact Us
       ul

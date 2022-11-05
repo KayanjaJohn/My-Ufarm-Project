@@ -91,7 +91,7 @@ app.use("/", authen);
 app.use("/", prodUpload);
 app.use("/", checkP);
 app.use("/", reportD);
-app.use("/", gnlP);
+// app.use("/", gnlP);
 app.use("/", gpauthen);
 
 

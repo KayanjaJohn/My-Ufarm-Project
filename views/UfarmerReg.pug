@@ -50,10 +50,6 @@ main
                 small#roleerr
               small#roleerr
             .col-lg-4.form-zones
-              label Contact:
-              input.form-inputs(name='phoneNumber' type='text')
-              small#phoneNumbererr
-            .col-lg-4.form-zones
               label Activities:
               select#select.form-select(name='activities')
                 option(value='') Select option
@@ -61,14 +57,10 @@ main
                 option(value='Poultry') &#x1F414; Poultry
                 option(value='Dairy') &#x1F404; Dairy
                 small#activitieserr
-            .col-lg-3.form-zones
-              label Create Password:
-              input.form-inputs(name='password' type='password')
-              small#passworderr
-            .col-lg-3.form-zones
-              label Comfirm Password:
-              input.form-inputs(name='comfirmPassword' type='password')
-              small#comfirmPassworderr
+            .col-lg-4.form-zones
+              label Contact:
+              input.form-inputs(name='phoneNumber' type='text')
+              small#phoneNumbererr
             .col-lg-3
               label(for='ward') Ward
               select#select.form-select(name='wardName')
@@ -78,10 +70,18 @@ main
                 option(value='Ward3') Ward3
                 option(value='Ward4') Ward4
                 small#wardNameerr
-            .col-sm-12.col-lg-3.form-zones(style=' transform:translateX(25px);')
+            .col-sm-12.col-lg-3.form-zones(style=' transform:translateX(10px);')
               label Direction:
               input.form-inputs(name='direction' type='text')
               small#directionerr
+            .col-lg-3.form-zones
+              label Create Password:
+              input.form-inputs(name='password' type='password')
+              small#passworderr
+            .col-lg-3.form-zones
+              label Comfirm Password:
+              input.form-inputs(name='comfirmPassword' type='password')
+              small#comfirmPassworderr
             .col-lg-12.form-radio
               label Gender:
               .radio

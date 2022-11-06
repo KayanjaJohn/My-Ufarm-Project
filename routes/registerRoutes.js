@@ -196,5 +196,37 @@ router.post("/farmerone/update", async (req, res) => {
 	}
 });
 
+
+//Appoint  farmerone get and post Routes
+router.get("/farmerOne/appoint/:id", async (req, res) => {
+	try {
+	  const appointFarmerOne = await Registration.findOne({_id: req.params.id});
+	  res.render("AppointfOz", { appointfOz: appointFarmerOne });
+	  console.log('Farmer One appointed',appointFarmerOne)
+	} catch (error) {
+		res.status(400).send("Unable to appoint Farmer One");
+	}
+});
+
+router.post("/farmerOne/appoint", async (req, res) => {
+	try {
+	  await Registration.findOneAndUpdate({_id:req.query.id }, req.body);
+	  res.redirect("/appointedFarmerOneList");
+	} catch (error) {
+		res.status(400).send("Unable to appoint Farmer One");
+	}
+});
+
+// Return appointed Farmer One list
+router.get("/appointedFarmerOneList", async (req, res) => {
+	try {
+		const farmerOneOrder = {_id:-1}
+		let appointedFarmerOnes = await Registration.find({role: 'Farmer One'}).sort(farmerOneOrder);
+		res.render("AppointedfOzList", { appointedFones:appointedFarmerOnes});
+	} catch (error) {
+		res.status(400).send("Unable to appoint Farmer One");
+	}
+});
+
 // Export this file in the server file, for it to be read(executed)
 module.exports = router; 

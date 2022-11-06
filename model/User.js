@@ -62,7 +62,12 @@ sex:{
 direction:{
     type:String,
     trim:true
-}
+},
+status:{
+    type: String,
+       default: 'Pending',
+       enum: ['Pending', 'Appointed']
+  }
 
 });
 registerSchema.plugin(passportLocalMongoose,{

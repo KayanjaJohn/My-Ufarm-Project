@@ -62,60 +62,41 @@ block content
             font-weight:700;
             color: rgb(11, 11, 11,0.87);
         }
-        .approve{
-            background:linear-gradient(rgb(66, 65, 65),rgb(224, 216, 216),rgb(62, 61, 61));
-            font-size:18px;
-            font-weight:700;
-            color: rgb(11, 11, 11,0.87);
-        }
-        .update{
+        .availability{
             background: linear-gradient(to bottom,rgb(21, 150, 64),rgb(180, 240, 84),rgb(26, 77, 29));	
             color:rgb(25, 90, 90);
             font-size:18px;
             font-weight:700;
-        }
+            }
+        
     header.card-header.list
-        h4.card-title List of Uploaded Produces
+        h4.card-title Appointed Farmer Ones List 
         br
-        nav
-            a#nav-profile-tab.nav-item.nav-link.nev(href='/prodUpload') Upload produce
-            #nav-tabContent.tab-content
     br
-    table.table.table-bordered 
+    table.table.table-bordered
         thead
             tr
-                th Image 
-                th Produce Name
-                th Quantity  (kg/gm/ltrs)
-                th Price (Ugx)
-                th Mode of Delivery
-                th Mode of Payment
+                th Name
+                th UniqueNO
+                th Phone Number
+                th Ward name
+                th NIN No
+                th Residence type
+                th Activities
                 th Status
-                th Update
-                th Change status
-                th Delete
         tbody
-            if products.length
-                each product in products
-                   if product.status == 'Pending'
-                        tr
-                            td 
-                                img(src="/"+product.prodImage, alt="Image" width='150px' height="150px")
-                            td #{product.prodName}
-                            td #{product.prodQuantity}
-                            td #{product.price}
-                            td #{product.deliveryMode}
-                            td #{product.paymentMode}
-                            td #{product.status}
-                            td
-                                    a.btn.btn-primary.btn-block.update(href='/produce/update/'+product._id) Update
-                            td
-                                    a.btn.btn-secondary.btn-block.approve(href='/produce/approve/'+product._id) Approve
-                            td
-                                form(method="post" action='/produce/delete')
-                                    input(type="hidden" placeholder="" name="id", value=product._id)
-                                    button.btn.btn-danger.btn-block.delete(type="submit") Delete
+            if appointedFones.length
+                each appointedFone in appointedFones
+                    tr
+                        td #{appointedFone.userName+" "+appointedFone.lastName}
+                        td #{appointedFone.uniqueNumber}
+                        td #{appointedFone.phoneNumber}
+                        td #{appointedFone.wardName}
+                        td #{appointedFone.ninNumber}
+                        td #{appointedFone.restype}
+                        td #{appointedFone.activities}
+                        td #{appointedFone.status}
     div.form-row
         div.col.form-group
-            a.btn.btnz(class='button' href='/fOdashboard') << Back
+            a.btn.btnz(class='button' href='/aOdashboard') << Back
 

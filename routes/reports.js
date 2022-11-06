@@ -10,7 +10,7 @@ router.get("/report", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
     if(req.user.role == 'Agricultural Officer'){
         try {
             let totalPoultry = await UrbanFarmerProdUpload.aggregate([
-            { $match: { prodcategory: "Poultry" } },
+            { $match: { prodCategory: "Poultry" } },
             { $group: { _id: "$prodname", 
             totalQuantity: { $sum: "$prodQuantity" },
             totalCost: { $sum: { $multiply: [ "$price", "$prodQuantity" ] } },             
@@ -18,14 +18,14 @@ router.get("/report", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
             ])
 
             let totalHort = await UrbanFarmerProdUpload.aggregate([
-                { $match: { prodcategory: "Horticulture" } },
+                { $match: { prodCategory: "Horticulture" } },
                 { $group: { _id: "$all", 
                 totalQuantity: { $sum: "$prodQuantity" },
                 totalCost: { $sum: { $multiply: [ "$price", "$prodQuantity" ] } },            
                 }}
             ])
 			let totalDairy = await UrbanFarmerProdUpload.aggregate([
-                { $match: { prodcategory: "Dairy" } },
+                { $match: { prodCategory: "Dairy" } },
                 { $group: { _id: "$all", 
                 totalQuantity: { $sum: "$prodQuantity" },
                 totalCost: { $sum: { $multiply: [ "$price", "$prodQuantity" ] } },            

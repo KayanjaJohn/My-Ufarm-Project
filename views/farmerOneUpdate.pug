@@ -32,7 +32,6 @@ body
         .form-field input, select{
             text-align:center;
             background:rgba(200, 198, 253);
-            
             font-weight: 800;
             margin:2px 12px;
             width: 100%;
@@ -40,6 +39,7 @@ body
             border: 2px solid rgb(17, 17, 40);
             border-radius: 5px;
             padding: 0;
+            margin-bottom:25px;
         }
          select:hover{
             box-shadow:0 0 6px 5px rgb(0,0,0,0.87);
@@ -86,7 +86,7 @@ body
              background: linear-gradient(to bottom,rgba(80, 18, 123, 0.87),rgba(197, 108, 253),rgba(106, 40, 118, 0.86));
         }
     .container-fluid.form-style
-        form#signup.form(action='/farmerones/update?id='+farmerones._id name='registration' method='POST')
+        form#signup.form(action='/farmerone/update/?id='+farmerones._id name='registration' method='POST')
             h3 Update Farmer ones
             hr
             .row
@@ -104,6 +104,10 @@ body
                         select(name='activities')
                             option(value="Horticulture" selected = farmerones.activities === 'Horticulture') Horticulture
                             option(value="Poultry" selected = farmerones.activities === 'Poultry') Poultry 
-                             option(value="Diary" selected = farmerones.activities === 'Diary') Diary   
+                             option(value="Diary" selected = farmerones.activities === 'Diary') Diary 
+                .col-lg-4.mx-5
+                    .form-field
+                        label Ward:
+                        input(type='text' name='wardName' autocomplete='off' value=farmerones.wardName)  
                 .form-btn
                     button.btn.btnz(class='button' type='submit') Update

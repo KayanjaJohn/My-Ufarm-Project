@@ -21,7 +21,7 @@ header
         .logo-list(style="transform:translateX(-60px);")
           ul
             li
-              button.btn.text-secondary.btm(type='button' data-bs-toggle='offcanvas' data-bs-target='#Id1' aria-controls='Id1') Menu
+              .text-info.btm(type='button' data-bs-toggle='offcanvas' data-bs-target='#Id1' aria-controls='Id1') Menu
             li
               a(href='/products') Products
             li
@@ -49,7 +49,7 @@ header
         .offcanvas-body
           ul.navbar-nav.justify-content-end.flex-grow-1.pe-3
             li.nav-item
-              a.nav-link.active(aria-current='page' href='#') Dashboard
+              a.nav-link.active(aria-current='page' href='/login') Dashboard
             li.nav-item
               a.nav-link(href='/products') Customers
             li.nav-item.dropdown
@@ -62,15 +62,15 @@ header
             input.form-control.me-2(type='search' placeholder='Search' aria-label='Search')
             button.btn.btn-outline-success(type='submit') Search
 // MAIN
-main
+main(style='background:linear-gradient(to bottom,rgba(22, 102, 35),rgba(61, 237, 72),rgba(22, 102, 35));')
   .container-main
-    .description
+    .description(style='margin-bottom:125px;')
       h1 Welcome to the new stage of farming. 
       h3 We&apos;re here to serve you with  farming skills and agricultural products
       p
         | We provide our customers with fresh organic and non-organic farm products. 
         br
-        |  Our farm deals in Horticulture, diary and poultry products.
+        |  Our farm deals in Horticulture, dairy and poultry products.
   .container.my-5
       .row.justify-content-center.align-items-center.g-2.my-5
         .col.my-5

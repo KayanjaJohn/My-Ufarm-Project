@@ -14,6 +14,16 @@ router.get("/notFound", (req, res) => {
 	res.render("Not found");
 });
 
+//No access to AO dashboard
+router.get("/aoOnly", (req, res) => {
+	res.render("NoAccessAoD");
+});
+
+//No access to FO dashboard
+router.get("/foOnly", (req, res) => {
+	res.render("NoAccessFoD");
+});
+
 //About page
 router.get("/about", (req, res) => {
 	res.render("About");
@@ -26,13 +36,13 @@ router.get('/land', (req, res) => {
 
 //PRODUCTS ROUTES
 // ********Customer Products**********************************************************************************
-router.get("/products", connectEnsureLogin.ensureLoggedIn('/gplogin'), async (req, res) => {
-    req.session.user = req.body;
-	if (req.user.role == "General Public") {
+router.get("/products", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+    // req.session.user = req.body;
+	// if (req.user.role == "General Public") {
 		res.render("product");
-	} else {
-		res.send("This page is only accessed by the General Public");
-	}
+	// } else {
+	// 	res.send("This page is only accessed by the General Public");
+	// }
 });
 
 
@@ -60,12 +70,12 @@ router.get('/adminDash', (req, res) => {
     res.render('adminReg');
 });
 //AO Dasboard
-router.get('/aOdashboard', (req, res) => {
+router.get('/aOdashboard', connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
     req.session.user = req.body;
 	if (req.user.role == "Agricultural Officer") {
     res.render('aODashboard');
 } else {
-    res.send("This page is only accessed by the Agricultural Officer");
+    res.redirect('/aoOnly');
 }
 });
 

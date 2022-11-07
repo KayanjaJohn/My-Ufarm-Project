@@ -15,12 +15,20 @@ main{
     height: 100vh;
     background: rgb(226, 234, 227);
 }
+.btn7{
+  font-weight:700;
+  font-size:20px;
+  color: rgb(75, 26, 122);
+}
+.btn7:focus{
+border: 0;
+  }
 
 footer{
     font-size: 22px;
     text-align: center;
-    background: rgb(184, 178, 12);
-    padding: 20px;  
+    background: rgb(184, 178, 12) fixed;
+    padding: 20px; 
 }
 
 /* *********************************************************************************************************************** */

@@ -43,7 +43,7 @@ main
                 option(value='' style='text-align:center;') Select option
                 option(value='Horticulture') &#x1F34F; Horticulture
                 option(value='Poultry') &#x1F414;Poultry
-                option(value='Diary') &#x1F404;Dairy
+                option(value='Dairy') &#x1F404;Dairy
               small#categoryerr
             .col-lg-3.form-zones
               label Unique No:
@@ -68,9 +68,13 @@ main
                 input(type='radio' name='prodType' value='Organic' checked='')
                 |             Non-Organic
                 input(type='radio' name='prodType' value='Non-organic')
+            .col-lg-2.form-zones
+              label Stock:
+              input.form-inputs(name='prodStock' type='text' placeholder='kg/ltrs/gm:')
+              small#stockerr
             .col-lg-3.form-zones
               label Quantity:
-              input.form-inputs(name='prodQuantity' type='number' style='padding:0;' placeholder='kg/ltrs/gm:')
+              input.form-inputs(name='prodQuantity' type='number' style='padding:0;')
               small#quantityerr
             .col-lg-3.form-zones
               label Mode of payment:

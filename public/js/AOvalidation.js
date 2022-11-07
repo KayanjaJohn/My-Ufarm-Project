@@ -5,13 +5,9 @@ const Validation0 = () =>{
     var dateOfBirth = document.registration.birthDay;
     var dateOfRegistration = document.registration.regDate;
     var nin = document.registration.ninNumber;
-    var activity = document.registration.activities;
     var password = document.registration.password;
     var comfirmPassword = document.registration.comfirmPassword;
     var uniqueNo = document.registration.uniqueNumber;
-    var residenceType= document.registration.restype;
-    var pOfStay = document.registration.pOstay;
-    var gender= document.registration.sex;
     var wardname = document.registration.wardName;
     var roles = document.registration.role;
     var mailto = document.registration.email;
@@ -23,14 +19,10 @@ const Validation0 = () =>{
     var rDateError = document.getElementById('regDateerr');
     var contactError = document.getElementById('phoneNumbererr');
     var ninError = document.getElementById('ninNumbererr');
-    var activityError = document.getElementById('activitieserr');
     var uniqueNoError = document.getElementById('uniqueNumbererr');
     var roleError = document.getElementById('roleerr');
-    var restypeError = document.getElementById('restypeerr');
     var passwordError = document.getElementById('passworderr');
     var comfirmError = document.getElementById('comfirmPassworderr');
-    var pOstayError = document.getElementById('pOstayerr');
-    var directionError = document.getElementById('directionerr');
     var emailError = document.getElementById('emailerr');
     var wardnameError = document.getElementById('wardNameerr');
     
@@ -39,24 +31,6 @@ const emailAddress = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/
 const alphabet = /^[A-Za-z]+$/;
 
 const alphanumeric = /^[0-9a-zA-Z]+$/;
-
-//email*****************************************************************************
-if (mailto.value ==''){
-    mailto.style.border = '4px solid red';
-    emailError.textContent = 'Please enter your last name';
-    emailError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
-    }
-else if (!(mailto.value.match(emailAddress))){
-    mailto.style.border = '4px solid red';
-    emailError.textContent = 'The email address must be injohndoe@gmail.com format';
-    emailError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
-    return false
-    }
-    else{
-        mailto.style.border = '5px solid green';
-        emailError.textContent = '';
-    }
 
 //FirstName*****************************************************************************
 if (firstName.value ==''){

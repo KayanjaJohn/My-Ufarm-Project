@@ -11,6 +11,7 @@ const Validation3 = () =>{
     var deliveryMode = document.registration.deliveryMode;
     var prices = document.registration.price;
     var directions = document.registration.direction;
+    var stock = document.registration.prodStock;
 
  
     //ERRORs
@@ -27,25 +28,26 @@ const Validation3 = () =>{
     var modError = document.getElementById('moderr');
     var priceError = document.getElementById('priceerr');
     var directionError = document.getElementById('directionerr');
+    var stockError = document.getElementById('stockerr');
 
 
     //Supplier*****************************************************************************
     if (supplier.value ==''){
         supplier.style.border = '4px solid red';
-        suppliernameError.textContent = 'Please enter your Residence type';
-        suppliernameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        suppliernameError.textContent = 'Please Select your name';
+        suppliernameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
         return false
         }
         else{
-            rsupplier.style.border = '5px solid green';
+            supplier.style.border = '5px solid green';
             suppliernameError.textContent = '';
         }
 
         //Product name*****************************************************************************
     if (productName.value ==''){
         productName.style.border = '4px solid red';
-        prodnameError.textContent = 'Please enter your Residence type';
-        prodnameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        prodnameError.textContent = 'Please enter yourproduct name';
+        prodnameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
         return false
         }
         else{
@@ -56,8 +58,8 @@ const Validation3 = () =>{
         //Date of Registration*****************************************************************************
     if (dateOfRegistration.value ==''){
         dateOfRegistration.style.border = '4px solid red';
-        rDateError.textContent = 'Please enter your Residence type';
-        rDateError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        rDateError.textContent = 'Please enter your product registration date';
+        rDateError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
         return false
         }
         else{
@@ -71,8 +73,8 @@ const Validation3 = () =>{
     if (uniqueNo.value ==''){
         uniqueNo.style.border = '4px solid red';
         // uniqueNo.style.background ='red'
-        uniqueNoError.textContent = 'Please enter your Unique number';
-        uniqueNoError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        uniqueNoError.textContent = 'Please select your Unique number';
+        uniqueNoError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
         return false
         }
         else{
@@ -84,8 +86,8 @@ const Validation3 = () =>{
     if (wardname.value ==''){
         wardname.style.border = '4px solid red';
         // roles.style.background ='red'
-        wardnameError.textContent = 'Please select your role';
-        wardnameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        wardnameError.textContent = 'Please select your ward name';
+        wardnameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
         return false
         }
         else{
@@ -96,8 +98,8 @@ const Validation3 = () =>{
         //Image*****************************************************************************
     if (productImage.value ==''){
         productImage.style.border = '4px solid red';
-        imageError.textContent = 'Please enter your Residence type';
-        imageError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        imageError.textContent = 'Please enter your product image';
+        imageError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
         return false
         }
         else{
@@ -108,8 +110,8 @@ const Validation3 = () =>{
         //Category*****************************************************************************
     if (productcategory.value ==''){
         productcategory.style.border = '4px solid red';
-        categoryError.textContent = 'Please enter your Residence type';
-        categoryError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        categoryError.textContent = 'Select your product category';
+        categoryError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
         return false
         }
         else{
@@ -117,70 +119,42 @@ const Validation3 = () =>{
             categoryError.textContent = '';
         }
 
+
+//Stock*****************************************************************************
+    if (stock.value ==''){
+        stock.style.border = '4px solid red';
+        stockError.textContent = 'Please enter your stock quantity';
+        stockError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        return false
+        }
+        else if (!(stock.value.match(alphanumeric))){
+            stock.style.border = '4px solid red';
+            stockError.textContent = 'The stock quantity must follow 1kg/2ltrs/100gm etc format';
+            stockError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:5px;';
+            return false
+            }
+            else{
+                stock.style.border = '5px solid green';
+                stockError.textContent = '';
+            }      
+
 //Quantity*****************************************************************************
     if (productQuantity.value ==''){
         productQuantity.style.border = '4px solid red';
-        quantityError.textContent = 'Please enter your Residence type';
-        quantityError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        quantityError.textContent = 'Please enter your product quantity';
+        quantityError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
         return false
         }
         else{
             productQuantity.style.border = '5px solid green';
             quantityError.textContent = '';
         }
-//Date of Registration*****************************************************************************
-    if (dateOfRegistration.value ==''){
-        dateOfRegistration.style.border = '4px solid red';
-        rDateError.textContent = 'Please enter your Residence type';
-        rDateError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-        return false
-        }
-        else{
-            dateOfRegistration.style.border = '5px solid green';
-            rDateError.textContent = '';
-        }
-    
 
-    //Unique Number************************************************************************
-    const foregex = /^FO-([0-9]{4})+$/;
-    const ufregex = /^UF-([0-9]{4})+$/;
-    const aoregex = /^AO-([0-9]{4})+$/;
-    
-    if (uniqueNo.value ==''){
-        uniqueNo.style.border = '4px solid red';
-        // uniqueNo.style.background ='red'
-        uniqueNoError.textContent = 'Please enter your Unique number';
-        uniqueNoError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-        return false
-        }
-    else if (!(uniqueNo.value.match(ufregex))){
-        uniqueNo.style.border = '4px solid red';
-        // uniqueNo.style.background ='red'
-        uniqueNoError.textContent = 'Unique number must follow (FO-0001) format';
-        uniqueNoError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-        return false
-        }
-        else{
-            uniqueNo.style.border = '5px solid green';
-            uniqueNoError.textContent = '';
-        }
-//wardName*****************************************************************************
-    if (wardname.value ==''){
-        wardname.style.border = '4px solid red';
-        // roles.style.background ='red'
-        wardnameError.textContent = 'Please select your role';
-        wardnameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-        return false
-        }
-        else{
-            wardname.style.border = '5px solid green';
-            wardnameError.textContent = '';
-        }
-        //Mode of payment*****************************************************************************
+//Mode of payment*****************************************************************************
     if (paymentMode.value ==''){
         paymentMode.style.border = '4px solid red';
-        mopError.textContent = 'Please enter your Residence type';
-        mopError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        mopError.textContent = 'Please select your payment mode';
+        mopError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
         return false
         }
         else{
@@ -189,11 +163,11 @@ const Validation3 = () =>{
         }
 
 
-        //Mode of delivery*****************************************************************************
+//Mode of delivery*****************************************************************************
     if (deliveryMode.value ==''){
         deliveryMode.style.border = '4px solid red';
-        modError.textContent = 'Please enter your Residence type';
-        modError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        modError.textContent = 'Please select your delivery mode';
+        modError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
         return false
         }
         else{
@@ -201,11 +175,11 @@ const Validation3 = () =>{
             modError.textContent = '';
         }
     
-       //Price*****************************************************************************
+//Price*****************************************************************************
        if (prices.value ==''){
         prices.style.border = '4px solid red';
-        priceError.textContent = 'Please enter your Residence type';
-        priceError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        priceError.textContent = 'Please enter your product price';
+        priceError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
         return false
         }
         else{
@@ -213,26 +187,22 @@ const Validation3 = () =>{
             priceError.textContent = '';
         }
 
-            //Direction*****************************************************************************
+//Direction*****************************************************************************
     if (directions.value ==''){
         directions.style.border = '4px solid red';
-        directionError.textContent = 'Please enter your Unique number';
-        directionError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        directionError.textContent = 'Please enter your direction';
+        directionError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
         return false
         }
     else if (!(directions.value.match(alphanumeric))){
         directions.style.border = '4px solid red';
         directionError.textContent = 'Unique number must follow (FO-0001) format';
-        directionError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        directionError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
         return false
         }
         else{
             directions.style.border = '5px solid green';
             directionError.textContent = '';
-        }
-    
-    
-    
-    
-    
+        }      
+
 }

@@ -41,6 +41,11 @@ prodType:{
     require: true,
     trim:true
 },
+prodStock:{
+    type:String,
+    require: true,
+    trim:true
+},
 prodQuantity:{
     type:Number,
     require: true,

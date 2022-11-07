@@ -11,7 +11,7 @@ router.get("/report", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
         try {
             let totalPoultry = await UrbanFarmerProdUpload.aggregate([
             { $match: { prodCategory: "Poultry" } },
-            { $group: { _id: "$prodname", 
+            { $group: { _id: "$prodName", 
             totalQuantity: { $sum: "$prodQuantity" },
             totalCost: { $sum: { $multiply: [ "$price", "$prodQuantity" ] } },             
             }}
@@ -19,14 +19,14 @@ router.get("/report", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
 
             let totalHort = await UrbanFarmerProdUpload.aggregate([
                 { $match: { prodCategory: "Horticulture" } },
-                { $group: { _id: "$all", 
+                { $group: { _id: "$prodName", 
                 totalQuantity: { $sum: "$prodQuantity" },
                 totalCost: { $sum: { $multiply: [ "$price", "$prodQuantity" ] } },            
                 }}
             ])
 			let totalDairy = await UrbanFarmerProdUpload.aggregate([
-                { $match: { prodCategory: "Dairy" } },
-                { $group: { _id: "$all", 
+                { $match: { prodCategory: "Diary" } },
+                { $group: { _id: "$prodName", 
                 totalQuantity: { $sum: "$prodQuantity" },
                 totalCost: { $sum: { $multiply: [ "$price", "$prodQuantity" ] } },            
                 }}
@@ -36,7 +36,7 @@ router.get("/report", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
             console.log("Hort collections", totalHort)
             console.log("Dairy collections", totalDairy)
 
-            res.render("reports", { 
+            res.render("aoReport", { 
             title: 'Reports', 
             totalP:totalPoultry[0],
             totalH:totalHort[0],
@@ -47,7 +47,54 @@ router.get("/report", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
         }
         
     }else {
-        res.send("This page is only accessed by Agric Officers")
+        res.redirect("/aoOnly")
+    }
+});
+
+//Farmer One Report
+router.get("/foReport", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
+    req.session.user = req.user;
+    if(req.user.role == 'Farmer One'){
+        try {
+            let totalPoultry = await UrbanFarmerProdUpload.aggregate([
+            { $match: { prodCategory: "Poultry" } },
+            { $group: { _id: "$prodName", 
+            totalQuantity: { $sum: "$prodQuantity" },
+            totalCost: { $sum: { $multiply: [ "$price", "$prodQuantity" ] } },             
+            }}
+            ])
+
+            let totalHort = await UrbanFarmerProdUpload.aggregate([
+                { $match: { prodCategory: "Horticulture" } },
+                { $group: { _id: "$prodName", 
+                totalQuantity: { $sum: "$prodQuantity" },
+                totalCost: { $sum: { $multiply: [ "$price", "$prodQuantity" ] } },            
+                }}
+            ])
+			let totalDairy = await UrbanFarmerProdUpload.aggregate([
+                { $match: { prodCategory: "Diary" } },
+                { $group: { _id: "$prodName", 
+                totalQuantity: { $sum: "$prodQuantity" },
+                totalCost: { $sum: { $multiply: [ "$price", "$prodQuantity" ] } },            
+                }}
+            ])
+            
+            console.log("Poultry collections", totalPoultry)
+            console.log("Hort collections", totalHort)
+            console.log("Dairy collections", totalDairy)
+
+            res.render("foReport", { 
+            title: 'Reports', 
+            totalP:totalPoultry[0],
+            totalH:totalHort[0],
+            totalD:totalDairy[0],
+            });
+        } catch (error) {
+            res.status(400).send("unable to find items in the database");
+        }
+        
+    }else {
+        res.redirect("/foOnly")
     }
 });
 

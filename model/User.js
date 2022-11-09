@@ -9,7 +9,6 @@ lastName:{
 },
 uniqueNumber:{
     type: String,
-    require: true,
     trim: true
 },
 regDate:{
@@ -26,7 +25,6 @@ birthDay:{
 },
 phoneNumber:{
     type: String,
-    require: true,
     trim: true
 },
 activities:{

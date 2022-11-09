@@ -1,24 +1,24 @@
 const Validation3 = () =>{
-    var dateOfRegistration = document.registration.regDate;
-    var uniqueNo = document.registration.uniqueNumber;
-    var wardname = document.registration.wardName;
-    var supplier = document.registration.supplierName;
-    var productName = document.registration.prodName;
-    var productImage = document.registration.prodImage;
-    var productcategory = document.registration.prodCategory;
-    var productQuantity = document.registration.prodQuantity;
-    var paymentMode = document.registration.paymentMode;
-    var deliveryMode = document.registration.deliveryMode;
-    var prices = document.registration.price;
-    var directions = document.registration.direction;
-    var stock = document.registration.prodStock;
+    var supplier = document.Uploading.supplierName;
+    var dateOfRegistration = document.Uploading.regDate;
+    var uniqueNo = document.Uploading.uniqueNumber;
+    var wardname = document.Uploading.wardName;
+    var productName = document.Uploading.prodName;
+    var productImage = document.Uploading.prodImage;
+    var productcategory = document.Uploading.prodCategory;
+    var productQuantity = document.Uploading.prodQuantity;
+    var paymentMode = document.Uploading.paymentMode;
+    var deliveryMode = document.Uploading.deliveryMode;
+    var prices = document.Uploading.price;
+    var directions = document.Uploading.direction;
+    var stock = document.Uploading.prodStock;
 
  
     //ERRORs
+    var suppliernameError = document.getElementById('suppliererr');
     var rDateError = document.getElementById('regDateerr');
     var uniqueNoError = document.getElementById('uniqueNumbererr');
     var directionError = document.getElementById('directionerr');
-    var suppliernameError = document.getElementById('suppliererr');
     var prodnameError = document.getElementById('prodNameerr');
     var imageError = document.getElementById('imageerr');
     var categoryError = document.getElementById('categoryerr');
@@ -66,8 +66,34 @@ const Validation3 = () =>{
             dateOfRegistration.style.border = '5px solid green';
             rDateError.textContent = '';
         }
-    
 
+
+    //Image*****************************************************************************
+    if (productImage.value ==''){
+        productImage.style.border = '4px solid red';
+        imageError.textContent = 'Please enter your product image';
+        imageError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        return false
+        }
+        else{
+            productImage.style.border = '5px solid green';
+            imageError.textContent = '';
+        }
+
+
+        //Category*****************************************************************************
+    if (productcategory.value ==''){
+        productcategory.style.border = '4px solid red';
+        categoryError.textContent = 'Select your product category';
+        categoryError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        return false
+        }
+        else{
+            productcategory.style.border = '5px solid green';
+            categoryError.textContent = '';
+        }
+
+        
     //Unique Number************************************************************************
     
     if (uniqueNo.value ==''){
@@ -94,31 +120,6 @@ const Validation3 = () =>{
             wardname.style.border = '5px solid green';
             wardnameError.textContent = '';
         }
-
-        //Image*****************************************************************************
-    if (productImage.value ==''){
-        productImage.style.border = '4px solid red';
-        imageError.textContent = 'Please enter your product image';
-        imageError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
-        return false
-        }
-        else{
-            productImage.style.border = '5px solid green';
-            imageError.textContent = '';
-        }
-
-        //Category*****************************************************************************
-    if (productcategory.value ==''){
-        productcategory.style.border = '4px solid red';
-        categoryError.textContent = 'Select your product category';
-        categoryError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
-        return false
-        }
-        else{
-            productcategory.style.border = '5px solid green';
-            categoryError.textContent = '';
-        }
-
 
 //Stock*****************************************************************************
     if (stock.value ==''){

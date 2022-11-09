@@ -3,7 +3,7 @@
 // const passport = require("passport");
 
 
-// const registerGP =require('../model/Generalpublic');
+// const Registration =require('../model/User');
 // //General PublicRegistration
 
 // router.get("/GPReg", async (req, res) => {
@@ -13,12 +13,12 @@
 // router.post('/GPReg', async (req, res) =>{
 //     console.log(req.body);
 //     try {
-//         const gpEmail = new registerGP(req.body);
-//         let emailExist = await registerGP.findOne({email:req.body.email});
+//         const gpEmail = new Registration(req.body);
+//         let emailExist = await Registration.findOne({email:req.body.email});
 //         if (emailExist) {
 //             return res.status(400).send("Sorry this email is already taken");
 // 		} else {
-// 			await registerGP.register(gpEmail, req.body.password, (error) => {
+// 			await Registration.register(gpEmail, req.body.password, (error) => {
 // 				if (error) {
 // 					throw error;
 // 				}

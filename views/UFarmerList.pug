@@ -70,7 +70,6 @@ block content
     h4.card-title List of Urban Farmer
     br
     nav
-        #nav-tab.nav.nav-tabs(role='tablist')
         a#nav-profile-tab.nav-item.nav-link(href='/ufReg') Register Urban Farmer
         #nav-tabContent.tab-content
     br
@@ -94,7 +93,6 @@ block content
                         td #{urbanfarmer.wardName}
                         td #{urbanfarmer.ninNumber}
                         td #{urbanfarmer.activities}
-                        //- td #{moment(us
                         td
                             a.button.btn.btn-primary.btn-block.update(href='/urbanfarmer/update/'+urbanfarmer._id) Update
     div.form-row

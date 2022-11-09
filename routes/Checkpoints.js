@@ -29,6 +29,11 @@ router.get("/about", (req, res) => {
 	res.render("About");
 });
 
+//Help page
+router.get("/help", (req, res) => {
+	res.render("Help");
+});
+
 //Landing Page Route
 router.get('/land', (req, res) => {
     res.render('landing-page');
@@ -36,13 +41,13 @@ router.get('/land', (req, res) => {
 
 //PRODUCTS ROUTES
 // ********Customer Products**********************************************************************************
-router.get("/products", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
-    // req.session.user = req.body;
-	// if (req.user.role == "General Public") {
+router.get("/products", connectEnsureLogin.ensureLoggedIn('/gplogin'), async (req, res) => {
+    req.session.user = req.body;
+	if (req.user.role == "General Public") {
 		res.render("product");
-	// } else {
-	// 	res.send("This page is only accessed by the General Public");
-	// }
+	} else {
+		res.send("This page is only accessed by the General Public");
+	}
 });
 
 

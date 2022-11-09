@@ -35,9 +35,10 @@ block content
         }
         thead{
         font-weight:700;
-        font-size:18px;  
+        font-size:18px; 
         }
         tbody{
+            text-align:center;
             font-weight:500;
             font-size:15px;
         }
@@ -85,6 +86,8 @@ block content
                 th Produce Name
                 th Quantity  (kg/gm/ltrs)
                 th Price (Ugx)
+                th Product type
+                th Category
                 th Mode of Delivery
                 th Mode of Payment
                 th Status
@@ -101,6 +104,8 @@ block content
                             td #{product.prodName}
                             td #{product.prodQuantity}
                             td #{product.price}
+                            td #{product.prodType}
+                            td #{product.prodCategory}
                             td #{product.deliveryMode}
                             td #{product.paymentMode}
                             td #{product.status}
@@ -114,5 +119,5 @@ block content
                                     button.btn.btn-danger.btn-block.delete(type="submit") Delete
     div.form-row
         div.col.form-group
-            a.btn.btnz(class='button' href='/fOdashboard') << Back
+            a.btn.btnz(class='button' href='/ufdashboard') << Back
 

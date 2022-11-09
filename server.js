@@ -17,7 +17,7 @@ const expressSession = require("express-session")({
 
 // importing user model
 const Registration =require("./model/User");
-const GPRegistration =require("./model/Generalpublic");
+// const GPRegistration =require("./model/Generalpublic");
 
 
 // ******* Importing routes *******
@@ -26,7 +26,7 @@ const authen = require('./routes/authRoutes');
 const prodUpload = require("./routes/UFarmerUploads");
 const checkP = require("./routes/Checkpoints");
 const reportD = require("./routes/reports");
-const gnlP = require("./routes/CustomerReg");
+// const gnlP = require("./routes/CustomerReg");
 const gpauthen = require('./routes/GpAuthen');
 
 //INSTANTIATIONS

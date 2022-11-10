@@ -63,8 +63,8 @@ direction:{
 },
 status:{
     type: String,
-       default: 'Pending',
-       enum: ['Pending', 'Appointed']
+       default: 'Registered',
+       enum: ['Registered', 'Appointed']
   }
 
 });

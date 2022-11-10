@@ -81,12 +81,12 @@ block content
                 th Mode of Delivery
                 th Mode of Payment
                 th Image 
-                th Status
+                th Availability
                 th Delete
         tbody
             if availableGoods.length
                 each availableGood in availableGoods
-                    if availableGood.availability == 'available'
+                    if availableGood.availability == 'Available'
                         tr
                             td #{availableGood.prodName}
                             td #{availableGood.prodQuantity}

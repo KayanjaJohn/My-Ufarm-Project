@@ -79,8 +79,8 @@ status:{
   
 availability: {
     type: String, 
-    default: "available",
-    enum: ["available", "booked", "N/A"] 
+    default: "Available",
+    enum: ["Available", "Booked", "N/A"] 
 }
 })
 

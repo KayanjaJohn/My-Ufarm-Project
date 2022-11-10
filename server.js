@@ -26,7 +26,7 @@ const authen = require('./routes/authRoutes');
 const prodUpload = require("./routes/UFarmerUploads");
 const checkP = require("./routes/Checkpoints");
 const reportD = require("./routes/reports");
-// const gnlP = require("./routes/CustomerReg");
+const gnlP = require("./routes/CustomerReg");
 const gpauthen = require('./routes/GpAuthen');
 
 //INSTANTIATIONS
@@ -91,7 +91,7 @@ app.use("/", authen);
 app.use("/", prodUpload);
 app.use("/", checkP);
 app.use("/", reportD);
-// app.use("/", gnlP);
+app.use("/", gnlP);
 app.use("/", gpauthen);
 
 

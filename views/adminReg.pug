@@ -15,6 +15,11 @@ head
     background-size: cover;
     font-family: 'Varela Round', sans-serif;
     }
+
+    .container{
+      display:flex;
+     justify-content:center;
+    }
     .descrip{
     margin: auto;
     width: 98%;
@@ -26,6 +31,7 @@ head
     color: rgb(255, 255, 255,0.8);
     }
     .card {
+      text-align:center;
     text-decoration: none; 
     height: 40vh;
     background: linear-gradient(rgb(0, 175, 152),rgb(1, 189, 164));
@@ -35,7 +41,7 @@ head
     //-transform: translateY(15%);
     }
     img{
-    height: 25vh;
+     height:25rem;
     border-radius: 5px;
     }
     .card-title{
@@ -51,9 +57,9 @@ head
     border-radius: 8px;
     border: 2px solid rgb(102, 18, 94);
     transition:ease-in-out 0.5s;
-    padding: 8px;
+    padding: 16px;
     background: rgba(130, 17, 119, 0.8);
-    transform: translateY(30px);
+    transform: translateY(60px);
     overflow: hidden;
     position: relative;
     color: white;
@@ -80,39 +86,42 @@ head
     border: none;
     color: #100e11;
     }
+    h5{
+      font-size: 42px;
+    }
 .text-center
   // Button HTML (to Trigger Modal)
   .descrip
-    h1 Welcome to our page. 
-    h3 Choose your path.
-    h4
-.container-fluid.my-5
+    h1 Welcome to your page and get ready to do business. 
+    h3 As an Agricultural Officer.
+    h4 Fill in your information to begin your career
+.container
       .row.justify-content-center.align-items-center.g-2.my-5
         .col.my-5
           .row.mx-5
             .col-md-4
-              .card(style='width: 25rem;')
+              .card(style='width: 50rem; height:35rem;')
                 img.Images(src='Img/Agricultural officer.jpg')
                 .card-body
                   h5.card-title Agricultural Officer
                   a.btn-2.px-4.mr-2(href='/aoReg')
                     span
                     | Sign up
-            .col-md-4
-              .card(style='width: 25rem;')
-                img.card-img-top(src='Img/Farmer one.jpg' alt='...')
-                .card-body
-                  h5.card-title Farmer one
-                  a.btn-2.px-4.mr-2(href='/foReg')
-                    span
-                    | Sign up
-            .col-md-4
-              .card(style='width: 25rem;')
-                img.card-img-top(src='Img/Urban farmer.jpeg' alt='...')
-                .card-body
-                  h5.card-title Urban farmer
-                  a.btn-2.px-4.mr-2(href='/ufReg')
-                    span
-                    | Sign up
+            //- .col-md-4
+            //-   .card(style='width: 25rem;')
+            //-     img.card-img-top(src='Img/Farmer one.jpg' alt='...')
+            //-     .card-body
+            //-       h5.card-title Farmer one
+            //-       a.btn-2.px-4.mr-2(href='/foReg')
+            //-         span
+            //-         | Sign up
+            //- .col-md-4
+            //-   .card(style='width: 25rem;')
+            //-     img.card-img-top(src='Img/Urban farmer.jpeg' alt='...')
+            //-     .card-body
+            //-       h5.card-title Urban farmer
+            //-       a.btn-2.px-4.mr-2(href='/ufReg')
+            //-         span
+            //-         | Sign up
 
 

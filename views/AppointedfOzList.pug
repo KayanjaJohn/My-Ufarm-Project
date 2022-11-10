@@ -87,15 +87,16 @@ block content
         tbody
             if appointedFones.length
                 each appointedFone in appointedFones
-                    tr
-                        td #{appointedFone.userName+" "+appointedFone.lastName}
-                        td #{appointedFone.uniqueNumber}
-                        td #{appointedFone.phoneNumber}
-                        td #{appointedFone.wardName}
-                        td #{appointedFone.ninNumber}
-                        td #{appointedFone.restype}
-                        td #{appointedFone.activities}
-                        td #{appointedFone.status}
+                    if appointedFone.status == 'Appointed'
+                        tr
+                            td #{appointedFone.userName+" "+appointedFone.lastName}
+                            td #{appointedFone.uniqueNumber}
+                            td #{appointedFone.phoneNumber}
+                            td #{appointedFone.wardName}
+                            td #{appointedFone.ninNumber}
+                            td #{appointedFone.restype}
+                            td #{appointedFone.activities}
+                            td #{appointedFone.status}
     div.form-row
         div.col.form-group
             a.btn.btnz(class='button' href='/aOdashboard') << Back

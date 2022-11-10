@@ -10,7 +10,7 @@ head
 header
   // place navbar here
 main
-  .container(style='transform:translateY(35px);')
+  .container(style='transform:translateY(15px);')
     h2 Urban Farmer Produce Upload
     hr
     .row.justify-content-center.align-items-center.my-5.cage
@@ -24,7 +24,7 @@ main
                   each urbanfarmer in urbanfarmers
                     option(value='')
                     option(value=urbanfarmer._id) #{urbanfarmer.userName+' '+urbanfarmer.lastName}
-                  small#suppliererr
+              small#suppliererr
             .col-lg-3.form-zones
               label Product name:
               input.form-inputs(name='prodName' type='text')

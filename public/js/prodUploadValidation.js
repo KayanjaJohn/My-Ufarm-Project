@@ -35,7 +35,7 @@ const Validation3 = () =>{
     if (supplier.value ==''){
         supplier.style.border = '4px solid red';
         suppliernameError.textContent = 'Please Select your name';
-        suppliernameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        suppliernameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         return false
         }
         else{
@@ -46,8 +46,8 @@ const Validation3 = () =>{
         //Product name*****************************************************************************
     if (productName.value ==''){
         productName.style.border = '4px solid red';
-        prodnameError.textContent = 'Please enter yourproduct name';
-        prodnameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        prodnameError.textContent = 'Please enter your product name';
+        prodnameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         return false
         }
         else{
@@ -59,7 +59,7 @@ const Validation3 = () =>{
     if (dateOfRegistration.value ==''){
         dateOfRegistration.style.border = '4px solid red';
         rDateError.textContent = 'Please enter your product registration date';
-        rDateError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        rDateError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; ';
         return false
         }
         else{
@@ -72,7 +72,7 @@ const Validation3 = () =>{
     if (productImage.value ==''){
         productImage.style.border = '4px solid red';
         imageError.textContent = 'Please enter your product image';
-        imageError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        imageError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         return false
         }
         else{
@@ -85,7 +85,7 @@ const Validation3 = () =>{
     if (productcategory.value ==''){
         productcategory.style.border = '4px solid red';
         categoryError.textContent = 'Select your product category';
-        categoryError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        categoryError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         return false
         }
         else{
@@ -100,7 +100,7 @@ const Validation3 = () =>{
         uniqueNo.style.border = '4px solid red';
         // uniqueNo.style.background ='red'
         uniqueNoError.textContent = 'Please select your Unique number';
-        uniqueNoError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        uniqueNoError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         return false
         }
         else{
@@ -113,7 +113,7 @@ const Validation3 = () =>{
         wardname.style.border = '4px solid red';
         // roles.style.background ='red'
         wardnameError.textContent = 'Please select your ward name';
-        wardnameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        wardnameError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         return false
         }
         else{
@@ -125,7 +125,7 @@ const Validation3 = () =>{
     if (stock.value ==''){
         stock.style.border = '4px solid red';
         stockError.textContent = 'Please enter your stock quantity';
-        stockError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        stockError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         return false
         }
         else if (!(stock.value.match(alphanumeric))){
@@ -143,7 +143,7 @@ const Validation3 = () =>{
     if (productQuantity.value ==''){
         productQuantity.style.border = '4px solid red';
         quantityError.textContent = 'Please enter your product quantity';
-        quantityError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        quantityError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         return false
         }
         else{
@@ -155,7 +155,7 @@ const Validation3 = () =>{
     if (paymentMode.value ==''){
         paymentMode.style.border = '4px solid red';
         mopError.textContent = 'Please select your payment mode';
-        mopError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        mopError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         return false
         }
         else{
@@ -168,7 +168,7 @@ const Validation3 = () =>{
     if (deliveryMode.value ==''){
         deliveryMode.style.border = '4px solid red';
         modError.textContent = 'Please select your delivery mode';
-        modError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        modError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         return false
         }
         else{
@@ -180,7 +180,7 @@ const Validation3 = () =>{
        if (prices.value ==''){
         prices.style.border = '4px solid red';
         priceError.textContent = 'Please enter your product price';
-        priceError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        priceError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         return false
         }
         else{
@@ -192,13 +192,13 @@ const Validation3 = () =>{
     if (directions.value ==''){
         directions.style.border = '4px solid red';
         directionError.textContent = 'Please enter your direction';
-        directionError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        directionError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         return false
         }
     else if (!(directions.value.match(alphanumeric))){
         directions.style.border = '4px solid red';
         directionError.textContent = 'Unique number must follow (FO-0001) format';
-        directionError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        directionError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         return false
         }
         else{

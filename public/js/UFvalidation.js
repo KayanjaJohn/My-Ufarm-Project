@@ -1,4 +1,5 @@
 const validation2 = () =>{
+    let val = 0;
     var firstName = document.registration.userName;
     var lastName = document.registration.lastName;
     var contact = document.registration.phoneNumber;
@@ -44,7 +45,8 @@ if (firstName.value ==''){
     firstName.style.border = '4px solid red';
     fNameError.textContent = 'Please enter your last name';
     fNameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    // return false
+    val++
     }
 else if (!(firstName.value.match(alphabet))){
     firstName.style.border = '4px solid red';
@@ -63,7 +65,8 @@ if (lastName.value ==''){
     lastName.style.border = '4px solid red';
     lNameError.textContent = 'Please enter your last name';
     lNameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    // return false
+    val++
     }
 else if (!(lastName.value.match(alphabet))){
     lastName.style.border = '4px solid red';
@@ -87,14 +90,16 @@ if (uniqueNo.value ==''){
     // uniqueNo.style.background ='red'
     uniqueNoError.textContent = 'Please enter your Unique number';
     uniqueNoError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    // return false
+    val++
     }
     else if (!(uniqueNo.value.match(ufregex))){
     uniqueNo.style.border = '4px solid red';
     // uniqueNo.style.background ='red'
     uniqueNoError.textContent = 'Unique number must follow (FO-0001) format';
     uniqueNoError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    // return false
+    val++
     }
     else{
         uniqueNo.style.border = '5px solid green';
@@ -107,7 +112,8 @@ if (dateOfRegistration.value ==''){
     dateOfRegistration.style.border = '4px solid red';
     rDateError.textContent = 'Please enter the registration date';
     rDateError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    // return false
+    val++
     }
     else{
         dateOfRegistration.style.border = '5px solid green';
@@ -120,13 +126,15 @@ if (nin.value ==''){
     nin.style.border = '4px solid red';
     ninError.textContent = 'Please enter your NIN number';
     ninError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    // return false
+    val++
     }
     else if (!(nin.value.match(alphanumeric))){
     nin.style.border = '4px solid red';
     ninError.textContent = 'NIN number must follow CM************ format';
     ninError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    // return false
+    val++
     }
     else{
         nin.style.border = '5px solid green';
@@ -139,7 +147,8 @@ if (dateOfBirth.value ==''){
     dateOfBirth.style.border = '4px solid red';
     birthDateError.textContent = 'Please enter your date of birth';
     birthDateError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    // return false
+    val++
     }
     else{
         dateOfBirth.style.border = '5px solid green';
@@ -153,7 +162,8 @@ if (roles.value ==''){
     // roles.style.background ='red'
     roleError.textContent = 'Please select your role';
     roleError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
-    return false
+    // return false
+    val++
     }
     else{
         roles.style.border = '5px solid green';
@@ -165,7 +175,8 @@ if (activity.value ==''){
     activity.style.border = '4px solid red';
     activityError.textContent = 'Please select your role';
     activityError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    // return false
+    val++
     }
     else{
         activity.style.border = '5px solid green';
@@ -178,7 +189,8 @@ if (contact.value ==''){
     contact.style.border = '4px solid red';
     contactError.textContent = 'Please enter your phone number';
     contactError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
-    return false
+    // return false
+    val++
     }
     else if (!(contact.value.match(alphanumeric))){
     contact.style.border = '4px solid red';
@@ -199,7 +211,8 @@ if (wardname.value ==''){
     // roles.style.background ='red'
     wardnameError.textContent = 'Please select your role';
     wardnameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    // return false
+    val++
     }
     else{
         wardname.style.border = '5px solid green';
@@ -212,7 +225,8 @@ if (directions.value ==''){
     directions.style.border = '4px solid red';
     directionError.textContent = 'Please enter your direction';
     directionError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
-    return false
+    // return false
+    val++
     }
     else if (!(directions.value.match(alphanumeric))){
     directions.style.border = '4px solid red';
@@ -232,7 +246,8 @@ if (password.value ==''){
     // roles.style.background ='red'
     passwordError.textContent = 'Please enter your password';
     passwordError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
-    return false
+    // return false
+    val++
     }
     else if (password.value.length > 16){
     password.style.border = '4px solid red';
@@ -258,6 +273,7 @@ if (password.value ==''){
         // roles.style.background ='red'
         comfirmError.textContent = 'Please enter your password';
         comfirmError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
+        val++
         return false
         }
     else if (comfirmPassword.value.length > 16){

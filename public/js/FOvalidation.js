@@ -1,4 +1,5 @@
 const Validation1 = () =>{
+    let val = 0;
 var firstName = document.registration.userName;
 var lastName = document.registration.lastName;
 var contact = document.registration.phoneNumber;
@@ -43,14 +44,15 @@ const alphanumeric = /^[0-9a-zA-Z]+$/;
 //FirstName*****************************************************************************
 if (firstName.value ==''){
     firstName.style.border = '4px solid red';
-    fNameError.textContent = 'Please enter your last name';
-    fNameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    fNameError.textContent = 'Please enter your first name';
+    fNameError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+    // return false
+    val++
     }
 else if (!(firstName.value.match(alphabet))){
     firstName.style.border = '4px solid red';
     fNameError.textContent = 'The name must be in alphabet';
-    fNameError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+    fNameError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
     return false
     }
     else{
@@ -63,13 +65,14 @@ else if (!(firstName.value.match(alphabet))){
 if (lastName.value ==''){
     lastName.style.border = '4px solid red';
     lNameError.textContent = 'Please enter your last name';
-    lNameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    lNameError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+    // return false
+    val++
     }
 else if (!(lastName.value.match(alphabet))){
     lastName.style.border = '4px solid red';
     lNameError.textContent = 'The name must be in alphabet';
-    lNameError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+    lNameError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
     return false
     }
     else{
@@ -81,8 +84,9 @@ else if (!(lastName.value.match(alphabet))){
 if (dateOfRegistration.value ==''){
     dateOfRegistration.style.border = '4px solid red';
     rDateError.textContent = 'Please enter your date of registration';
-    rDateError.style = 'color:red; font-size:10px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
-    return false
+    rDateError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+    // return false
+    val++
     }
     else{
         dateOfRegistration.style.border = '5px solid green';
@@ -94,13 +98,14 @@ if (dateOfRegistration.value ==''){
 if (nin.value ==''){
     nin.style.border = '4px solid red';
     ninError.textContent = 'Please enter your NIN number';
-    ninError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    ninError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+    // return false
+    val++
     }
 else if (!(nin.value.match(alphanumeric))){
     nin.style.border = '4px solid red';
     ninError.textContent = 'NIN number must follow CM*********** format';
-    ninError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+    ninError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
     return false
     }
     else{
@@ -113,8 +118,9 @@ else if (!(nin.value.match(alphanumeric))){
 if (dateOfBirth.value ==''){
     dateOfBirth.style.border = '4px solid red';
     birthDateError.textContent = 'Please enter your date of birth';
-    birthDateError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    birthDateError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+    // return false
+    val++
     }
     else{
         dateOfBirth.style.border = '5px solid green';
@@ -125,13 +131,14 @@ if (dateOfBirth.value ==''){
 if (contact.value ==''){
     contact.style.border = '4px solid red';
     contactError.textContent = 'Please enter your phone number';
-    contactError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    contactError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+    // return false
+    val++
     }
 else if (!(contact.value.match(alphanumeric))){
     contact.style.border = '4px solid red';
     contactError.textContent = 'Unique number must follow 07********(+2567******) format';
-    contactError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+    contactError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
     return false
     }
     else{
@@ -142,9 +149,10 @@ else if (!(contact.value.match(alphanumeric))){
 //Activities*****************************************************************************
 if (activity.value ==''){
     activity.style.border = '4px solid red';
-    activityError.textContent = 'Please select your role';
-    activityError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    activityError.textContent = 'Please select your activity';
+    activityError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+    // return false
+    val++
     }
     else{
         activity.style.border = '5px solid green';
@@ -159,14 +167,15 @@ if (uniqueNo.value ==''){
     uniqueNo.style.border = '4px solid red';
     // uniqueNo.style.background ='red'
     uniqueNoError.textContent = 'Please enter your Unique number';
-    uniqueNoError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    uniqueNoError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+    // return false
+    val++
     }
 else if (!(uniqueNo.value.match(foregex))){
     uniqueNo.style.border = '4px solid red';
     // uniqueNo.style.background ='red'
     uniqueNoError.textContent = 'Unique number must follow (FO-0001) format';
-    uniqueNoError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+    uniqueNoError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
     return false
     }
     else{
@@ -180,8 +189,9 @@ if (roles.value ==''){
     roles.style.border = '4px solid red';
     // roles.style.background ='red'
     roleError.textContent = 'Please select your role';
-    roleError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    roleError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+    // return false
+    val++
     }
     else{
         roles.style.border = '5px solid green';
@@ -194,8 +204,9 @@ if (roles.value ==''){
 if (residenceType.value ==''){
     residenceType.style.border = '4px solid red';
     restypeError.textContent = 'Please enter your Residence type';
-    restypeError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    restypeError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+    // return false
+    val++
     }
     else{
         residenceType.style.border = '5px solid green';
@@ -207,18 +218,19 @@ if (residenceType.value ==''){
     if (password.value ==''){
         password.style.border = '4px solid red';
         passwordError.textContent = 'Please enter your password';
-        passwordError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-        return false
+        passwordError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        // return false
+        val++
         }
     else if (password.value.length > 16){
         password.style.border = '4px solid red';
         passwordError.textContent = 'Password must not exceed 16 characters';
-        passwordError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        passwordError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
         return false
         }else if (password.value.length < 6){
             password.style.border = '4px solid red';
             passwordError.textContent = 'Password must have atleast 6 characters';
-            passwordError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+            passwordError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
             return false
             }
         else{
@@ -230,18 +242,19 @@ if (residenceType.value ==''){
     if (comfirmPassword.value ==''){
         comfirmPassword.style.border = '4px solid red';
         comfirmError.textContent = 'Please enter your password';
-        comfirmError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
-        return false
+        comfirmError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        // return false
+        val++
         }
     else if (comfirmPassword.value.length > 16){
         comfirmPassword.style.border = '4px solid red';
         comfirmError.textContent = 'Password must not exceed 16 characters ';
-        comfirmError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        comfirmError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
         return false
         }else if (comfirmPassword.value.length < 6){
             comfirmPassword.style.border = '4px solid red';
             comfirmError.textContent = 'Password must have atleast 6 characters';
-            comfirmError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+            comfirmError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
             return false
             }
         else{
@@ -254,14 +267,15 @@ if (residenceType.value ==''){
 //PeriodOStay*****************************************************************************
 if (pOfStay.value ==''){
     pOfStay.style.border = '4px solid red';
-    pOstayError.textContent = 'Please enter your Residence type';
-    pOstayError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    pOstayError.textContent = 'Please enter your period of stay';
+    pOstayError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+    // return false
+    val++
     }
 else if (!(pOfStay.value.match(alphanumeric))){
     pOfStay.style.border = '4px solid red';
-    pOstayError.textContent = 'Alphanumerics are allowed';
-    pOstayError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+    pOstayError.textContent = 'This must be Alphanumeric';
+    pOstayError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
     return false
     }
     else{
@@ -274,9 +288,10 @@ else if (!(pOfStay.value.match(alphanumeric))){
 //wardName*****************************************************************************
 if (wardname.value ==''){
     wardname.style.border = '4px solid red';
-    wardnameError.textContent = 'Please select your role';
-    wardnameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    wardnameError.textContent = 'Please select your Ward name';
+    wardnameError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+    // return false
+    val++
     }
     else{
         wardname.style.border = '5px solid green';
@@ -287,14 +302,15 @@ if (wardname.value ==''){
     //Direction*****************************************************************************
 if (directions.value ==''){
     directions.style.border = '4px solid red';
-    directionError.textContent = 'Please enter your Unique number';
-    directionError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+    directionError.textContent = 'Please enter your direction';
+    directionError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+    val++
     return false
     }
 else if (!(directions.value.match(alphanumeric))){
     directions.style.border = '4px solid red';
-    directionError.textContent = 'Unique number must follow (FO-0001) format';
-    directionError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+    directionError.textContent = 'Your direction must follow the alphanumeric format';
+    directionError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
     return false
     }
     else{

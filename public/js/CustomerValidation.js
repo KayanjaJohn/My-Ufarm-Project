@@ -1,4 +1,5 @@
 const Validation0 = () =>{
+let val = 0;
     var firstName = document.registration.userName;
     var lastName = document.registration.lastName;
     var contact = document.registration.phoneNumber;
@@ -27,7 +28,8 @@ if (firstName.value ==''){
     firstName.style.border = '4px solid red';
     fNameError.textContent = 'Please enter your last name';
     fNameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    // return false
+    val++
     }
 else if (!(firstName.value.match(alphabet))){
     firstName.style.border = '4px solid red';
@@ -46,7 +48,8 @@ if (lastName.value ==''){
     lastName.style.border = '4px solid red';
     lNameError.textContent = 'Please enter your last name';
     lNameError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    val++
+    // return false
     }
 else if (!(lastName.value.match(alphabet))){
     lastName.style.border = '4px solid red';
@@ -64,7 +67,8 @@ if (mailto.value ==''){
     mailto.style.border = '4px solid red';
     emailError.textContent = 'Please enter your last name';
     emailError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    // return false
+    val++
     }
 else if (!(mailto.value.match(emailAddress))){
     mailto.style.border = '4px solid red';
@@ -85,7 +89,8 @@ if (roles.value ==''){
     // roles.style.background ='red'
     roleError.textContent = 'Please select your role';
     roleError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    // return false
+    val++
     }
     else{
         roles.style.border = '5px solid green';
@@ -104,7 +109,8 @@ else if (!(contact.value.match(alphanumeric))){
     contact.style.border = '4px solid red';
     contactError.textContent = 'Unique number must follow (FO-0001) format';
     contactError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
-    return false
+    // return false
+    val++
     }
     else{
         contact.style.border = '5px solid green';

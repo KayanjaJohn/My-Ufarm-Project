@@ -10,7 +10,7 @@ head
 header
   // place navbar here
 main
-  .container(style='transform:translateY(15px);')
+  .container(style='transform:translateY(-5px);')
     h2 Urban Farmer Produce Upload
     hr
     .row.justify-content-center.align-items-center.my-5.cage
@@ -61,14 +61,10 @@ main
                           option(value='')
                           option(value=urbanfarmer.wardName) #{urbanfarmer.wardName}
               small#wardNameerr
-            .col-lg-12.form-radio
-              label Product type:
-              .radio
-                | Organic
-                input(type='radio' name='prodType' value='Organic' checked='')
-                |             Non-Organic
-                input(type='radio' name='prodType' value='Non-organic')
-            .col-lg-2.form-zones
+              input.form-inputs(name="customers_Email" type='hidden')
+              input.form-inputs(name="customers_contact" type='hidden')
+              input.form-inputs(name="customers_address" type='hidden')
+            .col-lg-3.form-zones
               label Stock:
               input.form-inputs(name='prodStock' type='text' placeholder='kg/ltrs/gm:')
               small#stockerr
@@ -76,6 +72,13 @@ main
               label Quantity:
               input.form-inputs(name='prodQuantity' type='number' style='padding:0;')
               small#quantityerr
+            .col-lg-5.form-radio
+              label Product type:
+              .radio
+                | Organic
+                input(type='radio' name='prodType' value='Organic' checked='')
+                |             Non-Organic
+                input(type='radio' name='prodType' value='Non-organic')
             .col-lg-3.form-zones
               label Mode of payment:
               select#select.form-select(name='paymentMode')
@@ -83,7 +86,7 @@ main
                 option(value='Mobile money') Mobile money
                 option(value='Pay with cash') Pay with cash
               small#moperr
-            .col-sm-12.col-lg-2.form-zones
+            .col-sm-12.col-lg-3.form-zones
               label Price:
               input.form-inputs(type='number' name='price' placeholder='Ugx:')
               small#priceerr

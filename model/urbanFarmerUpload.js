@@ -43,7 +43,6 @@ prodType:{
 },
 prodStock:{
     type:String,
-    require: true,
     trim:true
 },
 prodQuantity:{
@@ -69,6 +68,18 @@ direction:{
 price:{
     type:Number,
     require: true,
+    trim:true
+},
+customers_Email:{
+    type:String,
+    trim:true
+},
+customers_contact:{
+    type:String,
+    trim:true
+},
+customers_address:{
+    type:String,
     trim:true
 },
 status:{

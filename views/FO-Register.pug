@@ -11,7 +11,7 @@ head
 header
   // place navbar here
 main
-  .container(style='width: 85%; transform:translateY(25px);')
+  .container(style='width: 85%; transform:translateY(-5px);')
     h2 Please Sign Up
     hr.hr
     .row.justify-content-center.align-items-center.my-5.cage
@@ -36,7 +36,7 @@ main
               small#ninNumbererr
             .col-lg-3.form-zones
               label Date of Birth:
-              input.form-inputs(name='birthDay' type='date')
+              input.form-inputs(name='birthDay' type='date' max="2012-01-01")
               small#birthDayerr
             .col-lg-3.form-zones
               label Contact:

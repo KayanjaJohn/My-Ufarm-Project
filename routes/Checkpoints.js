@@ -14,6 +14,22 @@ router.get("/notFound", (req, res) => {
 	res.render("Not found");
 });
 
+
+//Testing page 
+router.get("/test", (req, res) => {
+	res.render("Testing");
+});
+
+//Testing page 
+router.get("/copy2", (req, res) => {
+	res.render("copy2");
+});
+
+//Image Not found page
+router.get("/noImage", (req, res) => {
+	res.render("Image Not found");
+});
+
 //No access to AO dashboard
 router.get("/aoOnly", (req, res) => {
 	res.render("NoAccessAoD");
@@ -22,6 +38,11 @@ router.get("/aoOnly", (req, res) => {
 //No access to FO dashboard
 router.get("/foOnly", (req, res) => {
 	res.render("NoAccessFoD");
+});
+
+//No access to UF dashboard
+router.get("/ufOnly", (req, res) => {
+	res.render("NoAccessUfD");
 });
 
 //About page
@@ -41,29 +62,24 @@ router.get('/land', (req, res) => {
 
 //PRODUCTS ROUTES
 // ********Customer Products**********************************************************************************
-router.get("/products", connectEnsureLogin.ensureLoggedIn('/gplogin'), async (req, res) => {
-    req.session.user = req.body;
-	if (req.user.role == "General Public") {
-		res.render("product");
-	} else {
-		res.send("This page is only accessed by the General Public");
-	}
-});
+// router.get("/products",  async (req, res) => {
+// 	res.render("product");
+// });
 
 
 //************Projects*************/
 
-router.get("/dairy", (req, res) => {
-	res.render("Dairy");
-});
+// router.get("/dairy", (req, res) => {
+// 	res.render("Dairy");
+// });
 
-router.get("/horticulture", (req, res) => {
-	res.render("Horticulture");
-});
+// router.get("/horticulture", (req, res) => {
+// 	res.render("Horticulture");
+// });
 
-router.get("/poultry", (req, res) => {
-	res.render("Poultry");
-});
+// router.get("/poultry", (req, res) => {
+// 	res.render("Poultry");
+// });
 
 //career page
 router.get('/carAccess', (req,res) =>{
@@ -91,7 +107,7 @@ router.get("/fOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 	if (req.user.role == "Farmer One") {
 		res.render("foDashboard");
 	} else {
-		res.send("This page is only accessed by farmer one");
+		res.redirect("/foOnly");
 	}
 });
 
@@ -102,7 +118,7 @@ router.get("/uFdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 	if (req.user.role == "Urban Farmer") {
 		res.render("uFDashboard");
 	} else {
-		res.send("This page is only accessed by the Urban farmer");
+		res.redirect("/ufOnly");
 	}
 });
 

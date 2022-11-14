@@ -29,174 +29,35 @@ header
               .dropdown-menu.bg-dark(aria-labelledby='dropdownId')
                 a.dropdown-item(href='/horticulture' style='color:teal ;') Horticulture
                 a.dropdown-item(href='/poultry' style='color:teal ;') Poultry
-                a.dropdown-item(href='/diary' style='color:teal ;') Dairy
+                a.dropdown-item(href='/dairy' style='color:teal ;') Dairy
             li
               a(href='/about') About us
             li
               form(action='/logout' method='POST')
                 button.btn.logout(type='submit') Log out
 // MAIN
-main(style='background:linear-gradient(to bottom,rgba(22, 102, 35),rgba(61, 237, 72),rgba(22, 102, 35)); border-radius: 5px; padding: 10 20px; transform:translateY(40px);')
-  .container.my-5
+main(style='background:linear-gradient(to bottom,rgba(42, 192, 35),rgba(61, 237, 72),rgba(42, 192, 35)); border-radius: 5px; padding: 10 20px; transform:translateY(40px);')
+  .container.my-5(style="transform:translateX(62px);")
     .row.justify-content-center.align-items-center.g-2.my-5
-      .col.my-5
-        .row
-          .col-md-4
-            .card(style='width: 18rem;')
-              img.Images(src='Img/product-images/Sweet-potatoes-ca0d8f4.jpeg')
-              .card-body
-                h5.card-title Sweet potato
-                a.btn-2.mr-2(href='#')
-                  i.fas.fa-link
-                  span
-                  | Order
-                a.btn-2(href='#')
-                  i.fab.fa-github
-                  span
-                  | Book
-          .col-md-4
-            .card(style='width: 18rem;')
-              img.card-img-top(src='Img/product-images/images(1).jpeg' alt='...')
-              .card-body
-                h5.card-title Cassava
-                a.btn-2.mr-2(href='#')
-                  i.fas.fa-link
-                  span
-                  | Order
-                a.btn-2(href='#')
-                  i.fab.fa-github
-                  span
-                  | Book
-          .col-md-4
-            .card(style='width: 18rem;')
-              img.card-img-top(src='Img/product-images/2021-alliance-uganda-project-image-scaled.jpg' alt='...')
-              .card-body
-                h5.card-title Banana
-                a.btn-2.mr-2(href='#')
-                  i.fas.fa-link
-                  span
-                  | Order
-                a.btn-2(href='#')
-                  i.fab.fa-github
-                  span
-                  | Book
-          .col-md-4
-            .card(style='width: 18rem;')
-              img.card-img-top(src='Img/product-images/images(4).jpeg' alt='...')
-              .card-body
-                h5.card-title Chicken
-                a.btn-2.mr-2(href='#')
-                  i.fas.fa-link
-                  span
-                  | Order
-                a.btn-2(href='#')
-                  i.fab.fa-github
-                  span
-                  | Book
-          .col-md-4
-            .card(style='width: 18rem;')
-              img.card-img-top(src='Img/product-images/images(9).jpeg' alt='...')
-              .card-body
-                h5.card-title Milk
-                a.btn-2.mr-2(href='#')
-                  i.fas.fa-link
-                  span
-                  | Order
-                a.btn-2(href='#')
-                  i.fab.fa-github
-                  span
-                  | Bookings
-          .col-md-4
-            .card(style='width: 18rem;')
-              img.card-img-top(src='Img/product-images/images(15).jpeg' alt='...')
-              .card-body
-                h5.card-title Cocoa
-                a.btn-2.mr-2(href='#')
-                  i.fas.fa-link
-                  span
-                  | Order
-                a.btn-2(href='#')
-                  i.fab.fa-github
-                  span
-                  | Book
-          .col-md-4
-            .card(style='width: 18rem;')
-              img.card-img-top(src='Img/product-images/images(14).jpeg' alt='...')
-              .card-body
-                h5.card-title Lettuce
-                a.btn-2.mr-2(href='#')
-                  i.fas.fa-link
-                  span
-                  | Order
-                a.btn-2(href='#')
-                  i.fab.fa-github
-                  span
-                  | Book
-          .col-md-4
-            .card(style='width: 18rem;')
-              img.card-img-top(src='Img/product-images/l-intro-1658690595.jpg' alt='...')
-              .card-body
-                h5.card-title Irish Potatoes
-                a.btn-2.mr-2(href='#')
-                  i.fas.fa-link
-                  span
-                  | Order
-                a.btn-2(href='#')
-                  i.fab.fa-github
-                  span
-                  | Book
-          .col-md-4
-            .card(style='width: 18rem;')
-              img.card-img-top(src='Img/product-images/images(3).jpeg' alt='...')
-              .card-body
-                h5.card-title Beans &amp; Peas
-                a.btn-2.mr-2(href='#')
-                  i.fas.fa-link
-                  span
-                  | Order
-                a.btn-2(href='#')
-                  i.fab.fa-github
-                  span
-                  | Book
-          .col-md-4
-            .card(style='width: 18rem;')
-              img.card-img-top(src='Img/product-images/two-red-onions-isolated_269543-681.jpg' alt='...')
-              .card-body
-                h5.card-title Onions
-                a.btn-2.mr-2(href='#')
-                  i.fas.fa-link
-                  span
-                  | Order
-                a.btn-2(href='#')
-                  i.fab.fa-github
-                  span
-                  | Book
-          .col-md-4
-            .card(style='width: 18rem;')
-              img.card-img-top(src='Img/product-images/images(2).jpeg' alt='...')
-              .card-body
-                h5.card-title Green pepper
-                a.btn-2.mr-2(href='#')
-                  i.fas.fa-link
-                  span
-                  | Order
-                a.btn-2(href='#')
-                  i.fab.fa-github
-                  span
-                  | Book
-          .col-md-4
-            .card(style='width: 18rem;')
-              img.card-img-top(src='Img/product-images/Tomatoes.jpg' alt='...')
-              .card-body
-                h5.card-title Tomatoes
-                a.btn-2(href='#')
-                  i.fas.fa-link
-                  span
-                  | Order
-                a.btn-2(href='#')
-                  i.fab.fa-github
-                  span
-                  | Book
+      .col.my-5(style='display:flex; flex-wrap:wrap;')
+            .row
+              if availableGoods.length
+                each availableGood in availableGoods
+                    if availableGood.availability == 'Available' && availableGood.status == 'Approved'
+                      .col-md-4
+                          .card(style='width: 18rem;')
+                              img(src="/"+availableGood.prodImage, alt="Image")
+                              .card-body(style='margin-bottom:56px;')
+                                h5.card-title #{availableGood.prodName+' '+availableGood.price } 
+                                p(style='margin-top:-16px;') Available
+                                a.btn-2.mr-2(href='/produce/order/'+availableGood._id)
+                                  i.fas.fa-link
+                                  span
+                                  | Order
+                                a.btn-2(href='#')
+                                  i.fab.fa-github
+                                  span
+                                  | Book
   fieldset.note
     legend
       strong NOTE
@@ -227,9 +88,10 @@ footer(style='margin-top:40px;')
     .list
       h6 Contact Us
       ul
-        li Tel: 0789585624
-        li Tel: 0708930915
-        li Email: kayanjajohn27@gmail.com
+        li Tel: +256789585624
+        li Tel: +256708930915
+        li Email: ufarm001@gmail.com
+        li Email: masajjaurbanf@gmail.com
     .list
       h6 Location
       ul

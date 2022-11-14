@@ -35,7 +35,7 @@ router.post("/prodUpload", connectEnsureLogin.ensureLoggedIn(), upload.single("p
 		await product.save();
 		res.redirect("/prodList");
 	} catch (error) {
-		res.status(400).send("Sorry image not saved");
+		res.status(400).redirect("/noImage");
 		console.log(error);
 	}
 });
@@ -116,15 +116,47 @@ router.post("/produce/approve", async (req, res) => {
 });
 
 
-// Return availability list
-router.get("/availabilityList", async (req, res) => {
+// Return Dairy list
+router.get("/dairy", async (req, res) => {
 	try {
-		let availableProducts = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
-		res.render("availabilityList", { availableGoods:availableProducts });
+		let dairyProducts = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
+		res.render("Dairy", { dairyGoods:dairyProducts });
 	} catch (error) {
-		res.status(400).send("Unable to approve produce");
+		res.status(400).send("Unable to find produce");
 	}
 });
+
+// Return Poultry list
+router.get("/poultry", async (req, res) => {
+	try {
+		let poultryProducts = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
+		res.render("Poultry", { poultryGoods:poultryProducts });
+	} catch (error) {
+		res.status(400).send("Unable to find produce");
+	}
+});
+
+// Return Horticulture list
+router.get("/horticulture", async (req, res) => {
+	try {
+		let horticultureProducts = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
+		res.render("Horticulture", { horticultureGoods:horticultureProducts });
+	} catch (error) {
+		res.status(400).send("Unable to find produce");
+	}
+});
+
+// Return availability list
+router.get("/products", async (req, res) => {
+	try {
+		let availableProducts = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
+		res.render("product", { availableGoods:availableProducts });
+	} catch (error) {
+		res.status(400).send("Unable to find produce");
+	}
+});
+
+
 //Available get and post Routes
 router.get("/produce/available/:id", async (req, res) => {
 	try {
@@ -139,9 +171,61 @@ router.get("/produce/available/:id", async (req, res) => {
 router.post("/produce/available", async (req, res) => {
 	try {
 		await UrbanFarmerProdUpload.findOneAndUpdate({ _id: req.query.id }, req.body);
-		res.redirect("/availabilityList");
+		res.redirect("approvedList");
 	} catch (error) {
 		res.status(400).send("Unable to find produce");
+	}
+});
+
+
+//Ordering routes -----------/
+// router.get('/produce/order/:id', async (req, res) =>{
+// 	try {
+// 		const saleProduct = await UrbanFarmerProdUpload.findOne({_id:req.params.id});
+// 		res.render('order',{item:saleProduct});
+// 		console.log('Ordered list', saleProduct)
+// 	} catch (error) {
+// 		res.status(400).send('Unable to order produce.');
+// 	}
+// });
+
+// router.post('/produce/order', async (req,res) => {
+// 	try {
+// 	  await UrbanFarmerProdUpload.findOneAndUpdate({_id:req.query.id}, req.body);
+// 	  res.redirect('/orders');
+// 	} catch (error) {
+// 	  res.status(400).send('Sorry order not successful.');
+// 	}
+//   });
+
+
+//Order get and post Routes
+router.get("/produce/order/:id", async (req, res) => {
+	try {
+		const ordering = await UrbanFarmerProdUpload.findOne({ _id: req.params.id });
+		res.render("order", { order: ordering });
+		console.log('Order product',ordering)
+	} catch (error) {
+		res.status(400).send("Can't order product");
+	}
+});
+
+router.post("/produce/order", async (req, res) => {
+	try {
+		await UrbanFarmerProdUpload.findOneAndUpdate({ _id: req.query.id }, req.body);
+		res.redirect("/product");
+	} catch (error) {
+		res.status(400).send("Unable to find produce");
+	}
+});
+
+// Return Order list
+router.get("/orders", async (req, res) => {
+	try {
+		let ordered = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
+		res.render("orderList", { orderedGoods:ordered });
+	} catch (error) {
+		res.status(400).send("No product booked yet!");
 	}
 });
 

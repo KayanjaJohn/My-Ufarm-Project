@@ -18,22 +18,26 @@ main{
     height: 100vh;
     background: rgb(226, 234, 227);
 }
-.btn7{
-  font-weight:700;
-  font-size:20px;
-  color: rgb(75, 26, 122);
-}
-.btn7:focus{
-border: 0;
-  }
 
 footer{
     font-size: 22px;
     text-align: center;
     background: rgb(184, 178, 12);
-    margin-top: 25px;
+    transform: translateY(580%);
     padding: 20px; 
 }
+
+.btn7{
+    transform: translateY(480%);
+    font-weight:700;
+    font-size:20px;
+    color: rgb(75, 26, 122);
+    background: rgb(36, 178, 203);
+    margin-left: 25px;
+  }
+  .btn7:focus{
+  border: 0;
+    }
 
 /* *********************************************************************************************************************** */
 container{
@@ -43,7 +47,7 @@ container{
 }
 
 .cards img{
-    height: 20vh;
+    height: 25vh;
 }
 
 .cards{

@@ -84,6 +84,7 @@ block content
                 th Customer address
                 th Image 
                 th Availability
+                th Update
                 th Delete
         tbody
             if orderedGoods.length
@@ -99,12 +100,13 @@ block content
                             td 
                                 img(src="/"+orderedGood.prodImage, alt="Image" width='150px' height="150px")
                             td #{orderedGood.availability} 
-
+                            td                            
+                                a.btn.btn-primary.btn-block.availability(href='/produce/available/'+orderedGood._id) Update
                             td
                                 form(method="post" action='/produce/delete')
                                     input(type="hidden" placeholder="" name="id", value=orderedGood._id)
                                     button.btn.btn-danger.btn-block(type="submit") Delete
     div.form-row
         div.col.form-group
-            a.btn.btnz(class='button' href='/approvedList') << Back
+            a.btn.btnz(class='button' href='/orderList') << Back
 

@@ -171,7 +171,7 @@ router.get("/produce/available/:id", async (req, res) => {
 router.post("/produce/available", async (req, res) => {
 	try {
 		await UrbanFarmerProdUpload.findOneAndUpdate({ _id: req.query.id }, req.body);
-		res.redirect("approvedList");
+		res.redirect("/products");
 	} catch (error) {
 		res.status(400).send("Unable to find produce");
 	}
@@ -203,7 +203,7 @@ router.post("/produce/available", async (req, res) => {
 router.get("/produce/order/:id", async (req, res) => {
 	try {
 		const ordering = await UrbanFarmerProdUpload.findOne({ _id: req.params.id });
-		res.render("order", { order: ordering });
+		res.render("order", { orderProd: ordering });
 		console.log('Order product',ordering)
 	} catch (error) {
 		res.status(400).send("Can't order product");
@@ -213,7 +213,7 @@ router.get("/produce/order/:id", async (req, res) => {
 router.post("/produce/order", async (req, res) => {
 	try {
 		await UrbanFarmerProdUpload.findOneAndUpdate({ _id: req.query.id }, req.body);
-		res.redirect("/product");
+		res.redirect("/products");
 	} catch (error) {
 		res.status(400).send("Unable to find produce");
 	}

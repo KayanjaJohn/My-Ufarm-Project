@@ -9,7 +9,7 @@ head
 header
   h1 Farmer One
 main
-  .container
+  .container-fluid
     .row.justify-content-center.align-items-center.g-2
       .col-lg-5.cards.my-5
         .card
@@ -27,11 +27,19 @@ main
             p.card-text The list of Urban Farmers on the Ufarm team.
       .col-lg-5.cards
         .card
+          a(href='/orders')
+            img.card-img-top(src='Img/Customers.jpg' alt='Title')
+          .card-body
+            h3.card-title Orders/Bookings
+            p.card-text List of ordered/booked products
+      .col-lg-5.cards
+        .card
           a(href='/prodList')
             img.card-img-top(src='Img/product-images/images.jpeg' alt='Title')
           .card-body
             h3.card-title Urban Farmer Uploads
             p.card-text List of Uploaded products
+
       .col-lg-5.cards
         .card
           a(href='/foReport')
@@ -39,8 +47,8 @@ main
           .card-body
             h3.card-title Report
             p.card-text Report of the Project results
-  div.form-row.my-5
-    div.col.form-group
-        a.btn.btn7(class='button' href='/home') << Back
+div.form-row.my-5
+  div.col.form-group
+      a.btn.btn7(class='button' href='/home') << Back
 footer
   h3 Ufarm Project

@@ -51,14 +51,10 @@ main
                               .card-body(style='margin-bottom:56px;')
                                 h5.card-title #{dairyGood.prodName+' '+dairyGood.price } 
                                 p(style='margin-top:-16px;') Available
-                                a.btn-2.mr-2(href='#')
+                                a.btn-2.mr-2(href='/produce/order/'+dairyGood._id)
                                   i.fas.fa-link
                                   span
                                   | Order
-                                a.btn-2(href='#')
-                                  i.fab.fa-github
-                                  span
-                                  | Book
 footer(style='margin-top:-70px;')
   // place footer here
   // <div class="container-fluid  ctn">

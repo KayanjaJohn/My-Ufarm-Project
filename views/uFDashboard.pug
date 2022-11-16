@@ -8,16 +8,19 @@ head
   link(rel='stylesheet' href='css/dashboard.css')
 header
   h1 Urban Farmer
+  ul(style='list-style:none; float:right;')
+    li(style='transform:translateY(-45px); font-weight:700; color:white;')
+      span #{currentUser.userName+' '+currentUser.lastName}
 main
-  .container
+  .container(style='transform:translatex(55px);')
     .row.justify-content-center.align-items-center.g-2
-      .col-lg-5.cards.my-5
+      .col-lg-5.cards
         .card
           a(href='/prodList')
-            img.card-img-top(src='Img/images (25).jpeg' alt='Title')
+            img.card-img-top(src='Img/product-images/images.jpeg' alt='Title')
           .card-body
-            h3.card-title Farmer One Registration
-            p.card-text For the registration of all the Farmer Ones only.
+            h3.card-title  Uploads
+            p.card-text List of Uploaded products
       .col-lg-5.cards.my-5
         .card
           a(href='/prodUpload')

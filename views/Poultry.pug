@@ -46,11 +46,11 @@ main
                 each poultryGood in poultryGoods
                     if poultryGood.availability == 'Available' && poultryGood.status == 'Approved' && poultryGood.prodCategory == 'Poultry'
                       .col-md-4
-                          .card(style='width: 18rem;')
+                          .card(style='width: 22rem;')
                               img(src="/"+poultryGood.prodImage, alt="Image")
                               .card-body(style='margin-bottom:56px;')
-                                h5.card-title #{poultryGood.prodName+' '+poultryGood.price } 
-                                p(style='margin-top:-16px;') Available
+                                h5.card-title #{poultryGood.prodName} #{new Intl.NumberFormat().format(poultryGood.price)} UGX  
+                                p(style='margin-top:-16px; color:yellow; font-size:20px; font-weight:900;') Available
                                 a.btn-2.mr-2(href='/produce/order/'+poultryGood._id)
                                   i.fas.fa-link
                                   span

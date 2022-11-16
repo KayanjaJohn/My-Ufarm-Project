@@ -8,8 +8,11 @@ head
   link(rel='stylesheet' href='css/dashboard.css')
 header
   h1 Agricultural Officer
+  ul(style='list-style:none; float:right;')
+    li(style='transform:translateY(-45px); font-weight:900; color:white;')
+      span #{currentUser.userName+' '+currentUser.lastName}
 main
-  .container
+  .container(style='transform:translatex(55px);')
     .row.justify-content-center.align-items-center.g-2
       .col-lg-5.cards.my-5
         .card

@@ -70,7 +70,7 @@ block content
             font-weight:700;
             }
     header.card-header.list
-        h4.card-title List of Booked products
+        h4.card-title List of N/A products
         br
     br
     table.table.table-bordered 
@@ -78,33 +78,33 @@ block content
             tr
                 th Produce Name
                 th Price
+                th Stock
                 th Quantity
-                th Customer Email
-                th Customer contact
-                th Customer address
+                th Supplier
+                th Ward
                 th Image 
                 th Availability
                 th Update
                 th Delete
         tbody
-            if orderedGoods.length
-                each orderedGood in orderedGoods
-                    if orderedGood.availability == 'Booked'
+            if stocksAvailable.length
+                each stockAvailable in stocksAvailable
+                    if stockAvailable.availability == 'N/A'
                         tr
-                            td #{orderedGood.prodName}
-                            td #{orderedGood.price}
-                            td #{orderedGood.prodQuantity}
-                            td #{orderedGood.customers_Email}
-                            td #{orderedGood.customers_contact}
-                            td #{orderedGood.customers_address}
+                            td #{stockAvailable.prodName}
+                            td #{stockAvailable.price}
+                            td #{stockAvailable.prodQuantity}
+                            td #{stockAvailable.prodStock}
+                            td #{stockAvailable.supplierName}
+                            td #{stockAvailable.wardName}
                             td 
-                                img(src="/"+orderedGood.prodImage, alt="Image" width='150px' height="150px")
-                            td #{orderedGood.availability} 
+                                img(src="/"+stockAvailable.prodImage, alt="Image" width='150px' height="150px")
+                            td #{stockAvailable.availability} 
                             td                            
-                                a.btn.btn-primary.btn-block.availability(href='/produce/available/'+orderedGood._id) Update
+                                a.btn.btn-primary.btn-block.availability(href='/produce/stock/'+stockAvailable._id) Update
                             td
                                 form(method="post" action='/produce/delete')
-                                    input(type="hidden" placeholder="" name="id", value=orderedGood._id)
+                                    input(type="hidden" placeholder="" name="id", value=stockAvailable._id)
                                     button.btn.btn-danger.btn-block(type="submit") Delete
     div.form-row
         div.col.form-group

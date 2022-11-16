@@ -14,6 +14,13 @@ header{
     padding: 20px;
 }
 
+.span{
+    background:blue;
+    color: black;
+    width: 100%;
+    height:20vh;
+}
+
 main{
     height: 100vh;
     background: rgb(226, 234, 227);

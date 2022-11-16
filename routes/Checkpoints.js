@@ -91,10 +91,10 @@ router.get('/adminDash', (req, res) => {
     res.render('adminReg');
 });
 //AO Dasboard
-router.get('/aOdashboard', connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
-    req.session.user = req.body;
+router.get('/aOdashboard', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
+    req.session.user = req.user;
 	if (req.user.role == "Agricultural Officer") {
-    res.render('aODashboard');
+    res.render('aODashboard',{currentUser:req.session.user});
 } else {
     res.redirect('/aoOnly');
 }
@@ -102,10 +102,10 @@ router.get('/aOdashboard', connectEnsureLogin.ensureLoggedIn(), async (req, res)
 
 //FO Dasboard
 
-router.get("/fOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
-    req.session.user = req.body;
+router.get("/fOdashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
+    req.session.user = req.user;
 	if (req.user.role == "Farmer One") {
-		res.render("foDashboard");
+		res.render("foDashboard", {currentUser:req.session.user});
 	} else {
 		res.redirect("/foOnly");
 	}
@@ -113,10 +113,10 @@ router.get("/fOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 
 //Urban farmer Dasboard
 
-router.get("/uFdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
-    req.session.user = req.body;
+router.get("/uFdashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
+    req.session.user = req.user;
 	if (req.user.role == "Urban Farmer") {
-		res.render("uFDashboard");
+		res.render("uFDashboard", {currentUser:req.session.user});
 	} else {
 		res.redirect("/ufOnly");
 	}

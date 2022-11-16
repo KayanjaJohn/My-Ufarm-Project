@@ -37,7 +37,7 @@ header
                 button.btn.logout(type='submit') Log out
 // MAIN
 main(style='background:linear-gradient(to bottom,rgba(42, 192, 35),rgba(61, 237, 72),rgba(42, 192, 35)); border-radius: 5px; padding: 10 20px; transform:translateY(40px);')
-  .container.my-5(style="transform:translateX(62px);")
+  .container.my-5(style="transform:translateX(40px);")
     .row.justify-content-center.align-items-center.g-2.my-5
       .col.my-5(style='display:flex; flex-wrap:wrap;')
             .row
@@ -45,10 +45,10 @@ main(style='background:linear-gradient(to bottom,rgba(42, 192, 35),rgba(61, 237,
                 each availableGood in availableGoods
                     if availableGood.availability == 'Available' && availableGood.status == 'Approved'
                       .col-md-4
-                          .card(style='width: 18rem;')
+                          .card(style='width: 22rem;')
                               img(src="/"+availableGood.prodImage, alt="Image")
                               .card-body(style='margin-bottom:56px;')
-                                h5.card-title #{availableGood.prodName+' '+availableGood.price } 
+                                h5.card-title #{availableGood.prodName}  #{new Intl.NumberFormat().format(availableGood.price)} UGX 
                                 p(style='margin-top:-16px; color:yellow; font-size:20px; font-weight:900;') Available
                                 a.btn-2.mr-2(href='/produce/order/'+availableGood._id)
                                   i.fas.fa-link
@@ -56,10 +56,10 @@ main(style='background:linear-gradient(to bottom,rgba(42, 192, 35),rgba(61, 237,
                                   | Order
                     else if availableGood.availability == 'Booked' && availableGood.status == 'Approved'
                       .col-md-4
-                          .card(style='width: 18rem;')
+                          .card(style='width: 22rem;')
                               img(src="/"+availableGood.prodImage, alt="Image")
                               .card-body(style='margin-bottom:56px;')
-                                h5.card-title #{availableGood.prodName+' '+availableGood.price } #{new Intl.NumberFormat().format(totalD.totalCost)} UGX
+                                h5.card-title #{availableGood.prodName} #{new Intl.NumberFormat().format(availableGood.price)} UGX 
                                 p(style='margin-top:-16px; color:rgb(175, 255, 93); font-size:20px; font-weight:900;') Booked
                                 a.btn-2.mr-2(href='/produce/order/'+availableGood._id)
                                   i.fas.fa-link
@@ -67,15 +67,11 @@ main(style='background:linear-gradient(to bottom,rgba(42, 192, 35),rgba(61, 237,
                                   | Order
                     else if availableGood.availability == 'N/A' && availableGood.status == 'Approved'
                       .col-md-4
-                          .card(style='width: 18rem;')
+                          .card(style='width: 22rem;')
                               img(src="/"+availableGood.prodImage, alt="Image")
                               .card-body(style='margin-bottom:56px;')
-                                h5.card-title #{availableGood.prodName+' '+availableGood.price } 
+                                h5.card-title #{availableGood.prodName} #{new Intl.NumberFormat().format(availableGood.price)} UGX 
                                 p(style='margin-top:-16px; color:Red; font-size:20px; font-weight:900; ') N/A
-                                a.btn-2.mr-2(href='/produce/order/'+availableGood._id)
-                                  i.fas.fa-link
-                                  span
-                                  | Order
   fieldset.note
     legend
       strong NOTE

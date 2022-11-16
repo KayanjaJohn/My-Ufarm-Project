@@ -43,11 +43,11 @@ router.post('/aoReg', async (req, res) =>{
 });
 
 //Farmer One Registration
-router.get('/foReg', (req, res) => {
+router.get('/foReg', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
     res.render('FO-Register');
 });
 
-router.post('/foReg', async (req, res) =>{
+router.post('/foReg', connectEnsureLogin.ensureLoggedIn(), async (req, res) =>{
     console.log(req.body);
     try {
         const user = new Registration(req.body);
@@ -75,11 +75,11 @@ router.post('/foReg', async (req, res) =>{
 
 //Urban farmer Registration
 
-router.get("/ufReg", async (req, res) => {
+router.get("/ufReg", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
     res.render('UfarmerReg');
 });
 
-router.post('/ufReg', async (req, res) =>{
+router.post('/ufReg', connectEnsureLogin.ensureLoggedIn(), async (req, res) =>{
     console.log(req.body);
     try {
         const user = new Registration(req.body);

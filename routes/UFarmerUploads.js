@@ -84,7 +84,7 @@ router.post("/produce/delete", async (req, res) => {
 
 
 // Return approved list
-router.get("/approvedList", async (req, res) => {
+router.get("/approvedList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	try {
 		const prodOrder = {_id:-1}
 		let approvedProducts = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" }).sort(prodOrder);
@@ -171,32 +171,43 @@ router.get("/produce/available/:id", async (req, res) => {
 router.post("/produce/available", async (req, res) => {
 	try {
 		await UrbanFarmerProdUpload.findOneAndUpdate({ _id: req.query.id }, req.body);
-		res.redirect("/products");
+		res.redirect("/back");
 	} catch (error) {
 		res.status(400).send("Unable to find produce");
 	}
 });
 
 
-//Ordering routes -----------/
-// router.get('/produce/order/:id', async (req, res) =>{
-// 	try {
-// 		const saleProduct = await UrbanFarmerProdUpload.findOne({_id:req.params.id});
-// 		res.render('order',{item:saleProduct});
-// 		console.log('Ordered list', saleProduct)
-// 	} catch (error) {
-// 		res.status(400).send('Unable to order produce.');
-// 	}
-// });
+//Stock routes -----------/
+router.get('/produce/stock/:id', async (req, res) =>{
+	try {
+		const backInStock = await UrbanFarmerProdUpload.findOne({_id:req.params.id});
+		res.render('stock',{stock:backInStock});
+		console.log('We are back in stock', backInStock)
+	} catch (error) {
+		res.status(400).send('Unable tofindproduce.');
+	}
+});
 
-// router.post('/produce/order', async (req,res) => {
-// 	try {
-// 	  await UrbanFarmerProdUpload.findOneAndUpdate({_id:req.query.id}, req.body);
-// 	  res.redirect('/orders');
-// 	} catch (error) {
-// 	  res.status(400).send('Sorry order not successful.');
-// 	}
-//   });
+router.post('/produce/stock', async (req,res) => {
+	try {
+	  await UrbanFarmerProdUpload.findOneAndUpdate({_id:req.query.id}, req.body);
+	  res.redirect('/stocking');
+	} catch (error) {
+	  res.status(400).send('Sorry stock is available.');
+	}
+  });
+
+  //Return Stock list
+router.get("/stocking", async (req, res) => {
+	try {
+		let availableStocks = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
+		res.render("stockList", { stocksAvailable:availableStocks });
+	} catch (error) {
+		res.status(400).send("Unable to find produce");
+	}
+});
+
 
 
 //Order get and post Routes
@@ -220,7 +231,7 @@ router.post("/produce/order", async (req, res) => {
 });
 
 // Return Order list
-router.get("/orders", async (req, res) => {
+router.get("/orders", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	try {
 		let ordered = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
 		res.render("orderList", { orderedGoods:ordered });

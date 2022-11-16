@@ -71,34 +71,37 @@ block content
             }
         
     header.card-header.list
-        h4.card-title Appointed Farmer Ones List 
+        h4.card-title Urban farmer products List 
         br
     br
     table.table.table-bordered
         thead
             tr
-                th Name
-                th UniqueNO
-                th Phone Number
-                th Ward name
-                th NIN No
-                th Residence type
-                th Activities
+                th Image 
+                th Produce Name
+                th Quantity  (kg/gm/ltrs)
+                th Price (Ugx)
+                th Product type
+                th Category
+                th Mode of Delivery
+                th Mode of Payment
                 th Status
         tbody
-            if appointedFones.length
-                each appointedFone in appointedFones
-                    if appointedFone.status == 'Appointed'
+            if urbarnfarmerprods.length
+                each urbarnfarmerprod in urbarnfarmerprods
+                    if urbarnfarmerprod.wardName === currentUser.wardName && urbarnfarmerprod.uniqueNumber === currentUser.uniqueNumber
                         tr
-                            td #{appointedFone.userName+" "+appointedFone.lastName}
-                            td #{appointedFone.uniqueNumber}
-                            td #{appointedFone.phoneNumber}
-                            td #{appointedFone.wardName}
-                            td #{appointedFone.ninNumber}
-                            td #{appointedFone.restype}
-                            td #{appointedFone.activities}
-                            td #{appointedFone.status}
+                            td 
+                                img(src="/"+urbarnfarmerprod.prodImage, alt="Image" width='150px' height="150px")
+                            td #{urbarnfarmerprod.prodName}
+                            td #{urbarnfarmerprod.prodQuantity}
+                            td #{urbarnfarmerprod.price}
+                            td #{urbarnfarmerprod.prodType}
+                            td #{urbarnfarmerprod.prodCategory}
+                            td #{urbarnfarmerprod.deliveryMode}
+                            td #{urbarnfarmerprod.paymentMode}
+                            td #{urbarnfarmerprod.status}
     div.form-row
         div.col.form-group
-            a.btn.btnz(class='button' href='/aOdashboard') << Back
+            a.btn.btnz(class='button' href='/ufDashboard') << Back
 

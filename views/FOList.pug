@@ -73,7 +73,6 @@ block content
     nav
         #nav-tab.nav.nav-tabs.nev(role='tablist')
         a#nav-profile-tab.nav-item.nav-link(href='/foReg') Register FarmerOne
-        #nav-tabContent.tab-content
     br
     table.table.table-bordered
         thead
@@ -87,11 +86,10 @@ block content
                 th Activities
                 th Status
                 th Update
-                th Appoint
         tbody
             if farmerones.length
                 each farmerone in farmerones
-                  if farmerone.status == 'Registered'
+                  if farmerone.status =='Registered'
                     tr
                         td #{farmerone.userName+" "+farmerone.lastName}
                         td #{farmerone.uniqueNumber}
@@ -103,8 +101,6 @@ block content
                         td #{farmerone.status}
                         td
                             a.button.btn.btn-primary.btn-block.update(href='/farmerOne/update/'+farmerone._id) Update
-                        td
-                            a.btn.btn-secondary.btn-block.appoint(href='/farmerOne/appoint/'+farmerone._id) Appoint
     div.form-row
         div.col.form-group
             a.btn.btnz(class='button' href='/aOdashboard') << Back

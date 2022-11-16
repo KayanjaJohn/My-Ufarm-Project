@@ -14,13 +14,6 @@ header
 main
   .container(style='transform:translatex(55px);')
     .row.justify-content-center.align-items-center.g-2
-      .col-lg-5.cards
-        .card
-          a(href='/prodList')
-            img.card-img-top(src='Img/product-images/images.jpeg' alt='Title')
-          .card-body
-            h3.card-title  Uploads
-            p.card-text List of Uploaded products
       .col-lg-5.cards.my-5
         .card
           a(href='/prodUpload')
@@ -28,6 +21,14 @@ main
           .card-body
             h3.card-title Produce Upload
             p.card-text This is where Urban farmers upload their products.
+
+      .col-lg-5.cards
+        .card
+          a(href='/ufprodList')
+            img.card-img-top(src='Img/product-images/images.jpeg' alt='Title')
+          .card-body
+            h3.card-title  Uploads
+            p.card-text List of Uploaded products
       .col-lg-5.cards
         .card
           a(href='/foReport')

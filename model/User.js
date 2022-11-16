@@ -48,12 +48,6 @@ role:{
     type: String,
     trim: true
 },
-
-email:{
-    type: String,
-    unique: true,
-    trim: true
-},
 sex:{
     type:String
 },
@@ -63,8 +57,7 @@ direction:{
 },
 status:{
     type: String,
-       default: 'Registered',
-       enum: ['Registered', 'Appointed']
+       default: 'Registered'
   }
 
 });

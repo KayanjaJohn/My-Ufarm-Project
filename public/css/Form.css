@@ -4,8 +4,8 @@
     box-sizing:border-box;
 }
 body{
-  overflow-y:hidden;
-  background:linear-gradient(to bottom,rgba(2, 42, 1, 0.9),rgba(61, 237, 52, 0.37),rgba(2, 42, 1, 0.9));
+  /* overflow-y:hidden; */
+  background:linear-gradient(to bottom,rgba(22, 102, 35),rgba(61, 237, 72),rgba(22, 102, 35));
 }
 
 
@@ -19,7 +19,7 @@ body{
     justify-content: center;
     border: 2px ridge rgb(128, 128, 128,0.75);
     border-radius: 12px;
-    background:linear-gradient(90deg,rgba(63, 63, 249, 0.27),rgba(122, 216, 247, 0.37)); 
+    background:linear-gradient(90deg,rgb(63, 221, 249),rgb(62, 207, 255,0.7)); 
 }
 
 .cage{
@@ -75,7 +75,7 @@ input::placeholder{
 .btnz button{
     width: 16%;
     padding: 8px;
-    background: linear-gradient(to bottom,rgba(55, 12, 60, 0.7),rgba(216, 63, 255, 0.58),rgba(91, 47, 113, 0.6));
+    background: linear-gradient(to bottom,rgba(55, 12, 60, 0.7),rgba(208, 24, 254, 0.58),rgba(91, 47, 113, 0.6));
     border: 1px solid rgb(5, 135, 161,0.26);
     border-radius: 5px;
     font-weight: 900;
@@ -90,12 +90,12 @@ input::placeholder{
 }
 
 .btnz button:hover{
-  background: rgba(41, 252, 252, 0.3);
+  background: rgba(52, 252, 41, 0.3);
   transition: 0.6s;
 }
 
 span{
-  background: linear-gradient(to bottom,rgb(15, 93, 93),rgb(41, 232, 232),rgb(26, 77, 77));
+  background: linear-gradient(to bottom,rgb(28, 93, 15),rgb(41, 232, 47),rgb(38, 77, 26));
   width: 0;
     height: 100%;
     position:absolute;
@@ -163,9 +163,9 @@ width: 100%;
   }
 
   .boundary{
-    border: 1px ridge greenyellow;
+    border: 1px solid rgb(21, 30, 8);
     transform: translateY(15px);
   }
   .hr{
-    border: 1px ridge greenyellow;
+    border: 1px double rgb(9, 14, 2);
   }

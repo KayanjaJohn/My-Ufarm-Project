@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const prodUploadSchema = new mongoose.Schema({
-SupplierName:{
+supplierName:{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Registration',
     require: true

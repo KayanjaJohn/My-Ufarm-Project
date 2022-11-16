@@ -47,7 +47,7 @@ router.get('/foReg', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
     res.render('FO-Register');
 });
 
-router.post('/foReg', connectEnsureLogin.ensureLoggedIn(), async (req, res) =>{
+router.post('/foReg',  async (req, res) =>{
     console.log(req.body);
     try {
         const user = new Registration(req.body);
@@ -105,39 +105,13 @@ router.post('/ufReg', connectEnsureLogin.ensureLoggedIn(), async (req, res) =>{
 });
 
 
-// //General public
-// router.get("/GPReg", async (req, res) => {
-//     res.render('generalPublicReg');
-// });
-
-// router.post('/GPReg', async (req, res) =>{
-//     console.log(req.body);
-//     try {
-//         const gpEmail = new Registration(req.body);
-//         let emailExist = await Registration.findOne({email:req.body.email});
-//         if (emailExist) {
-//             return res.status(400).send("Sorry this email is already taken");
-// 		} else {
-// 			await Registration.register(gpEmail, req.body.password, (error) => {
-// 				if (error) {
-// 					throw error;
-// 				}
-// 				res.redirect("/gplogin");
-// 			});
-// 		} 
-        
-//     } catch (error) {
-//         res.status(400).send('Sorry, it seems there is trouble accessing this page');
-//         console.log(error);
-//     }
-// });
-
 //Farmer One List
 
 router.get("/FarmerOneList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user
     try {
         let fOnez = await Registration.find({ role: "Farmer One" });
-        res.render("FOList", {farmerones:fOnez});
+        res.render("FOList", {farmerones:fOnez, currentUser:req.session.user});
     } catch (error) {
         res.status(400).send("Unable to find Farmer Ones in the Database");
 		console.log(error);
@@ -148,10 +122,11 @@ router.get("/FarmerOneList", connectEnsureLogin.ensureLoggedIn(), async (req, re
 
 // Urban Farmer List
 router.get("/ufList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user
 	try {
 		let items = await Registration.find({ role: "Urban Farmer" });
 		console.log(items);
-		res.render("UFarmerList", { urbanfarmers: items });
+		res.render("UFarmerList", { urbanfarmers: items, currentUser:req.session.user });
 	} catch (error) {
 		res.status(400).send("unable to find urban farmer in the data base");
 		console.log(error);
@@ -196,37 +171,6 @@ router.post("/farmerone/update", async (req, res) => {
 	}
 });
 
-
-//Appoint  farmerone get and post Routes
-router.get("/farmerOne/appoint/:id", async (req, res) => {
-	try {
-	  const appointFarmerOne = await Registration.findOne({_id: req.params.id});
-	  res.render("AppointfOz", { appointfOz: appointFarmerOne });
-	  console.log('Farmer One appointed',appointFarmerOne)
-	} catch (error) {
-		res.status(400).send("Unable to appoint Farmer One");
-	}
-});
-
-router.post("/farmerOne/appoint", async (req, res) => {
-	try {
-	  await Registration.findOneAndUpdate({_id:req.query.id }, req.body);
-	  res.redirect("/appointedFarmerOneList");
-	} catch (error) {
-		res.status(400).send("Unable to appoint Farmer One");
-	}
-});
-
-// Return appointed Farmer One list
-router.get("/appointedFarmerOneList", async (req, res) => {
-	try {
-		const farmerOneOrder = {_id:-1}
-		let appointedFarmerOnes = await Registration.find({role: 'Farmer One'}).sort(farmerOneOrder);
-		res.render("AppointedfOzList", { appointedFones:appointedFarmerOnes});
-	} catch (error) {
-		res.status(400).send("Unable to appoint Farmer One");
-	}
-});
 
 // Export this file in the server file, for it to be read(executed)
 module.exports = router; 

@@ -33,7 +33,7 @@ router.post("/prodUpload", connectEnsureLogin.ensureLoggedIn(), upload.single("p
 		product.prodImage = req.file.path;
 		console.log("This is my produce", product);
 		await product.save();
-		res.redirect("/prodList");
+		res.redirect("/ufprodList");
 	} catch (error) {
 		res.status(400).redirect("/noImage");
 		console.log(error);
@@ -43,11 +43,12 @@ router.post("/prodUpload", connectEnsureLogin.ensureLoggedIn(), upload.single("p
   
 //Produce list 
 
-router.get("/prodList", async (req, res) => {
+router.get("/prodList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user
 	try {
-		const ufprodlist = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
-		console.log(ufprodlist);
-		res.render("produce-list", { products: ufprodlist });
+		const prodsOrder = {_id:-1}
+		let ufprodlist = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" }).sort(prodsOrder);
+		res.render("produce-list", { products: ufprodlist, currentUser:req.session.user });
 	} catch (error) {
 	res.status(400).res.send('Unable to get product');	
 	}
@@ -115,6 +116,17 @@ router.post("/produce/approve", async (req, res) => {
 	}
 });
 
+// Return Urban farmer product list
+router.get("/ufprodList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user
+	try {
+		const ufprodOrder = {_id:-1}
+		let urbanfarmerProd = await UrbanFarmerProdUpload.find({role: 'Urban Farmer'}).sort(ufprodOrder);
+		res.render("ufProds", { urbarnfarmerprods:urbanfarmerProd, currentUser:req.session.user});
+	} catch (error) {
+		res.status(400).send("No products uploaded");
+	}
+});
 
 // Return Dairy list
 router.get("/dairy", async (req, res) => {
@@ -171,7 +183,7 @@ router.get("/produce/available/:id", async (req, res) => {
 router.post("/produce/available", async (req, res) => {
 	try {
 		await UrbanFarmerProdUpload.findOneAndUpdate({ _id: req.query.id }, req.body);
-		res.redirect("/back");
+		res.redirect("back");
 	} catch (error) {
 		res.status(400).send("Unable to find produce");
 	}

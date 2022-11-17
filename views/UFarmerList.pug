@@ -87,7 +87,7 @@ block content
         tbody
             if urbanfarmers.length
                 each urbanfarmer in urbanfarmers
-                  if  urbanfarmer.wardName == currentUser.wardName
+                  if  urbanfarmer.wardName == currentUser.wardName && urbanfarmer.activities == currentUser.activities 
                     tr
                         td #{urbanfarmer.userName+" "+urbanfarmer.lastName}
                         td #{urbanfarmer.uniqueNumber}

@@ -103,7 +103,7 @@ block content
         tbody
             if products.length
                 each product in products
-                   if product.status == 'Pending' && product.wardName === currentUser.wardName && product.uniqueNumber === currentUser.uniqueNumber
+                   if product.status == 'Pending' && product.wardName === currentUser.wardName
                         tr
                             td 
                                 img(src="/"+product.prodImage, alt="Image" width='150px' height="150px")

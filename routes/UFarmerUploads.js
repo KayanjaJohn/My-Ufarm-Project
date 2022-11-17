@@ -47,8 +47,8 @@ router.get("/prodList", connectEnsureLogin.ensureLoggedIn(), async (req, res) =>
 	req.session.user = req.user
 	try {
 		const prodsOrder = {_id:-1}
-		let ufprodlist = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" }).sort(prodsOrder);
-		res.render("produce-list", { products: ufprodlist, currentUser:req.session.user });
+		let prodlist = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" }).sort(prodsOrder);
+		res.render("produce-list", { products: prodlist, currentUser:req.session.user });
 	} catch (error) {
 	res.status(400).res.send('Unable to get product');	
 	}

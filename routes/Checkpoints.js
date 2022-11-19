@@ -60,26 +60,6 @@ router.get('/land', (req, res) => {
     res.render('landing-page');
 });
 
-//PRODUCTS ROUTES
-// ********Customer Products**********************************************************************************
-// router.get("/products",  async (req, res) => {
-// 	res.render("product");
-// });
-
-
-//************Projects*************/
-
-// router.get("/dairy", (req, res) => {
-// 	res.render("Dairy");
-// });
-
-// router.get("/horticulture", (req, res) => {
-// 	res.render("Horticulture");
-// });
-
-// router.get("/poultry", (req, res) => {
-// 	res.render("Poultry");
-// });
 
 //career page
 router.get('/carAccess', (req,res) =>{

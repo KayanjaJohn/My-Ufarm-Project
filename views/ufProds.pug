@@ -89,13 +89,13 @@ block content
         tbody
             if urbarnfarmerprods.length
                 each urbarnfarmerprod in urbarnfarmerprods
-                    if urbarnfarmerprod.wardName === currentUser.wardName && urbarnfarmerprod.uniqueNumber === currentUser.uniqueNumber
+                    if urbarnfarmerprod.wardName === currentUser.wardName && urbarnfarmerprod.uniqueNumber === currentUser.uniqueNumber 
                         tr
                             td 
                                 img(src="/"+urbarnfarmerprod.prodImage, alt="Image" width='150px' height="150px")
                             td #{urbarnfarmerprod.prodName}
                             td #{urbarnfarmerprod.prodQuantity}
-                            td #{urbarnfarmerprod.price}
+                            td #{new Intl.NumberFormat().format(urbarnfarmerprod.price)}
                             td #{urbarnfarmerprod.prodType}
                             td #{urbarnfarmerprod.prodCategory}
                             td #{urbarnfarmerprod.deliveryMode}

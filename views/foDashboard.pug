@@ -7,12 +7,15 @@ head
   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT' crossorigin='anonymous')
   link(rel='stylesheet' href='css/dashboard.css')
 header
+  ul(style='list-style:none; float:left;')
+      li(style='transform:translateY(15px); font-weight:700; color:purple;')
+        span #{currentUser.wardName}
   h1 Farmer One
   ul(style='list-style:none; float:right;')
     li(style='transform:translateY(-45px); font-weight:700; color:white;')
       span #{currentUser.userName+' '+currentUser.lastName}
 main
-  .container-fluid(style='transform:translatex(95px);')
+  .container-fluid(style='transform:translatex(120px);')
       .row.justify-content-center.align-items-center.g-2
         .col-lg-5.cards.my-5
           .card

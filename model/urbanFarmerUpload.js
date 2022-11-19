@@ -23,22 +23,18 @@ prodCategory:{
 },
 prodName:{
     type:String,
-    require: true,
     trim:true
 },
 prodImage:{
     type:String,
-    require: true,
     trim:true
 },
 wardName:{
     type:String,
-    require: true,
     trim:true
 },
 prodType:{
     type:String,
-    require: true,
     trim:true
 },
 prodStock:{
@@ -47,27 +43,22 @@ prodStock:{
 },
 prodQuantity:{
     type:Number,
-    require: true,
     trim:true
 },
 paymentMode:{
     type:String,
-    require: true,
     trim:true
 },
 deliveryMode:{
     type:String,
-    require: true,
     trim:true
 },
 direction:{
     type:String,
-    require: true,
     trim:true
 },
 price:{
     type:Number,
-    require: true,
     trim:true
 },
 customers_Email:{

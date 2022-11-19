@@ -103,13 +103,13 @@ block content
         tbody
             if products.length
                 each product in products
-                   if product.status == 'Pending' && product.wardName === currentUser.wardName
+                   if product.status == 'Pending' && product.wardName === currentUser.wardName 
                         tr
                             td 
                                 img(src="/"+product.prodImage, alt="Image" width='150px' height="150px")
                             td #{product.prodName}
                             td #{product.prodQuantity}
-                            td #{product.price}
+                            td #{new Intl.NumberFormat().format(product.price)}
                             td #{product.prodType}
                             td #{product.prodCategory}
                             td #{product.deliveryMode}

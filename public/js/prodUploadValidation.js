@@ -104,7 +104,6 @@ const Validation3 = () =>{
     
     if (uniqueNo.value ==''){
         uniqueNo.style.border = '4px solid red';
-        // uniqueNo.style.background ='red'
         uniqueNoError.textContent = 'Please select your Unique number';
         uniqueNoError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         // return false
@@ -118,7 +117,6 @@ const Validation3 = () =>{
     //wardName*****************************************************************************
     if (wardname.value ==''){
         wardname.style.border = '4px solid red';
-        // roles.style.background ='red'
         wardnameError.textContent = 'Please select your ward name';
         wardnameError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         // return false

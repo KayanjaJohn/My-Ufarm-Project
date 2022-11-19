@@ -33,12 +33,9 @@ var pOstayError = document.getElementById('pOstayerr');
 var directionError = document.getElementById('directionerr');
 var wardnameError = document.getElementById('wardNameerr');
 
-
-const numbers = /^[0-9]+$/;
-// for email address /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/
-const alphabet = /^[A-Za-z]+$/;
-
-const alphanumeric = /^[0-9a-zA-Z]+$/;
+const alphabet = /^([A-Za-z]{25})+$/;
+const alphanumeriks = /^([0-9a-zA-Z]{13})+$/;
+const alphanumeric = /^([0-9a-zA-Z]{50})+$/;
 
 
 //FirstName*****************************************************************************
@@ -51,8 +48,8 @@ if (firstName.value ==''){
     }
 else if (!(firstName.value.match(alphabet))){
     firstName.style.border = '4px solid red';
-    fNameError.textContent = 'The name must be in alphabet';
-    fNameError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+    fNameError.textContent = 'The name must not exceed 25 digits and should be alphabet';
+    fNameError.style = 'color:red; font-size:10px; font-family:Arial, Helvetica, Sans-serif; margin-left:10px;';
     return false
     }
     else{
@@ -71,8 +68,8 @@ if (lastName.value ==''){
     }
 else if (!(lastName.value.match(alphabet))){
     lastName.style.border = '4px solid red';
-    lNameError.textContent = 'The name must be in alphabet';
-    lNameError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+    lNameError.textContent = 'The name must not exceed 25 digits and should be alphabet';
+    lNameError.style = 'color:red; font-size:10px; font-family:Arial, Helvetica, Sans-serif; margin-left:10px;';
     return false
     }
     else{
@@ -102,10 +99,10 @@ if (nin.value ==''){
     // return false
     val++
     }
-else if (!(nin.value.match(alphanumeric))){
+else if (!(nin.value.match(alphanumeriks))){
     nin.style.border = '4px solid red';
-    ninError.textContent = 'NIN number must follow CM*********** format';
-    ninError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+    ninError.textContent = 'NIN number must not exceed 13 digits and should be alphanumeric';
+    ninError.style = 'color:red; font-size:10px; font-family:Arial, Helvetica, Sans-serif; margin-left:10px;';
     return false
     }
     else{
@@ -165,7 +162,6 @@ const foregex = /^FO-([0-9]{4})+$/;
 
 if (uniqueNo.value ==''){
     uniqueNo.style.border = '4px solid red';
-    // uniqueNo.style.background ='red'
     uniqueNoError.textContent = 'Please enter your Unique number';
     uniqueNoError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
     // return false
@@ -173,7 +169,6 @@ if (uniqueNo.value ==''){
     }
 else if (!(uniqueNo.value.match(foregex))){
     uniqueNo.style.border = '4px solid red';
-    // uniqueNo.style.background ='red'
     uniqueNoError.textContent = 'Unique number must follow (FO-0001) format';
     uniqueNoError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
     return false
@@ -187,7 +182,6 @@ else if (!(uniqueNo.value.match(foregex))){
  //Role*************************************************************************************
 if (roles.value ==''){
     roles.style.border = '4px solid red';
-    // roles.style.background ='red'
     roleError.textContent = 'Please select your role';
     roleError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
     // return false

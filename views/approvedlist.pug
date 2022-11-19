@@ -88,7 +88,7 @@ block content
         tbody
             if approvedGoods.length
                 each approvedGood in approvedGoods
-                    if approvedGood.status == 'Approved'
+                    if approvedGood.status == 'Approved' && approvedGood.wardName === currentUser.wardName 
                         tr
                             td #{approvedGood.prodName}
                             td #{approvedGood.prodQuantity}

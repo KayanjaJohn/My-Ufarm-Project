@@ -42,7 +42,6 @@ router.post("/prodUpload", connectEnsureLogin.ensureLoggedIn(), upload.single("p
 
   
 //Produce list 
-
 router.get("/prodList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	req.session.user = req.user
 	try {
@@ -86,10 +85,11 @@ router.post("/produce/delete", async (req, res) => {
 
 // Return approved list
 router.get("/approvedList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user
 	try {
 		const prodOrder = {_id:-1}
 		let approvedProducts = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" }).sort(prodOrder);
-		res.render("approvedlist", { approvedGoods:approvedProducts});
+		res.render("approvedlist", { approvedGoods:approvedProducts, currentUser:req.session.user});
 	} catch (error) {
 		res.status(400).send("Unable to approve produce");
 	}

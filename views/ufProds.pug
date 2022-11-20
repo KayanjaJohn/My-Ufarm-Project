@@ -28,6 +28,7 @@ block content
         //-margin:auto;
         }
         .table{
+            text-align:center;
         width:85%; 
         margin:auto;
         border:2px ridge grey; 
@@ -79,7 +80,8 @@ block content
             tr
                 th Image 
                 th Produce Name
-                th Quantity  (kg/gm/ltrs)
+                th Quantity
+                th Stock/weight (kg/ltrs/gm..)
                 th Price (Ugx)
                 th Product type
                 th Category
@@ -95,6 +97,7 @@ block content
                                 img(src="/"+urbarnfarmerprod.prodImage, alt="Image" width='150px' height="150px")
                             td #{urbarnfarmerprod.prodName}
                             td #{urbarnfarmerprod.prodQuantity}
+                            td #{urbarnfarmerprod.prodStock}
                             td #{new Intl.NumberFormat().format(urbarnfarmerprod.price)}
                             td #{urbarnfarmerprod.prodType}
                             td #{urbarnfarmerprod.prodCategory}

@@ -31,6 +31,7 @@ const Validation3 = () =>{
     var directionError = document.getElementById('directionerr');
     var stockError = document.getElementById('stockerr');
 
+    const alphanumeric = /^([0-9a-zA-Z]{2,50})$/;
 
     //Supplier*****************************************************************************
     if (supplier.value ==''){
@@ -209,7 +210,7 @@ const Validation3 = () =>{
         }
     else if (!(directions.value.match(alphanumeric))){
         directions.style.border = '4px solid red';
-        directionError.textContent = 'Unique number must follow (FO-0001) format';
+        directionError.textContent = 'Your direction must follow the alphanumeric format';
         directionError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         return false
         }

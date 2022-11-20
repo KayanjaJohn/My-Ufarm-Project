@@ -30,6 +30,7 @@ block content
         margin:auto;
         }
         .table{
+            text-align:center;
         width:85%; 
         margin:auto;
         border:2px ridge grey; 
@@ -90,7 +91,8 @@ block content
             tr
                 th Image 
                 th Produce Name
-                th Quantity  (kg/gm/ltrs)
+                th Quantity
+                th Stock/weight (kg/ltrs/gm..)
                 th Price (Ugx)
                 th Product type
                 th Category
@@ -109,6 +111,7 @@ block content
                                 img(src="/"+product.prodImage, alt="Image" width='150px' height="150px")
                             td #{product.prodName}
                             td #{product.prodQuantity}
+                            td #{product.prodStock}
                             td #{new Intl.NumberFormat().format(product.price)}
                             td #{product.prodType}
                             td #{product.prodCategory}

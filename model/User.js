@@ -57,7 +57,8 @@ direction:{
 },
 status:{
     type: String,
-       default: 'Registered'
+       default: 'Registered',
+       enum: ['Registered', 'Retired']
   }
 
 });

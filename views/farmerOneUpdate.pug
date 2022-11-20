@@ -109,11 +109,11 @@ body
                     .form-field
                         label Ward:
                         input(type='text' name='wardName' autocomplete='off' value=farmerones.wardName)  
-                //- .col-lg-4
-                //-     .form-field
-                //-         label Status:
-                //-         select(name='status')
-                //-             option(value="Registered") Registered
-                //-             option(value="Appo") Appointed
+                .col-lg-4
+                    .form-field
+                        label Status:
+                        select(name='status')
+                            option(value="Registered" selected = farmerones.status === 'Registered') Registered
+                            option(value="Retired" selected = farmerones.status === 'Retired') Retired
                 .form-btn
                     button.btn.btnz(class='button' type='submit') Update

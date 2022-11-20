@@ -23,7 +23,6 @@ header{
 }
 
 main{
-    height: 100vh;
     background: rgb(226, 234, 227);
 }
 
@@ -31,12 +30,12 @@ footer{
     font-size: 22px;
     text-align: center;
     background: rgb(184, 178, 12);
-    transform: translateY(580%);
+    /* transform: translateY(580%); */
     padding: 20px; 
 }
 
 .btn7{
-    transform: translateY(480%);
+    transform: translateY(-80%);
     font-weight:700;
     font-size:20px;
     color: rgb(75, 26, 122);

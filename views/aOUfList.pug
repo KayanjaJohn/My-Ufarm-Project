@@ -70,10 +70,6 @@ block content
  header.card-header.list 
     h4.card-title List of Urban Farmer
     br
-    nav
-        a#nav-profile-tab.nav-item.nav-link(href='/ufReg') Register Urban Farmer
-        #nav-tabContent.tab-content
-    br
     table.table.table-bordered
         thead
             tr
@@ -85,18 +81,18 @@ block content
                 th Activities
                 th Update
         tbody
-            if urbanfarmers.length
-                each urbanfarmer in urbanfarmers
-                  if  urbanfarmer.wardName == currentUser.wardName
+            if AoUfs.length
+                each AoUf in AoUfs
+                  if AoUf.status =='Registered'
                     tr
-                        td #{urbanfarmer.userName+" "+urbanfarmer.lastName}
-                        td #{urbanfarmer.uniqueNumber}
-                        td #{urbanfarmer.phoneNumber}
-                        td #{urbanfarmer.wardName}
-                        td #{urbanfarmer.ninNumber}
-                        td #{urbanfarmer.activities}
+                        td #{AoUf.userName+" "+AoUf.lastName}
+                        td #{AoUf.uniqueNumber}
+                        td #{AoUf.phoneNumber}
+                        td #{AoUf.wardName}
+                        td #{AoUf.ninNumber}
+                        td #{AoUf.activities}
                         td
-                            a.button.btn.btn-primary.btn-block.update(href='/urbanfarmer/update/'+urbanfarmer._id) Update
+                            a.button.btn.btn-primary.btn-block.update(href='/urbanfarmer/update/'+AoUf._id) Update
     div.form-row
         div.col.form-group
-            a.btn.btnz(class='button' href='/fOdashboard') << Back
+            a.btn.btnz(class='button' href='/aOdashboard') << Back

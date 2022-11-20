@@ -32,10 +32,10 @@ const validation2 = () =>{
     var wardnameError = document.getElementById('wardNameerr');
     var directionError = document.getElementById('directionerr');
 
-const alphabet = /^([A-Za-z]{25})+$/;
+const alphabet = /^([A-Za-z]{2,25})$/;
 
 const alphanumeriks = /^([0-9a-zA-Z]{13})+$/;
-const alphanumeric = /^([0-9a-zA-Z]{50})+$/;
+const alphanumeric = /^([0-9a-zA-Z]{2,50})$/;
 
 
 //FirstName*****************************************************************************
@@ -222,7 +222,7 @@ if (directions.value ==''){
     }
     else if (!(directions.value.match(alphanumeric))){
     directions.style.border = '4px solid red';
-    directionError.textContent = 'Unique number must follow (FO-0001) format';
+    directionError.textContent = 'Your direction must follow the alphanumeric format';
     directionError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
     return false
     }

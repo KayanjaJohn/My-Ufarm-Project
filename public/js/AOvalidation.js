@@ -24,12 +24,10 @@ const Validation0 = () =>{
     var roleError = document.getElementById('roleerr');
     var passwordError = document.getElementById('passworderr');
     var comfirmError = document.getElementById('comfirmPassworderr');
-    var emailError = document.getElementById('emailerr');
-    var wardnameError = document.getElementById('wardNameerr');
-    
-const alphabet = /^([A-Za-z]{25})+$/;
+       
+const alphabet = /^([A-Za-z]{2,25})$/;
 const alphanumeriks = /^([0-9a-zA-Z]{13})+$/;
-const alphanumeric = /^([0-9a-zA-Z]{50})+$/;
+const alphanumeric = /^([0-9a-zA-Z]{5,50})$/;
 
 //FirstName*****************************************************************************
 if (firstName.value ==''){
@@ -181,19 +179,19 @@ else if (!(contact.value.match(alphanumeric))){
     if (password.value ==''){
         password.style.border = '4px solid red';
         passwordError.textContent = 'Please enter your password';
-        passwordError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        passwordError.style = 'color:red; font-size:10px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         // return false
         val++
         }
     else if (password.value.length > 16){
         password.style.border = '4px solid red';
         passwordError.textContent = 'Password must not exceed 16 characters';
-        passwordError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        passwordError.style = 'color:red; font-size:10px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         return false
         }else if (password.value.length < 6){
             password.style.border = '4px solid red';
             passwordError.textContent = 'Password must have atleast 6 characters';
-            passwordError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+            passwordError.style = 'color:red; font-size:10px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
             return false
             }
         else{
@@ -205,19 +203,19 @@ else if (!(contact.value.match(alphanumeric))){
     if (comfirmPassword.value ==''){
         comfirmPassword.style.border = '4px solid red';
         comfirmError.textContent = 'Please enter your password';
-        comfirmError.style = 'color:red; font-size:15px; font-family:Arial, Helvetica, Sans-serif; margin-left:15px;';
+        comfirmError.style = 'color:red; font-size:10px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         val++
         return false
         }
     else if (comfirmPassword.value.length > 16){
         comfirmPassword.style.border = '4px solid red';
         comfirmError.textContent = 'Password must not exceed 16 characters ';
-        comfirmError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+        comfirmError.style = 'color:red; font-size:10px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
         return false
         }else if (comfirmPassword.value.length < 6){
             comfirmPassword.style.border = '4px solid red';
             comfirmError.textContent = 'Password must have atleast 6 characters';
-            comfirmError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:25px;';
+            comfirmError.style = 'color:red; font-size:10px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
             return false
             }
         else{

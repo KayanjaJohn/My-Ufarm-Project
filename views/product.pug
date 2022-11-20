@@ -17,7 +17,7 @@ header
     nav#navbar.navbar.navbar-light.fixed-top
       .container-fluid
         img.logo(src='/Img/favicon.png')
-        p.title(style="transform:translateX(-262px);") Massajja Urban Farm
+        p.title(style="transform:translateX(-300px);") Massajja Urban Farm
         .logo-list( style="transform:translateX(-100px);")
           ul
             li
@@ -32,9 +32,6 @@ header
                 a.dropdown-item(href='/dairy' style='color:teal ;') Dairy
             li
               a(href='/about') About us
-            li
-              form(action='/logout' method='POST')
-                button.btn.logout(type='submit') Log out
 // MAIN
 main(style='background:linear-gradient(to bottom,rgba(42, 192, 35),rgba(61, 237, 72),rgba(42, 192, 35)); border-radius: 5px; padding: 10 20px; transform:translateY(40px);')
   .container.my-5(style="transform:translateX(40px);")
@@ -50,10 +47,7 @@ main(style='background:linear-gradient(to bottom,rgba(42, 192, 35),rgba(61, 237,
                               .card-body(style='margin-bottom:56px;')
                                 h5.card-title #{availableGood.prodName}  #{new Intl.NumberFormat().format(availableGood.price)} UGX 
                                 p(style='margin-top:-16px; color:yellow; font-size:20px; font-weight:900;') Available
-                                a.btn-2.mr-2(href='/produce/order/'+availableGood._id)
-                                  i.fas.fa-link
-                                  span
-                                  | Order
+
                     else if availableGood.availability == 'Booked' && availableGood.status == 'Approved'
                       .col-md-4
                           .card(style='width: 22rem;')
@@ -61,10 +55,7 @@ main(style='background:linear-gradient(to bottom,rgba(42, 192, 35),rgba(61, 237,
                               .card-body(style='margin-bottom:56px;')
                                 h5.card-title #{availableGood.prodName} #{new Intl.NumberFormat().format(availableGood.price)} UGX 
                                 p(style='margin-top:-16px; color:rgb(175, 255, 93); font-size:20px; font-weight:900;') Booked
-                                a.btn-2.mr-2(href='/produce/order/'+availableGood._id)
-                                  i.fas.fa-link
-                                  span
-                                  | Order
+
                     else if availableGood.availability == 'N/A' && availableGood.status == 'Approved'
                       .col-md-4
                           .card(style='width: 22rem;')
@@ -78,11 +69,11 @@ main(style='background:linear-gradient(to bottom,rgba(42, 192, 35),rgba(61, 237,
       br
       small This information is important to our customers.
     h4
-      | For more products, checkout our projects . 
+      | Dear friends,  you're welcome to our page. 
       br
-      |  This will help you to find the products of your choice easily. 
+      | For any orders or bookings, visit our projects in the navbar above. 
       br
-      |  Each project contains its specific products, so click the projects as indicated in the navbar above.
+      |  Each project contains its specific products, so click on the projects and select your favourite destination .
 footer(style='margin-top:40px;')
   // place footer here
   // <div class="container-fluid  ctn">

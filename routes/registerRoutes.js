@@ -119,6 +119,19 @@ router.get("/FarmerOneList", connectEnsureLogin.ensureLoggedIn(), async (req, re
 	
 });
 
+//Retired Farmer One List
+
+router.get("/retiredList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user
+    try {
+        let retiredfos = await Registration.find({ role: "Farmer One" });
+        res.render("retiredList", {retireds: retiredfos});
+    } catch (error) {
+        res.status(400).send("Unable to find Farmer Ones in the Database");
+		console.log(error);
+    }
+	
+});
 
 // Urban Farmer List
 router.get("/ufList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
@@ -133,6 +146,18 @@ router.get("/ufList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	}
 });
 
+//Agricultural Officer Urban Farmers List
+router.get("/aOufList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user
+	try {
+		let AoUfList = await Registration.find({ role: "Urban Farmer" });
+		console.log(AoUfList);
+		res.render("aOUfList", { AoUfs: AoUfList, currentUser:req.session.user });
+	} catch (error) {
+		res.status(400).send("unable to find urban farmer in the data base");
+		console.log(error);
+	}
+});
 
 // Updating urban farmers
 router.get("/urbanfarmer/update/:id", async (req, res) => {

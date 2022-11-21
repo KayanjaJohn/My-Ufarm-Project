@@ -46,7 +46,7 @@ header
   // place navbar here
 main
     form(action='/login' name='registration' method='POST')
-      .container(style='width: 50%; transform:translateY(100px);  background: rgba(35, 55, 84, 0.33);')
+      .container(style='width: 50%; transform:translateY(100px);  background: rgba(35, 55, 84, 0.43);')
         h2 Please Login
         hr
         .row.justify-content-center.align-items-center.my-5.cage
@@ -67,6 +67,6 @@ main
                       | login
         a.create(href="/adminDash") Create account
 footer
-      div.form-row
+      div.form-row(style='transform:translateY(-50px);')
         div.col.form-group
             a.btn.btn7(class='button' href='/home') << Back

@@ -31,7 +31,7 @@ const Validation3 = () =>{
     var directionError = document.getElementById('directionerr');
     var stockError = document.getElementById('stockerr');
 
-    const alphanumeric = /^([0-9a-zA-Z]{2,50})$/;
+    const alphanumeric = /^([0-9a-zA-Z]{5,50})$/;
 
     //Supplier*****************************************************************************
     if (supplier.value ==''){
@@ -64,8 +64,8 @@ const Validation3 = () =>{
         dateOfRegistration.style.border = '4px solid red';
         rDateError.textContent = 'Please enter your product registration date';
         rDateError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; ';
-        // return false
         val++
+        // return false
         }
         else{
             dateOfRegistration.style.border = '5px solid green';
@@ -78,8 +78,8 @@ const Validation3 = () =>{
         productImage.style.border = '4px solid red';
         imageError.textContent = 'Please enter your product image';
         imageError.style = 'color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif; margin-left:12px;';
-        // return false
         val++
+        // return false
         }
         else{
             productImage.style.border = '5px solid green';

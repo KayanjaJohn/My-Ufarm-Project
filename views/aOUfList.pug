@@ -79,11 +79,10 @@ block content
                 th Ward name
                 th NIN No
                 th Activities
-                th Update
         tbody
             if AoUfs.length
                 each AoUf in AoUfs
-                  if AoUf.status =='Registered'
+                  if AoUf.status =='Appointed'
                     tr
                         td #{AoUf.userName+" "+AoUf.lastName}
                         td #{AoUf.uniqueNumber}
@@ -91,8 +90,6 @@ block content
                         td #{AoUf.wardName}
                         td #{AoUf.ninNumber}
                         td #{AoUf.activities}
-                        td
-                            a.button.btn.btn-primary.btn-block.update(href='/urbanfarmer/update/'+AoUf._id) Update
     div.form-row
         div.col.form-group
             a.btn.btnz(class='button' href='/aOdashboard') << Back

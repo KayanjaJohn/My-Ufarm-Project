@@ -15,16 +15,6 @@ router.get("/notFound", (req, res) => {
 });
 
 
-//Testing page 
-router.get("/test", (req, res) => {
-	res.render("Testing");
-});
-
-//Testing page 
-router.get("/copy2", (req, res) => {
-	res.render("copy2");
-});
-
 //Image Not found page
 router.get("/noImage", (req, res) => {
 	res.render("Image Not found");

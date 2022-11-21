@@ -80,7 +80,7 @@ block content
                 th Price
                 th Stock
                 th Quantity
-                th Supplier
+                th Supplier Id
                 th Ward
                 th Image 
                 th Availability
@@ -89,13 +89,13 @@ block content
         tbody
             if stocksAvailable.length
                 each stockAvailable in stocksAvailable
-                    if stockAvailable.availability == 'N/A'
+                    if stockAvailable.availability == 'N/A' && stockAvailable.wardName === currentUser.wardName
                         tr
                             td #{stockAvailable.prodName}
                             td #{stockAvailable.price}
                             td #{stockAvailable.prodQuantity}
                             td #{stockAvailable.prodStock}
-                            td #{stockAvailable.supplierName}
+                            td #{stockAvailable.uniqueNumber}
                             td #{stockAvailable.wardName}
                             td 
                                 img(src="/"+stockAvailable.prodImage, alt="Image" width='150px' height="150px")

@@ -12,7 +12,7 @@ body
     style.
 
         body{
-          background-color: rgb(12, 85, 12,0.76);  
+          background:powderblue;   
         }
         .form-style{
         position:absolute;
@@ -74,26 +74,24 @@ body
            box-shadow:0 0 6px 5px rgb(0,0,0,0.87); 
         }
         h3{
+            color: rgb(8, 45, 45);
             font-size:54px;
             font-weight:900;
         }
         label{
+          color: rgb(8, 45, 45);
           font-weight:900;  
         } 
         hr{
             margin-bottom:45px;
             padding:12px;
-             background: linear-gradient(to bottom,rgba(80, 18, 123, 0.87),rgba(197, 108, 253),rgba(106, 40, 118, 0.86));
+             background: linear-gradient(to bottom,rgba(0, 0, 123),rgba(197, 108, 253),rgba(126, 240, 118));
         }
     .container-fluid.form-style
         form#signup.form(action='/farmerone/update/?id='+farmerones._id name='registration' method='POST')
             h3 Update Farmer ones
             hr
             .row
-                .col-lg-4
-                    .form-field
-                        label Unique number:
-                        input(type='text' name='uniqueNumber' autocomplete='off' value=farmerones.uniqueNumber)
                 .col-lg-4
                     .form-field
                         label Phone number:
@@ -104,16 +102,12 @@ body
                         select(name='activities')
                             option(value="Horticulture" selected = farmerones.activities === 'Horticulture') Horticulture
                             option(value="Poultry" selected = farmerones.activities === 'Poultry') Poultry 
-                             option(value="Dairy" selected = farmerones.activities === 'Dairy') Diary 
-                .col-lg-4.mx-5
-                    .form-field
-                        label Ward:
-                        input(type='text' name='wardName' autocomplete='off' value=farmerones.wardName)  
+                             option(value="Dairy" selected = farmerones.activities === 'Dairy') Dairy 
                 .col-lg-4
                     .form-field
                         label Status:
                         select(name='status')
-                            option(value="Registered" selected = farmerones.status === 'Registered') Registered
+                            option(value="Appointed" selected = farmerones.status === 'Appointed') Appointed
                             option(value="Retired" selected = farmerones.status === 'Retired') Retired
                 .form-btn
                     button.btn.btnz(class='button' type='submit') Update

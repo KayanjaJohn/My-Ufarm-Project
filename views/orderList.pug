@@ -89,7 +89,7 @@ block content
         tbody
             if orderedGoods.length
                 each orderedGood in orderedGoods
-                    if orderedGood.availability == 'Booked'
+                    if orderedGood.availability == 'Booked' && orderedGood.wardName === currentUser.wardName 
                         tr
                             td #{orderedGood.prodName}
                             td #{orderedGood.price}

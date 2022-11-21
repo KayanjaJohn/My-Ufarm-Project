@@ -45,7 +45,7 @@ router.post("/prodUpload", connectEnsureLogin.ensureLoggedIn(), upload.single("p
 router.get("/prodList", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	req.session.user = req.user
 	try {
-		const prodsOrder = {_id:-1}
+		const prodsOrder = {_id:1}
 		let prodlist = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" }).sort(prodsOrder);
 		res.render("produce-list", { products: prodlist, currentUser:req.session.user });
 	} catch (error) {
@@ -212,9 +212,10 @@ router.post('/produce/stock', async (req,res) => {
 
   //Return Stock list
 router.get("/stocking", async (req, res) => {
+	req.session.user = req.user
 	try {
 		let availableStocks = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
-		res.render("stockList", { stocksAvailable:availableStocks });
+		res.render("stockList", { stocksAvailable:availableStocks, currentUser:req.session.user });
 	} catch (error) {
 		res.status(400).send("Unable to find produce");
 	}
@@ -244,9 +245,10 @@ router.post("/produce/order", async (req, res) => {
 
 // Return Order list
 router.get("/orders", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user
 	try {
 		let ordered = await UrbanFarmerProdUpload.find({ role: "Urban Farmer" });
-		res.render("orderList", { orderedGoods:ordered });
+		res.render("orderList", { orderedGoods:ordered, currentUser:req.session.user});
 	} catch (error) {
 		res.status(400).send("No product booked yet!");
 	}

@@ -5,7 +5,7 @@ const UrbanFarmerProdUpload = require('../model/UrbanFarmerUpload');
 const Registration = require("../model/User");
 
 
-
+// Agricultural Officer Reports
 router.get("/report", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
     req.session.user = req.user;
     if(req.user.role == 'Agricultural Officer'){
@@ -101,44 +101,53 @@ router.get("/foReport", connectEnsureLogin.ensureLoggedIn(), async(req, res) => 
     }
 });
 
-//Ufarm farmers report
-// router.get("/report", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
-//     req.session.user = req.user;
-//     if(req.user.role == 'Agricultural Officer'){
-//         try {
-//             let allFarmerOnes = await Registration.aggregate({$match:{'role': 'Farmer One','_id': 
-//             'wardName' } },{"$project":{"count":1,"percentage":{"$multiply":
-//             [{"$divide":[100,allFarmerOnes]},"$count"]}}})
-
-//             let allUrbanFarmers = await Registration.aggregate([
-//                 { $match: { role: "Urban Farmer" } },
-//                 { $group: { _id: "$wardName", 
-//                 }}
-//             ])
+//Urban farmer Report
+router.get("/ufReport", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
+    req.session.user = req.user;
+    if(req.user.role == 'Urban Farmer'){
+        try {
             
-//             console.log("farmerone collections", allFarmerOnes)
-//             console.log("Urban farmer collections", allUrbanFarmers)
+            let totalPoultry = await UrbanFarmerProdUpload.aggregate([
+                { $match: { "$and":[{wardName:req.user.wardName}, {prodCategory: "Poultry"}]  } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$prodQuantity" },
+                totalCost: { $sum: { $multiply: [ "$price", "$prodQuantity" ] } },            
+                }}
+            ])
 
-//             res.render("aoReport", { 
-//             title: 'Reports', 
-//             // allfO:allFarmerOnes[1],
-//             // allUf:allUrbanFarmers[1],
-//             });
-//         } catch (error) {
-//             res.status(400).send("unable to find items in the database");
-//         }
+            let totalHort = await UrbanFarmerProdUpload.aggregate([
+                { $match: { "$and":[{wardName:req.user.wardName}, {prodCategory: "Horticulture"}]  } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$prodQuantity" },
+                totalCost: { $sum: { $multiply: [ "$price", "$prodQuantity" ] } },            
+                }}
+            ])
+			let totalDairy = await UrbanFarmerProdUpload.aggregate([
+                { $match: { "$and":[{wardName:req.user.wardName}, {prodCategory: "Dairy"}]  } },               
+                {$group: { _id: "$all", 
+                totalQuantity: { $sum: "$prodQuantity" },
+                totalCost: { $sum: { $multiply: [ "$price", "$prodQuantity" ] } },            
+                }}
+            ])
+            
+            console.log("Poultry collections", totalPoultry)
+            console.log("Hort collections", totalHort)
+            console.log("Dairy collections", totalDairy)
+
+            res.render("ufReport", { 
+            currentUser:req.session.user,
+            totalP:totalPoultry[0],
+            totalH:totalHort[0],
+            totalD:totalDairy[0],
+            });
+        } catch (error) {
+            res.status(400).send("unable to find items in the database");
+        }
         
-//     }else {
-//         res.redirect("/aoOnly")
-//     }
-// });
+    }else {
+        res.redirect("/ufOnly")
+    }
+});
 
-// ********************************************************
-// let totalPoultry = await Pdtupload.aggregate([
-//     { $match: { "$and":[{ward:req.user.ward}, {productcategory: "Poultry"}]  } },
-//     { $group: { _id: "$all", 
-//     totalQuantity: { $sum: "$quantity" },
-//       }}
-//     ])
 
 module.exports = router;

@@ -4,7 +4,6 @@ const path = require('path');
 const config = require('./config/db')
 const passport = require('passport');
 const mongoose = require('mongoose');
-// const multer = require("multer");
 
 
 // defining expressSession
@@ -17,7 +16,6 @@ const expressSession = require("express-session")({
 
 // importing user model
 const Registration =require("./model/User");
-// const GPRegistration =require("./model/Generalpublic");
 
 
 // ******* Importing routes *******
@@ -62,10 +60,7 @@ app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 app.use(expressSession);
 
 
-// app.use((req, res, next) => {
-//   console.log("A new request received at " + Date.now());
-//   next();  
-// });
+
 
  // Passport configuration middleware
 app.use(passport.initialize());
@@ -74,15 +69,7 @@ passport.use(Registration.createStrategy());
 passport.serializeUser(Registration.serializeUser());
 passport.deserializeUser(Registration.deserializeUser());
 
-//passport.use(GPRegistration.createStrategy());
-//passport.serializeUser(GPRegistration.serializeUser());
-//passport.deserializeUser(GPRegistration.deserializeUser());
 
-    // This function call tells that more processing is
-    // required for the current request and is in the next middleware
-    // function/route handler.
-  //   next();  
-  // });
 
 app.use( "/", registerRoutes);
 app.use("/", authen);
